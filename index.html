@@ -83,8 +83,6 @@
         .dane-list{list-style:none;padding:1rem 1.25rem}
         .dane-list li{padding:.5rem 0;font-size:.95rem;border-bottom:1px solid rgba(0,0,0,.06);display:flex;align-items:flex-start;gap:.5rem}
         .dane-list li:last-child{border:none}
-        .dane-col.da .dane-list li::before{content:'';color:#2d8653;font-weight:700;flex-shrink:0}
-        .dane-col.ne .dane-list li::before{content:'';color:#c0392b;font-weight:700;flex-shrink:0}
         .restaurant-list{display:flex;flex-direction:column;gap:1.5rem;margin:2rem 0}
         .restaurant-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1.5rem;display:flex;gap:1.5rem;align-items:flex-start}
         .rest-rank{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:var(--accent);min-width:50px;line-height:1}
@@ -95,7 +93,6 @@
         .rest-rating{font-size:.82rem}
         .rest-rating span{font-weight:700;color:var(--accent2)}
         .rest-comment{font-size:.88rem;color:var(--mid);font-style:italic}
-        .stars{color:#f0a500;letter-spacing:-1px;font-size:.85rem}
         .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0}
         .stat-box{background:var(--dark);color:#fff;border-radius:10px;padding:1.5rem;text-align:center}
         .stat-box .num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;color:var(--accent);line-height:1}
@@ -103,16 +100,47 @@
         .pullquote{border-left:4px solid var(--accent);padding:1.25rem 1.5rem;margin:2rem 0;background:var(--white);border-radius:0 8px 8px 0}
         .pullquote p{font-family:'Playfair Display',serif;font-size:1.3rem;font-style:italic;color:#333;margin:0 0 .5rem}
         .pullquote cite{font-size:.82rem;color:#888}
-        .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-        .about-text h2{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;margin-bottom:1.5rem}
-        .about-text p{font-size:1rem;color:var(--mid);margin-bottom:1.25rem}
-        .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
-        .team-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;text-align:center}
-        .team-card .avatar{width:56px;height:56px;background:var(--dark);border-radius:50%;margin:0 auto .75rem;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.3rem;font-family:'Playfair Display',serif;font-weight:700}
+        /* ===== O NAMA redesigned ===== */
+        .about-hero{background:var(--dark);color:#fff;padding:5rem 2rem;text-align:center;position:relative;overflow:hidden}
+        .about-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(200,16,46,.22) 0%,transparent 65%)}
+        .about-hero-inner{position:relative;max-width:720px;margin:0 auto}
+        .about-hero h2{font-family:'Playfair Display',serif;font-size:3.8rem;font-weight:900;letter-spacing:-2px;margin-bottom:.75rem}
+        .about-hero h2 span{color:var(--accent)}
+        .about-hero .subtitle{font-size:.9rem;color:#888;letter-spacing:3px;text-transform:uppercase;margin-bottom:2rem}
+        .about-tagline{font-family:'Playfair Display',serif;font-size:1.4rem;font-style:italic;color:#bbb;border-top:1px solid #222;padding-top:1.5rem;margin-top:1.5rem}
+        .about-section{max-width:1200px;margin:0 auto;padding:4rem 2rem}
+        .about-story{display:grid;grid-template-columns:1.1fr 0.9fr;gap:5rem;align-items:start;margin-bottom:4rem}
+        .about-story-text h3{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;margin-bottom:1.5rem}
+        .about-story-text p{font-size:1rem;color:var(--mid);margin-bottom:1.25rem;line-height:1.85}
+        .about-story-text .highlight{font-family:'Playfair Display',serif;font-size:1.15rem;font-style:italic;color:#333;border-left:3px solid var(--accent);padding-left:1.25rem;margin:1.75rem 0}
+        .about-facts{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem}
+        .about-fact{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;text-align:center}
+        .about-fact .fact-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;color:var(--accent);line-height:1}
+        .about-fact .fact-label{font-size:.78rem;color:#999;margin-top:.4rem;text-transform:uppercase;letter-spacing:1px}
+        .origin-box{background:var(--dark);color:#fff;border-radius:var(--radius);padding:2.5rem;margin-top:1rem}
+        .origin-box h4{font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:1rem;color:#fff}
+        .origin-box p{font-size:.95rem;color:#999;line-height:1.85}
+        .origin-box strong{color:#fff}
+        .origin-flow{display:flex;align-items:center;gap:.75rem;margin-top:1.25rem;flex-wrap:wrap}
+        .origin-chip{background:#1a1a1a;border:1px solid #333;color:#ccc;padding:.4rem .9rem;border-radius:4px;font-size:.85rem;font-weight:600}
+        .origin-chip.final{background:var(--accent);color:#fff;border-color:var(--accent)}
+        .origin-arrow{color:#555;font-size:1rem}
+        .about-divider{border:none;border-top:1px solid var(--border);margin:0}
+        .team-section{padding:3rem 0 0}
+        .team-section-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;margin-bottom:.4rem}
+        .team-section-sub{color:var(--mid);margin-bottom:2.5rem;font-size:.92rem}
+        .team-grid-new{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:1.25rem}
+        .team-card-new{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem 1.25rem;text-align:center;transition:var(--ease)}
+        .team-card-new:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.07)}
+        .team-card-new .av{width:56px;height:56px;border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.3rem;font-family:'Playfair Display',serif;font-weight:700;background:var(--dark)}
+        .team-card-new.chief .av{background:var(--accent)}
+        .team-card-new .t-name{font-weight:700;font-size:.92rem;margin-bottom:.25rem}
+        .team-card-new .t-role{font-size:.75rem;color:var(--accent);text-transform:uppercase;letter-spacing:1px;font-weight:600}
+        /* ===== MATURANTI ===== */
         .maturant-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:2rem;margin-top:2rem}
         .maturant-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-        .maturant-img-wrap{height:280px;overflow:hidden;position:relative;background:#1a1a1a}
-        .maturant-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:top}
+        .maturant-img-wrap{height:320px;overflow:hidden;position:relative;background:#1a1a1a}
+        .maturant-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center}
         .maturant-body{padding:1.75rem}
         .maturant-name{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;margin-bottom:.25rem}
         .maturant-smjer{font-size:.8rem;text-transform:uppercase;letter-spacing:1px;color:var(--accent);font-weight:600;margin-bottom:1rem}
@@ -131,8 +159,8 @@
             .hero h1{font-size:3.5rem}
             .featured-wrap{grid-template-columns:1fr}
             .featured-img-wrap img{min-height:260px}
-            .about-grid{grid-template-columns:1fr}
-            .team-grid{grid-template-columns:1fr 1fr}
+            .about-story{grid-template-columns:1fr}
+            .about-hero h2{font-size:2.5rem}
             .art-title{font-size:2rem}
             .dane-table{grid-template-columns:1fr}
             .stat-grid{grid-template-columns:1fr 1fr}
@@ -154,6 +182,7 @@
     </nav>
 </header>
 
+<!-- POCETNA -->
 <main id="page-pocetna" class="page active">
     <section class="hero">
         <div class="hero-content">
@@ -176,6 +205,7 @@
     </section>
 </main>
 
+<!-- CLANCI -->
 <main id="page-clanci" class="page">
     <section class="container">
         <div class="section-label">Arhiva</div>
@@ -192,6 +222,7 @@
     </section>
 </main>
 
+<!-- MATURANTI -->
 <main id="page-maturanti" class="page">
     <section class="container">
         <div class="section-label">Razgovor</div>
@@ -201,30 +232,114 @@
     </section>
 </main>
 
+<!-- O NAMA - redesigned -->
 <main id="page-onama" class="page">
-    <section class="container">
-        <div class="about-grid">
-            <div class="about-text">
-                <div class="section-label">Tko smo mi</div>
-                <h2>O Casopisu P@T</h2>
-                <p>P@T je nezavisni digitalni casopis koji vode iskljucivo ucenici nase skole. Nas cilj je dati glas svim ucenicima.</p>
-                <p>Svaki clanak pisu, fotografiraju i ureduju sami ucenici. Ovo je nas prostor, nasa prica.</p>
-                <p>Casopis je pokrenut 2026. godine kao projekt skolske informatike i novinarstva.</p>
+    <section class="about-hero">
+        <div class="about-hero-inner">
+            <div class="section-label" style="color:var(--accent);margin-bottom:1rem">Tko smo mi</div>
+            <h2>O Casopisu <span>P@T</span></h2>
+            <p class="subtitle">Digitalci &mdash; TSRM to je to</p>
+            <p class="about-tagline">&bdquo;Novine cijelog razreda 1B1&ldquo;</p>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="about-story">
+            <div class="about-story-text">
+                <h3>Nasa prica</h3>
+                <p>Sve je pocelo pocetkom ozujka 2026. kad je cijeli razred <strong>1B1</strong> krenuo raditi novine zajedno. Razlog? Jedna pjesma koju smo lose napisali &mdash; i odluka da to popravimo na pravi nacin.</p>
+                <p>Ime smo birali dugo: od <strong>&ldquo;Digitalaci&rdquo;</strong>, preko <strong>&ldquo;TSRM&rdquo;</strong>, sve dok nismo nabasali na <strong>P@T</strong> &mdash; list iz 2003. godine koji je bio aktivan dvije godine. U 2026. ga nastavljamo.</p>
+                <p>Ove novine su rad cijelog razreda. Svi smo sudjelovali u pisanju tekstova i davali svoje ideje. Tehnicki urednik je <strong>Matija</strong>, koji je pomagao oko uredivanja i izgleda novina. Nas gost bila je <strong>Veronika Besen</strong>.</p>
+                <p>Pisali smo o stvarima koje nas zanimaju &mdash; o skoli, tehnologiji, hobijima i temama koje su nam bile zanimljive. Bilo je nekad tesko smisliti tekstove, ali smo se trudili da budu zanimljivi za citanje.</p>
+                <div class="highlight">&bdquo;Na kraju smo culi za list P@T i saznali puno novih stvari o njemu. Nadamo se da ce vam se nase novine svidjeti i da cete uzivati citati ih.&ldquo;</div>
             </div>
             <div>
-                <div class="team-grid">
-                    <div class="team-card"><div class="avatar">P</div><strong>Patrik Zejinski</strong><br><small style="color:#888">Urednik</small></div>
-                    <div class="team-card"><div class="avatar">V</div><strong>Veronika Besen</strong><br><small style="color:#888">Erasmus</small></div>
-                    <div class="team-card"><div class="avatar">T</div><strong>Tia Genzic</strong><br><small style="color:#888">Pisac</small></div>
-                    <div class="team-card"><div class="avatar">L</div><strong>Luka Strok</strong><br><small style="color:#888">Istrazivac</small></div>
-                    <div class="team-card"><div class="avatar">D</div><strong>David Cuca</strong><br><small style="color:#888">Pisac</small></div>
-                    <div class="team-card"><div class="avatar">M</div><strong>Mislav Karoglan</strong><br><small style="color:#888">Gastro</small></div>
+                <div class="about-facts">
+                    <div class="about-fact">
+                        <div class="fact-num">2026</div>
+                        <div class="fact-label">Godina pokretanja</div>
+                    </div>
+                    <div class="about-fact">
+                        <div class="fact-num">1B1</div>
+                        <div class="fact-label">Cijeli razred</div>
+                    </div>
+                    <div class="about-fact">
+                        <div class="fact-num">10</div>
+                        <div class="fact-label">Clanaka u broju 1</div>
+                    </div>
+                    <div class="about-fact">
+                        <div class="fact-num">2003</div>
+                        <div class="fact-label">Originalni P@T</div>
+                    </div>
+                </div>
+                <div class="origin-box">
+                    <h4>Podrijetlo imena</h4>
+                    <p>Prosli smo kroz tri imena prije nego smo pronasli pravo.</p>
+                    <div class="origin-flow">
+                        <span class="origin-chip">Digitalaci</span>
+                        <span class="origin-arrow">&#8594;</span>
+                        <span class="origin-chip">TSRM</span>
+                        <span class="origin-arrow">&#8594;</span>
+                        <span class="origin-chip final">P@T</span>
+                    </div>
+                    <p style="margin-top:1rem">Originalni <strong>P@T</strong> nastao je 2003. i bio aktivan dvije godine. Mi ga u 2026. nastavljamo s novom energijom i starim duhom.</p>
+                </div>
+            </div>
+        </div>
+
+        <hr class="about-divider">
+
+        <div class="team-section">
+            <div class="section-label">Redakcija</div>
+            <div class="team-section-title">Tim P@T 2026.</div>
+            <p class="team-section-sub">Ucenici razreda 1B1 &mdash; svi smo sudjelovali</p>
+            <div class="team-grid-new">
+                <div class="team-card-new chief">
+                    <div class="av">P</div>
+                    <div class="t-name">Patrik Zejinski</div>
+                    <div class="t-role">Urednik</div>
+                </div>
+                <div class="team-card-new chief">
+                    <div class="av">M</div>
+                    <div class="t-name">Matija</div>
+                    <div class="t-role">Tehnicki urednik</div>
+                </div>
+                <div class="team-card-new">
+                    <div class="av">V</div>
+                    <div class="t-name">Veronika Besen</div>
+                    <div class="t-role">Gost &middot; Erasmus</div>
+                </div>
+                <div class="team-card-new">
+                    <div class="av">T</div>
+                    <div class="t-name">Tia Genzic</div>
+                    <div class="t-role">Pisac</div>
+                </div>
+                <div class="team-card-new">
+                    <div class="av">L</div>
+                    <div class="t-name">Luka Strok</div>
+                    <div class="t-role">Istrazivac</div>
+                </div>
+                <div class="team-card-new">
+                    <div class="av">D</div>
+                    <div class="t-name">David Cuca</div>
+                    <div class="t-role">Pisac</div>
+                </div>
+                <div class="team-card-new">
+                    <div class="av">M</div>
+                    <div class="t-name">Mislav Karoglan</div>
+                    <div class="t-role">Gastro</div>
+                </div>
+                <div class="team-card-new">
+                    <div class="av" style="font-size:.9rem">1B1</div>
+                    <div class="t-name">Razred 1B1</div>
+                    <div class="t-role">Svi sudjelovali</div>
                 </div>
             </div>
         </div>
     </section>
 </main>
 
+<!-- SINGLE ARTICLE -->
 <main id="page-artikl" class="page">
     <div class="single-view">
         <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i> Natrag</button>
@@ -245,29 +360,19 @@
 <footer>
     <div class="footer-inner">
         <div class="footer-logo">P<span>@</span>T</div>
-        <p>&copy; 2026 P@T Skolski digitalni casopis.</p>
+        <p>&copy; 2026 P@T Skolski digitalni casopis &middot; Razred 1B1</p>
     </div>
 </footer>
 
 <script>
-const IMG = {
-    josip: "josip.jpg",
-    glas: "{FDCCFB68-A791-4365-8A26-33F019AAF1B7}.png",
-    veronika3: "Veronika 3.jpg",
-    veronika1: "Veronika - slika.jpg",
-    veronika2: "Veronika - slika 2.jpg",
-    gastro1: "IMG_0795 (1).jpeg",
-    gastro2: "IMG_0795 (2).jpeg",
-    gastro3: "IMG_0795 (3).jpeg",
-    gastro4: "IMG_0795 (4).jpeg",
-    energy: "GettyImages-1025255964.jpg",
-    prof: "{49D3CF66-F233-4D20-B791-029AE6F2D89B}.png",
-    cvjetni: "Cvjetni hodnik.jpg",
-    film1: "Slika - film.jpg",
-    film2: "Film slika 2.jpg",
-    ai: "240_F_485241075_B97HJPtsCLaHVOMGBtNyQm6LzzZtGUmh.jpg",
-    siz: "download.jpg"
-};
+// -------------------------------------------------------
+// IMAGE PATHS
+// For maturant photos: files are named ena.png, lovro.png,
+// dino.png, josipa.png, david ivan.png — same folder as HTML
+// or set MATURANT_BASE to your GitHub raw URL, e.g.:
+// "https://raw.githubusercontent.com/USERNAME/REPO/main/"
+// -------------------------------------------------------
+const MATURANT_BASE = "";
 
 const articles = [
 {
@@ -277,18 +382,19 @@ const articles = [
     content:`<p>Matemati\u010dko natjecanje KLOKAN odr\u017ean je 19. o\u017eujka 2026. to\u010dno u podne.</p>
 <p>U Hrvatskoj je sudjelovalo <strong>36.113 u\u010denika</strong> iz 650 osnovnih i 89 srednjih \u0161kola. Test se pisao 75 minuta u u\u010dionici A1 i imao je 100 bodova. Rezultati su stigli 29. travnja 2026.</p>
 <p>Iz na\u0161e \u0161kole natjecalo se dvadesetak u\u010denika, a na\u0161 <strong>Josip Kri\u017eanec</strong> u\u0161ao je u <strong>top 10 posto</strong>!</p>
-<div class="gallery"><img src="${IMG.josip}" alt="Josip Krizanec"></div>`,
+<div class="gallery"><img src="josip.jpg" alt="Josip Krizanec"></div>`,
     category:"Na\u0161i uspjesi",
     author:"Patrik \u017dejinski",
     date:"29. travnja 2026.",
-    img:IMG.josip,
+    img:"josip.jpg",
     featured:true
 },
 {
     id:2,
     title:"Glas u\u010denika \u2014 nastava kakvu \u017eelimo",
     summary:"U\u010denici jasno znaju \u0161to \u017eele, a \u0161to ne \u017eele od nastave. Evo \u0161to smo saznali.",
-    content:`<p>Zamolili smo u\u010denike da iskažu svoje mišljenje o nastavi — što funkcionira, a što ne.</p>
+    content:`<p>Zamolili smo u\u010denike da iska\u017eu svoje mi\u0161ljenje o nastavi \u2014 \u0161to funkcionira, a \u0161to ne.</p>
+<div class="gallery" style="margin-bottom:2rem"><img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=900&q=80" alt="Ucenici u razredu" style="height:320px;width:100%;object-fit:cover;border-radius:8px;grid-column:1/-1"></div>
 <div class="dane-table">
 <div class="dane-col da"><div class="dane-head">DA &#10003;</div><ul class="dane-list">
 <li>Prakti\u010dnoj nastavi</li>
@@ -301,16 +407,16 @@ const articles = [
 <div class="dane-col ne"><div class="dane-head">NE &#10007;</div><ul class="dane-list">
 <li>Teorijskoj nastavi</li>
 <li>Pisanim provjerama znanja</li>
-<li>Tjednu opterećenom velikim brojem testova</li>
-<li>Teškim predmetima svaki dan</li>
-<li>Nastavi ex cathedra (slušanje i zapisivanje)</li>
+<li>Tjednu optere\u0107enom velikim brojem testova</li>
+<li>Te\u0161kim predmetima svaki dan</li>
+<li>Nastavi ex cathedra (slu\u0161anje i zapisivanje)</li>
 </ul></div>
 </div>
-<p>Poruka je jasna — u\u010denici \u017eele aktivno sudjelovati u nastavi, a ne samo sjediti i slu\u0161ati.</p>`,
+<p>Poruka je jasna \u2014 u\u010denici \u017eele aktivno sudjelovati u nastavi, a ne samo sjediti i slu\u0161ati.</p>`,
     category:"Aktualno",
     author:"Redakcija P@T",
     date:"5. svibnja 2026.",
-    img:IMG.glas,
+    img:"https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80",
     featured:false
 },
 {
@@ -319,17 +425,17 @@ const articles = [
     summary:"Veronika Be\u0161en posjetila je Italiju i Portugal i napisala dirljiv osvrt.",
     content:`<p>Na\u0161a <strong>Veronika Be\u0161en</strong>, u\u010denica 3.a2 razreda, posjetila je Italiju i Portugal te napisala svoje dojmove.</p>
 <div class="pullquote"><p>&#8222;Erasmus me nau\u010dio mnogim stvarima koje ne\u0107u zaboraviti i pomogao mi je prona\u0107i osobe s kojima nikad nisam mislila da \u0107u se zbli\u017eiti.&#8220;</p><cite>&#8212; Veronika Be\u0161en</cite></div>
-<p>Nikada prije nisam kro\u010dila izvan Hrvatske, osim dva jednodnevna izleta. No, kada sam na stranici \u0161kole naišla na prijavu za putovanje u Italiju, bilo je kao da mi se otvorio cijeli svijet.</p>
+<p>Nikada prije nisam kro\u010dila izvan Hrvatske, osim dva jednodnevna izleta. No, kada sam na stranici \u0161kole nai\u0161la na prijavu za putovanje u Italiju, bilo je kao da mi se otvorio cijeli svijet.</p>
 <h3>Italija &#8212; razmjena u\u010denika</h3>
-<p>Tjedan dana u Italiji — pohađala sam tamošnju školu i živjela s lokalnom obitelji. Posjetila sam Sorrento i Napulj, ruševine Herkulaneja. Naučila sam o proizvodnji limoncella i kako ispeći tradicionalnu talijansku pizzu.</p>
-<div class="gallery"><img src="${IMG.veronika1}" alt="Veronika Italija"><img src="${IMG.veronika2}" alt="Veronika Portugal"></div>
+<p>Tjedan dana u Italiji \u2014 poha\u0111ala sam tamo\u0161nju \u0161kolu i \u017eivjela s lokalnom obitelji. Posjetila sam Sorrento i Napulj, ru\u0161evine Herkulaneja. Nau\u010dila sam o proizvodnji limoncella i kako ispe\u0107i tradicionalnu talijansku pizzu.</p>
+<div class="gallery"><img src="Veronika - slika.jpg" alt="Veronika Italija"><img src="Veronika - slika 2.jpg" alt="Veronika Portugal"></div>
 <h3>Portugal &#8212; stru\u010dna praksa</h3>
 <p>Dva tjedna u Portugalu na stru\u010dnoj praksi. Radila sam od jutra do ranog poslijepodneva, a vikendom smo obilazili druge gradove. Stekla sam korisna znanja unutar svoje struke.</p>
-<div class="gallery"><img src="${IMG.veronika3}" alt="Portugal"></div>`,
+<div class="gallery"><img src="Veronika 3.jpg" alt="Portugal"></div>`,
     category:"Erasmus",
     author:"Veronika Be\u0161en",
     date:"12. svibnja 2026.",
-    img:IMG.veronika3,
+    img:"Veronika 3.jpg",
     featured:false
 },
 {
@@ -344,11 +450,11 @@ const articles = [
 <div class="restaurant-card"><div class="rest-rank">4.</div><div class="rest-info"><h4>Konzum</h4><div class="address"><i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> Trg J. F. Kennedyja</div><div class="rest-ratings"><div class="rest-rating">Cijene: <span>4/5</span></div><div class="rest-rating">Okus: <span>3/5</span></div><div class="rest-rating">Vrijednost: <span>3.5/5</span></div></div><div class="rest-comment">&#8222;Jako dobre cijene. Dobra za veliki odmor.&#8220;</div></div></div>
 <div class="restaurant-card"><div class="rest-rank">5.</div><div class="rest-info"><h4>Urban Kebab &#11088; Preporuka!</h4><div class="address"><i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> Mije Kre\u0161i\u0107a 32</div><div class="rest-ratings"><div class="rest-rating">Cijene: <span>4/5</span></div><div class="rest-rating">Okus: <span>5/5</span></div><div class="rest-rating">Vrijednost: <span>4.5/5</span></div></div><div class="rest-comment">&#8222;Ako nisi stigao ru\u010dati. Jako dobro!&#8220;</div></div></div>
 </div>
-<div class="gallery three"><img src="${IMG.gastro1}" alt=""><img src="${IMG.gastro2}" alt=""><img src="${IMG.gastro3}" alt=""></div>`,
-    category:"Školske aktivnosti",
+<div class="gallery three"><img src="IMG_0795 (1).jpeg" alt=""><img src="IMG_0795 (2).jpeg" alt=""><img src="IMG_0795 (3).jpeg" alt=""></div>`,
+    category:"\u0160kolske aktivnosti",
     author:"Mislav Karoglan",
     date:"8. svibnja 2026.",
-    img:IMG.gastro2,
+    img:"IMG_0795 (2).jpeg",
     featured:false
 },
 {
@@ -356,18 +462,18 @@ const articles = [
     title:"Energetsko pi\u0107e \u2014 (ne)zdravi napitak",
     summary:"50% u\u010denika pije energetska pi\u0107a \u2014 \u0161to pokazuje na\u0161a anketa?",
     content:`<p>Ministarstvo zdravstva izra\u0111uje zakon kojim bi se ograni\u010dila prodaja energetskih pi\u0107a, a u tijeku je i kampanja <em>Energetska pi\u0107a nisu za mlada bi\u0107a</em>.</p>
-<p>Glavni sastojak je <strong>kofein</strong> u velikim koli\u010dinama, a uz njega i brdo \u0161e\u0107era. Osjećaj kratko traje — čim djelovanje popusti, javlja se još veći umor.</p>
+<p>Glavni sastojak je <strong>kofein</strong> u velikim koli\u010dinama, a uz njega i brdo \u0161e\u0107era. Osje\u0107aj kratko traje \u2014 \u010dim djelovanje popusti, javlja se jo\u0161 ve\u0107i umor.</p>
 <div class="stat-grid">
 <div class="stat-box"><div class="num">50%</div><div class="label">u\u010denika pije energetska pi\u0107a</div></div>
 <div class="stat-box"><div class="num">15%</div><div class="label">pije ih svaki dan</div></div>
 <div class="stat-box"><div class="num">12h</div><div class="label">tijelu treba da o\u010disti kofein</div></div>
 </div>
 <div class="pullquote"><p>&#8222;U \u0161kolskoj kantini nisu dostupna energetska pi\u0107a!&#8220;</p><cite>&#8212; Rezultat ankete, svibanj 2026.</cite></div>
-<p>30% u\u010denika konzumira ih 2-3 puta tjedno, a 5% samo prije pisanja ispita. Energetska pi\u0107a korisna su samo u rijetkim situacijama — ali loše je što ekipa danas pretjeruje.</p>`,
+<p>30% u\u010denika konzumira ih 2-3 puta tjedno, a 5% samo prije pisanja ispita. Energetska pi\u0107a korisna su samo u rijetkim situacijama \u2014 ali lo\u0161e je \u0161to ekipa danas pretjeruje.</p>`,
     category:"Aktualno",
     author:"Patrik \u017dejinski i Luka \u0160trok",
     date:"14. svibnja 2026.",
-    img:IMG.energy,
+    img:"GettyImages-1025255964.jpg",
     featured:false
 },
 {
@@ -377,18 +483,18 @@ const articles = [
     content:`<p>Proveli smo izbor i titulu <strong>najprofesora</strong> uvjerljivo je osvojio profesor Danijel Eskeri\u010di\u0107.</p>
 <div class="pullquote"><p>&#8222;Najzanimljivije u elektrotehnici su elektri\u010dne instalacije i arduino elektronika.&#8220;</p><cite>&#8212; prof. Danijel Eskeri\u010di\u0107</cite></div>
 <h3>Kada ste se prvi put zainteresirali za elektrotehniku?</h3>
-<p>&#8222;Još u osnovnoj školi jer se moj tata bavio izvođenjem električnih instalacija. Podučavao me kako se spaja utičnica, prekidač i ostali elementi. Slijedom toga upisao sam elektrotehnički fakultet.&#8220;</p>
+<p>&#8222;Jo\u0161 u osnovnoj \u0161koli jer se moj tata bavio izvo\u0111enjem elektri\u010dnih instalacija. Podu\u010davao me kako se spaja uti\u010dnica, prekida\u010d i ostali elementi. Slijedom toga upisao sam elektrotehnički fakultet.&#8220;</p>
 <h3>A u\u010denici? Kako se snalaze?</h3>
-<p>&#8222;Najčešći problem je kako čitati električne sheme. Učenici moraju usvojiti teoriju koju primjenjuju na razmatranju shema. Teško je zamisliti život bez elektrotehničkih uređaja, osobito u digitalnom dobu.&#8220;</p>
+<p>&#8222;Naj\u010de\u0161\u0107i problem je kako \u010ditati elektri\u010dne sheme. U\u010denici moraju usvojiti teoriju koju primjenjuju na razmatranju shema. Te\u0161ko je zamisliti \u017eivot bez elektrotehnički ure\u0111aja, osobito u digitalnom dobu.&#8220;</p>
 <h3>Koji biste projekt izdvojili?</h3>
-<p>&#8222;Teško je izdvojiti jer učenička mašta može svašta. Možda električna rukavica za samoobranu — elektrostantgun.&#8220;</p>
+<p>&#8222;Te\u0161ko je izdvojiti jer u\u010deni\u010dka ma\u0161ta mo\u017ee sva\u0161ta. Mo\u017eda elektri\u010dna rukavica za samoobranu \u2014 elektrostantgun.&#8220;</p>
 <h3>Kako vidite budu\u0107nost elektrotehnike?</h3>
-<p>&#8222;Vidim je u bežičnom prijenosu električne energije i većoj iskoristivosti obnovljivih izvora uz očuvanje okoliša.&#8220;</p>
+<p>&#8222;Vidim je u be\u017ei\u010dnom prijenosu elektri\u010dne energije i ve\u0107oj iskoristivosti obnovljivih izvora uz o\u010duvanje okoli\u0161a.&#8220;</p>
 <p style="font-size:.85rem;color:#888;margin-top:2rem">Razgovor vodili: Matej Dromljak, Josip Kri\u017eanec i Jakov \u0110ebro (1.b1)</p>`,
     category:"Intervju",
     author:"U\u010denici 1.b1",
     date:"3. svibnja 2026.",
-    img:IMG.prof,
+    img:"{49D3CF66-F233-4D20-B791-029AE6F2D89B}.png",
     featured:false
 },
 {
@@ -397,16 +503,16 @@ const articles = [
     summary:"Razgovarali smo s profesoricom Jasnom Su\u0161ac-Pei\u010di\u0107 koja sa svojom ekipom uljep\u0161ava \u0161kolu.",
     content:`<p>Razgovarali smo s profesoricom matematike <strong>Jasnom Su\u0161ac-Pei\u010di\u0107</strong> koja vodi Kreativnu radionicu.</p>
 <h3>Kako ste pokrenuli Kreativnu radionicu?</h3>
-<p>&#8222;Sve je počelo u jesen 2024. — sjajan projekt Srednjoškolski advent na Kennedyjevom trgu. Odmah sam se priključila jer oduvijek volim raditi rukama. Okupila se mala, ali vrijedna skupina učenica i nastavili smo ukrašavati školski prostor.&#8220;</p>
-<div class="pullquote"><p>&#8222;Najdra\u017eji mi je Cvjetni hodnik. Ba\u0161 jako uspio projekt \u2014 donio \u017eivost i s prolje\u0107em, nekako kao da je probudio optimizam.&#8220;</p><cite>&#8212; prof. Jasna Su\u0161ac-Pei\u010di\u0107</cite></div>
-<div class="gallery"><img src="${IMG.cvjetni}" alt="Cvjetni hodnik"></div>
+<p>&#8222;Sve je po\u010delo u jesen 2024. \u2014 sjajan projekt Srednjo\u0161kolski advent na Kennedyjevom trgu. Odmah sam se priklju\u010dila jer oduvijek volim raditi rukama. Okupila se mala, ali vrijedna skupina u\u010denica i nastavili smo ukra\u0161avati \u0161kolski prostor.&#8220;</p>
+<div class="pullquote"><p>&#8222;Najdra\u017eiji mi je Cvjetni hodnik. Ba\u0161 jako uspio projekt \u2014 donio \u017eivost i s prolje\u0107em, nekako kao da je probudio optimizam.&#8220;</p><cite>&#8212; prof. Jasna Su\u0161ac-Pei\u010di\u0107</cite></div>
+<div class="gallery"><img src="Cvjetni hodnik.jpg" alt="Cvjetni hodnik"></div>
 <h3>Matematika ili Kreativna radionica?</h3>
-<p>&#8222;Iako me matematika naučila misliti, sada, nakon više od 30 godina rada u razredu, izabrala bih — Kreativnu radionicu.&#8220;</p>
-<p>&#8222;Puno je više matematike svuda oko nas nego što smo svjesni. Rad u Kreativnoj radionici to je potvrdio: da bi nešto skladno izgledalo, toliko je potrebno mjerenja, procjene, omjera, izračuna — a upravo nas tome uči matematika.&#8220;</p>`,
+<p>&#8222;Iako me matematika nau\u010dila misliti, sada, nakon vi\u0161e od 30 godina rada u razredu, izabrala bih \u2014 Kreativnu radionicu.&#8220;</p>
+<p>&#8222;Puno je vi\u0161e matematike svuda oko nas nego \u0161to smo svjesni. Rad u Kreativnoj radionici to je potvrdio: da bi ne\u0161to skladno izgledalo, toliko je potrebno mjerenja, procjene, omjera, izra\u010duna \u2014 a upravo nas tome u\u010di matematika.&#8220;</p>`,
     category:"Intervju",
     author:"Redakcija P@T",
     date:"6. svibnja 2026.",
-    img:IMG.cvjetni,
+    img:"Cvjetni hodnik.jpg",
     featured:false
 },
 {
@@ -421,11 +527,11 @@ const articles = [
 </div>
 <div class="pullquote"><p>&#8222;Bilo je zabavno! Neki od nas misle se time baviti i u budu\u0107nosti.&#8220;</p><cite>&#8212; Matej Vrban</cite></div>
 <p>Ukupno je bilo prijavljeno <strong>petnaest filmova</strong>. Prezentaciju su odli\u010dno odradili, osobito Mislav, suci su bili zadovoljni.</p>
-<div class="gallery"><img src="${IMG.film1}" alt="TEC natjecanje"><img src="${IMG.film2}" alt="Dodjela nagrada"></div>`,
+<div class="gallery"><img src="Slika - film.jpg" alt="TEC natjecanje"><img src="Film slika 2.jpg" alt="Dodjela nagrada"></div>`,
     category:"Na\u0161i uspjesi",
     author:"Patrik \u017dejinski",
     date:"16. svibnja 2026.",
-    img:IMG.film2,
+    img:"Film slika 2.jpg",
     featured:false
 },
 {
@@ -451,14 +557,14 @@ const articles = [
     category:"Aktualno",
     author:"Tia Genzi\u0107",
     date:"19. svibnja 2026.",
-    img:IMG.ai,
+    img:"240_F_485241075_B97HJPtsCLaHVOMGBtNyQm6LzzZtGUmh.jpg",
     featured:false
 },
 {
     id:10,
     title:"\u0160IZ \u2014 mali predmet koji donosi velike promjene",
     summary:"Kroz \u0160IZ u\u010denici ne raspravljaju samo o problemima, ve\u0107 aktivno rade na njihovom rje\u0161avanju.",
-    content:`<p>U na\u0161oj \u0161koli ve\u0107 <strong>\u010detiri godine</strong> provodi se \u0160IZ \u2014 aktivnost koja u\u010denicima daje priliku da izadu iz okvira klasi\u010dne nastave.</p>
+    content:`<p>U na\u0161oj \u0161koli ve\u0107 <strong>\u010detiri godine</strong> provodi se \u0160IZ \u2014 aktivnost koja u\u010denicima daje priliku da iza\u0111u iz okvira klasi\u010dne nastave.</p>
 <div class="pullquote"><p>&#8222;Cilj je da ne sjedimo samo u razredu i pri\u010damo, nego da poku\u0161amo probleme stvarno rije\u0161iti.&#8220;</p><cite>&#8212; prof. Katarina Jankovi\u0107</cite></div>
 <p>\u0160IZ poti\u010de u\u010denike na razmi\u0161ljanje, istra\u017eivanje i konkretne akcije. Tijekom godina u\u010denici su se bavili razli\u010ditim temama \u2014 od kvalitete \u017eivota u \u0161koli do za\u0161tite \u017eivotinja.</p>
 <h3>Projekt ure\u0111enja \u0161kolskog atrija</h3>
@@ -466,20 +572,52 @@ const articles = [
 <div class="pullquote"><p>&#8222;Bili smo prljavi kao mali svinjci, ali bilo nam je super.&#8220;</p><cite>&#8212; prof. Katarina Jankovi\u0107</cite></div>
 <p>Ove godine fokus je na ovisni\u010dkim pona\u0161anjima kod mladih, posebice <strong>digitalnoj ovisnosti</strong>. U planu su edukacije i izazovi poput dana bez mobitela.</p>
 <div class="pullquote"><p>&#8222;Mladi su ti koji mogu promijeniti dru\u0161tvo, a \u0160IZ im daje priliku da to i poku\u0161aju.&#8220;</p><cite>&#8212; prof. Katarina Jankovi\u0107</cite></div>`,
-    category:"Školske aktivnosti",
+    category:"\u0160kolske aktivnosti",
     author:"Tia Genzi\u0107 i David \u0106u\u0107a",
     date:"20. svibnja 2026.",
-    img:IMG.siz,
+    img:"download.jpg",
     featured:false
 }
 ];
 
+// Maturant photos — PNG files from GitHub repo (same folder as HTML)
+// File names exactly as in the screenshot: ena.png, lovro.png, dino.png, josipa.png, david ivan.png
 const maturanti = [
-{name:"Lovro Golenko",smjer:"Tehni\u010dar za telekomunikacije \u00b7 4.a1",img:"",bio:"Tre\u0107a sam generacija svoje obitelji koja je poha\u0111ala ovu \u0161kolu. \u010cetiri godine predstavnik sam razreda u Vije\u0107u u\u010denika, a dva puta sam predstavljao \u0161kolu u Gradskoj vije\u0107nici. Sudjelovao sam na Erasmusu u Bragi.",quote:"Zabavite se! Ne postoji nikakav problem koji se ne mo\u017ee rije\u0161iti igrajući se riječima, formulama ili vlastitim mislima."},
-{name:"Ena Alaber",smjer:"Tehni\u010dar za ra\u010dunalstvo \u00b7 4.b2",img:"",bio:"U Zagreb sam do\u0161la prije tri i pol godine. Poha\u0111am i Srednju plesnu \u0161kolu Ane Maleti\u0107. Glazba ispunjava veliki dio mog \u017eivota \u2014 uz ples, sviram i pjevam.",quote:"Nikada ne propuštajte priliku za zabavu i uživajte u srednjoškolskim danima jer će jako brzo proći."},
-{name:"Dino Mehdi\u0107",smjer:"Tehni\u010dar za telekomunikacije \u00b7 4.a1",img:"",bio:"Tijekom \u0161kolovanja sudjelovao sam u \u0161to vi\u0161e \u0161kolskih projekata. U slobodno vrijeme bavim se glazbom i ugostiteljstvom.",quote:"Na srednju školu ne gledajte negativno — to je jedno od najljepših doba u životu čovjeka."},
-{name:"Josipa Klari\u0107",smjer:"Tehni\u010dar za po\u0161tanske i financijske usluge \u00b7 4.c1",img:"",bio:"Pisanjem pjesama po\u010dela sam se baviti sasvim slu\u010dajno u prvom razredu. Profesori su prepoznali moj talent i poticali me na daljnje pisanje.",quote:"Slijedite svoje snove. Odustajanje nije opcija!"},
-{name:"David-Ivan Novak",smjer:"Tehni\u010dar za ra\u010dunalstvo \u00b7 4.b2",img:"",bio:"Posebno me zanimaju programiranje, matematika i fizika. Na natjecanju Dabar plasirao sam se me\u0111u 10% najboljih. \u017delim upisati FER.",quote:"Iskoristite svaku priliku za učenje i praksu. Budite znatiželjni i ne bojite se pogrešaka."}
+{
+    name:"Lovro Golenko",
+    smjer:"Tehni\u010dar za telekomunikacije \u00b7 4.a1",
+    img: MATURANT_BASE + "lovro.png",
+    bio:"Tre\u0107a sam generacija svoje obitelji koja je poha\u0111ala ovu \u0161kolu. \u010cetiri godine predstavnik sam razreda u Vije\u0107u u\u010denika, a dva puta sam predstavljao \u0161kolu u Gradskoj vije\u0107nici. Sudjelovao sam na Erasmusu u Bragi.",
+    quote:"Zabavite se! Ne postoji nikakav problem koji se ne mo\u017ee rije\u0161iti igraj\u0107i se rije\u010dima, formulama ili vlastitim mislima."
+},
+{
+    name:"Ena Alaber",
+    smjer:"Tehni\u010dar za ra\u010dunalstvo \u00b7 4.b2",
+    img: MATURANT_BASE + "ena.png",
+    bio:"U Zagreb sam do\u0161la prije tri i pol godine. Poha\u0111am i Srednju plesnu \u0161kolu Ane Maleti\u0107. Glazba ispunjava veliki dio mog \u017eivota \u2014 uz ples, sviram i pjevam.",
+    quote:"Nikada ne propu\u0161tajte priliku za zabavu i u\u017eivajte u srednjo\u0161kolskim danima jer \u0107e jako brzo pro\u0107i."
+},
+{
+    name:"Dino Mehdi\u0107",
+    smjer:"Tehni\u010dar za telekomunikacije \u00b7 4.a1",
+    img: MATURANT_BASE + "dino.png",
+    bio:"Tijekom \u0161kolovanja sudjelovao sam u \u0161to vi\u0161e \u0161kolskih projekata. U slobodno vrijeme bavim se glazbom i ugostiteljstvom.",
+    quote:"Na srednju \u0161kolu ne gledajte negativno \u2014 to je jedno od najljep\u0161ih doba u \u017eivotu \u010dovjeka."
+},
+{
+    name:"Josipa Klari\u0107",
+    smjer:"Tehni\u010dar za po\u0161tanske i financijske usluge \u00b7 4.c1",
+    img: MATURANT_BASE + "josipa.png",
+    bio:"Pisanjem pjesama po\u010dela sam se baviti sasvim slu\u010dajno u prvom razredu. Profesori su prepoznali moj talent i poticali me na daljnje pisanje.",
+    quote:"Slijedite svoje snove. Odustajanje nije opcija!"
+},
+{
+    name:"David-Ivan Novak",
+    smjer:"Tehni\u010dar za ra\u010dunalstvo \u00b7 4.b2",
+    img: MATURANT_BASE + "david ivan.png",
+    bio:"Posebno me zanimaju programiranje, matematika i fizika. Na natjecanju Dabar plasirao sam se me\u0111u 10% najboljih. \u017delim upisati FER.",
+    quote:"Iskoristite svaku priliku za u\u010denje i praksu. Budite znati\u017eeljni i ne bojite se pogre\u0161aka."
+}
 ];
 
 let prevPage = 'pocetna';
@@ -536,9 +674,10 @@ function renderMaturanti() {
     maturanti.forEach(m => {
         const card = document.createElement('div');
         card.className = 'maturant-card';
+        const fallback = `<div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a1a,#2a2a2a);display:flex;align-items:center;justify-content:center;"><span style="font-family:'Playfair Display',serif;font-size:5rem;font-weight:900;color:#333">${m.name[0]}</span></div>`;
         const imgHtml = m.img
-            ? `<img src="${m.img}" alt="${m.name}">`
-            : `<div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a1a,#2a2a2a);display:flex;align-items:center;justify-content:center;"><span style="font-family:'Playfair Display',serif;font-size:4rem;font-weight:900;color:#333">${m.name[0]}</span></div>`;
+            ? `<img src="${m.img}" alt="${m.name}" onerror="this.parentNode.innerHTML='${fallback.replace(/'/g,"\\'")}';">`
+            : fallback;
         card.innerHTML = `<div class="maturant-img-wrap">${imgHtml}</div>
         <div class="maturant-body">
             <div class="maturant-name">${m.name}</div>
