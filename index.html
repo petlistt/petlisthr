@@ -3,85 +3,591 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P@T | Školski Digitalni Časopis</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <title>P@T | Skolski Digitalni Casopis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --bg-primary: #ffffff; --bg-secondary: #f8f9fa; --bg-dark: #111111;
-            --text-main: #111111; --text-muted: #666666; --accent-blue: #0f2d59;
-            --border-color: #e5e5e5; --radius: 12px; --transition: all 0.3s ease;
+        :root{--bg:#faf9f6;--white:#fff;--dark:#0d0d0d;--accent:#c8102e;--accent2:#1a3a6e;--mid:#555;--border:#e0ddd8;--radius:10px;--ease:all 0.3s cubic-bezier(.4,0,.2,1)}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:var(--bg);color:var(--dark);font-family:'DM Sans',sans-serif;line-height:1.6;overflow-x:hidden}
+        a{text-decoration:none;color:inherit}
+        img{max-width:100%;display:block}
+        header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000}
+        .nav-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 2rem}
+        .logo{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;letter-spacing:-1px;cursor:pointer}
+        .logo span{color:var(--accent)}
+        .nav-links{display:flex;gap:2rem;list-style:none}
+        .nav-links a{font-weight:600;font-size:.85rem;text-transform:uppercase;letter-spacing:1px;padding-bottom:3px;border-bottom:2px solid transparent;transition:var(--ease);cursor:pointer}
+        .nav-links a:hover,.nav-links a.active{border-bottom-color:var(--accent);color:var(--accent)}
+        .page{display:none;animation:fadeUp .4s ease;min-height:80vh}
+        .page.active{display:block}
+        @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+        .hero{background:var(--dark);color:#fff;padding:5rem 2rem;text-align:center;position:relative;overflow:hidden}
+        .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(200,16,46,.18) 0%,transparent 70%)}
+        .hero-content{position:relative}
+        .hero h1{font-family:'Playfair Display',serif;font-size:6rem;font-weight:900;letter-spacing:-3px;line-height:1;margin-bottom:.5rem}
+        .hero h1 span{color:var(--accent)}
+        .hero p{font-size:1.1rem;color:#aaa;font-weight:300;letter-spacing:2px;text-transform:uppercase}
+        .hero-bar{margin:2rem auto 0;display:flex;justify-content:center;flex-wrap:wrap;font-size:.8rem;text-transform:uppercase;letter-spacing:1px;color:#555}
+        .hero-bar span{padding:0 2rem;border-right:1px solid #2a2a2a}
+        .hero-bar span:last-child{border:none}
+        .container{max-width:1200px;margin:0 auto;padding:4rem 2rem}
+        .section-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:.4rem}
+        .section-title{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;margin-bottom:2.5rem;letter-spacing:-.5px}
+        .featured-wrap{display:grid;grid-template-columns:1.4fr 1fr;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:5rem;cursor:pointer;background:var(--white);transition:var(--ease)}
+        .featured-wrap:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.08)}
+        .featured-img-wrap{position:relative;overflow:hidden}
+        .featured-img-wrap img{width:100%;height:100%;min-height:420px;object-fit:cover;transition:transform .6s ease}
+        .featured-wrap:hover .featured-img-wrap img{transform:scale(1.04)}
+        .featured-tag{position:absolute;top:1.5rem;left:1.5rem;background:var(--accent);color:#fff;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:.4rem .8rem;border-radius:3px}
+        .featured-body{padding:3rem;display:flex;flex-direction:column;justify-content:center;background:var(--dark);color:#fff}
+        .featured-body .cat{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:1rem}
+        .featured-body h3{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;line-height:1.2;margin-bottom:1rem}
+        .featured-body p{color:#999;font-size:.95rem;margin-bottom:1.5rem}
+        .featured-body .meta{font-size:.8rem;color:#555}
+        .articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem}
+        .article-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:var(--ease);display:flex;flex-direction:column}
+        .article-card:hover{transform:translateY(-4px);box-shadow:0 15px 35px rgba(0,0,0,.07)}
+        .card-img{position:relative;overflow:hidden;padding-top:62%;background:#1a1a1a}
+        .card-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+        .article-card:hover .card-img img{transform:scale(1.05)}
+        .card-badge{position:absolute;top:.8rem;left:.8rem;background:var(--accent);color:#fff;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:.3rem .6rem;border-radius:2px;z-index:2}
+        .card-body{padding:1.5rem;flex-grow:1;display:flex;flex-direction:column}
+        .card-body h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin-bottom:.6rem;line-height:1.3}
+        .card-body p{font-size:.9rem;color:var(--mid);flex-grow:1}
+        .card-meta{font-size:.78rem;color:#999;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)}
+        .filter-bar{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:3rem}
+        .filter-btn{background:var(--white);border:1px solid var(--border);padding:.5rem 1.25rem;font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;border-radius:30px;cursor:pointer;transition:var(--ease);font-family:'DM Sans',sans-serif}
+        .filter-btn:hover,.filter-btn.active{background:var(--dark);color:#fff;border-color:var(--dark)}
+        .single-view{max-width:780px;margin:0 auto;padding:4rem 2rem}
+        .back-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--white);border:1px solid var(--border);padding:.65rem 1.5rem;font-size:.85rem;font-weight:600;border-radius:30px;cursor:pointer;margin-bottom:3rem;transition:var(--ease);font-family:'DM Sans',sans-serif}
+        .back-btn:hover{background:var(--dark);color:#fff;border-color:var(--dark)}
+        .art-category{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:1rem}
+        .art-title{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;line-height:1.15;letter-spacing:-1px;margin-bottom:1.2rem}
+        .art-meta{font-size:.88rem;color:#888;margin-bottom:2.5rem}
+        .art-cover{width:100%;height:420px;object-fit:cover;border-radius:var(--radius);margin-bottom:3rem}
+        .art-cover-hidden{display:none}
+        .art-content{font-size:1.1rem;line-height:1.9;color:#222}
+        .art-content p{margin-bottom:1.75rem}
+        .art-content h3{font-family:'Playfair Display',serif;font-size:1.5rem;margin:2rem 0 1rem}
+        .art-content .gallery{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+        .art-content .gallery img{width:100%;height:240px;object-fit:cover;border-radius:8px}
+        .art-content .gallery.three{grid-template-columns:1fr 1fr 1fr}
+        .dane-table{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:2rem 0}
+        .dane-col{border-radius:10px;overflow:hidden}
+        .dane-col.da{background:#f0faf4;border:1px solid #b8e8c8}
+        .dane-col.ne{background:#fdf2f2;border:1px solid #f5c6c6}
+        .dane-head{padding:.75rem 1.25rem;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:1px}
+        .dane-col.da .dane-head{background:#2d8653;color:#fff}
+        .dane-col.ne .dane-head{background:#c0392b;color:#fff}
+        .dane-list{list-style:none;padding:1rem 1.25rem}
+        .dane-list li{padding:.5rem 0;font-size:.95rem;border-bottom:1px solid rgba(0,0,0,.06);display:flex;align-items:flex-start;gap:.5rem}
+        .dane-list li:last-child{border:none}
+        .dane-col.da .dane-list li::before{content:'';color:#2d8653;font-weight:700;flex-shrink:0}
+        .dane-col.ne .dane-list li::before{content:'';color:#c0392b;font-weight:700;flex-shrink:0}
+        .restaurant-list{display:flex;flex-direction:column;gap:1.5rem;margin:2rem 0}
+        .restaurant-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1.5rem;display:flex;gap:1.5rem;align-items:flex-start}
+        .rest-rank{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:var(--accent);min-width:50px;line-height:1}
+        .rest-info{flex-grow:1}
+        .rest-info h4{font-size:1.1rem;font-weight:700;margin-bottom:.25rem}
+        .rest-info .address{font-size:.82rem;color:#888;margin-bottom:.75rem}
+        .rest-ratings{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:.5rem}
+        .rest-rating{font-size:.82rem}
+        .rest-rating span{font-weight:700;color:var(--accent2)}
+        .rest-comment{font-size:.88rem;color:var(--mid);font-style:italic}
+        .stars{color:#f0a500;letter-spacing:-1px;font-size:.85rem}
+        .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0}
+        .stat-box{background:var(--dark);color:#fff;border-radius:10px;padding:1.5rem;text-align:center}
+        .stat-box .num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;color:var(--accent);line-height:1}
+        .stat-box .label{font-size:.82rem;color:#aaa;margin-top:.4rem}
+        .pullquote{border-left:4px solid var(--accent);padding:1.25rem 1.5rem;margin:2rem 0;background:var(--white);border-radius:0 8px 8px 0}
+        .pullquote p{font-family:'Playfair Display',serif;font-size:1.3rem;font-style:italic;color:#333;margin:0 0 .5rem}
+        .pullquote cite{font-size:.82rem;color:#888}
+        .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+        .about-text h2{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;margin-bottom:1.5rem}
+        .about-text p{font-size:1rem;color:var(--mid);margin-bottom:1.25rem}
+        .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+        .team-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;text-align:center}
+        .team-card .avatar{width:56px;height:56px;background:var(--dark);border-radius:50%;margin:0 auto .75rem;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.3rem;font-family:'Playfair Display',serif;font-weight:700}
+        .maturant-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:2rem;margin-top:2rem}
+        .maturant-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+        .maturant-img-wrap{height:280px;overflow:hidden;position:relative;background:#1a1a1a}
+        .maturant-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:top}
+        .maturant-body{padding:1.75rem}
+        .maturant-name{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;margin-bottom:.25rem}
+        .maturant-smjer{font-size:.8rem;text-transform:uppercase;letter-spacing:1px;color:var(--accent);font-weight:600;margin-bottom:1rem}
+        .maturant-text{font-size:.92rem;color:var(--mid);line-height:1.7;margin-bottom:1rem}
+        .maturant-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:#333;border-left:3px solid var(--accent);padding-left:1rem;margin-top:1rem}
+        .news-bar{background:var(--accent);color:#fff;padding:3rem 2rem;text-align:center}
+        .news-bar h3{font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:.5rem}
+        .news-bar p{font-size:.9rem;opacity:.85}
+        footer{background:var(--dark);color:#fff;padding:3rem 2rem}
+        .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+        .footer-logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900}
+        .footer-logo span{color:var(--accent)}
+        footer p{font-size:.85rem;color:#555}
+        .no-articles{grid-column:1/-1;text-align:center;padding:3rem;color:#999;font-style:italic}
+        @media(max-width:768px){
+            .hero h1{font-size:3.5rem}
+            .featured-wrap{grid-template-columns:1fr}
+            .featured-img-wrap img{min-height:260px}
+            .about-grid{grid-template-columns:1fr}
+            .team-grid{grid-template-columns:1fr 1fr}
+            .art-title{font-size:2rem}
+            .dane-table{grid-template-columns:1fr}
+            .stat-grid{grid-template-columns:1fr 1fr}
+            .art-content .gallery,.art-content .gallery.three{grid-template-columns:1fr}
+            .nav-links{gap:1rem}
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--bg-primary); color: var(--text-main); line-height: 1.6; }
-        header { border-bottom: 1px solid var(--border-color); padding: 1.5rem 2rem; position: sticky; top: 0; background: #fff; z-index: 1000; }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 2rem; font-weight: 800; cursor: pointer; }
-        .logo span { color: var(--accent-blue); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
-        .hero { background: var(--bg-dark); color: #ffffff; padding: 6rem 2rem; text-align: center; }
-        .featured-card { display: grid; grid-template-columns: 1fr 1fr; background: var(--bg-secondary); border-radius: var(--radius); overflow: hidden; margin-bottom: 4rem; cursor: pointer; }
-        .featured-content { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
-        .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2.5rem; }
-        .article-card { border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.5rem; cursor: pointer; transition: var(--transition); }
-        .article-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem; }
-        footer { background: var(--bg-dark); color: white; text-align: center; padding: 3rem; margin-top: 5rem; }
     </style>
 </head>
 <body>
+<header>
+    <nav class="nav-inner">
+        <div class="logo" onclick="navigateTo('pocetna')">P<span>@</span>T</div>
+        <ul class="nav-links">
+            <li><a id="link-pocetna" class="active" onclick="navigateTo('pocetna')">Pocetna</a></li>
+            <li><a id="link-clanci" onclick="navigateTo('clanci')">Clanci</a></li>
+            <li><a id="link-maturanti" onclick="navigateTo('maturanti')">Maturanti</a></li>
+            <li><a id="link-onama" onclick="navigateTo('onama')">O Nama</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <header>
-        <nav class="nav-container">
-            <div class="logo" onclick="window.location.reload()">P<span>@</span>T</div>
-        </nav>
-    </header>
+<main id="page-pocetna" class="page active">
+    <section class="hero">
+        <div class="hero-content">
+            <h1>P<span>@</span>T</h1>
+            <p>Glas ucenika &nbsp;&middot;&nbsp; Price iz hodnika &nbsp;&middot;&nbsp; Tehnologija buducnosti</p>
+            <div class="hero-bar">
+                <span>Skolski Digitalni Casopis</span>
+                <span>Broj 1 &nbsp;&middot;&nbsp; Svibanj 2026.</span>
+                <span>Ucenicka redakcija</span>
+            </div>
+        </div>
+    </section>
+    <section class="container">
+        <div class="section-label">Istaknuto</div>
+        <div class="section-title">Istaknuta Prica</div>
+        <div id="featured-container"></div>
+        <div class="section-label" style="margin-top:5rem">Sve price</div>
+        <div class="section-title">Najnoviji Clanci</div>
+        <div class="articles-grid" id="latest-grid"></div>
+    </section>
+</main>
 
-    <main class="container">
-        <section class="hero"><h1>P@T</h1><p>Digitalni časopis naše škole.</p></section>
-        
-        <h2>Istaknuta priča</h2>
-        <div id="featured" class="featured-card"></div>
+<main id="page-clanci" class="page">
+    <section class="container">
+        <div class="section-label">Arhiva</div>
+        <div class="section-title">Svi Clanci</div>
+        <div class="filter-bar">
+            <button class="filter-btn active" onclick="filterArticles('Sve')">Sve</button>
+            <button class="filter-btn" onclick="filterArticles('Nasi uspjesi')">Nasi uspjesi</button>
+            <button class="filter-btn" onclick="filterArticles('Skolske aktivnosti')">Skolske aktivnosti</button>
+            <button class="filter-btn" onclick="filterArticles('Aktualno')">Aktualno</button>
+            <button class="filter-btn" onclick="filterArticles('Intervju')">Intervju</button>
+            <button class="filter-btn" onclick="filterArticles('Erasmus')">Erasmus</button>
+        </div>
+        <div class="articles-grid" id="all-grid"></div>
+    </section>
+</main>
 
-        <h2>Svi članci</h2>
-        <div id="grid" class="articles-grid" style="margin-top: 2rem;"></div>
-    </main>
+<main id="page-maturanti" class="page">
+    <section class="container">
+        <div class="section-label">Razgovor</div>
+        <div class="section-title">Nasi svestrani maturanti</div>
+        <p style="max-width:600px;color:var(--mid);margin-bottom:3rem">Rekli su nam nesto o sebi i dali pokoji savjet mladim generacijama...</p>
+        <div class="maturant-grid" id="maturant-grid"></div>
+    </section>
+</main>
 
-    <footer><p>© 2026 Školski digitalni časopis P@T.</p></footer>
+<main id="page-onama" class="page">
+    <section class="container">
+        <div class="about-grid">
+            <div class="about-text">
+                <div class="section-label">Tko smo mi</div>
+                <h2>O Casopisu P@T</h2>
+                <p>P@T je nezavisni digitalni casopis koji vode iskljucivo ucenici nase skole. Nas cilj je dati glas svim ucenicima.</p>
+                <p>Svaki clanak pisu, fotografiraju i ureduju sami ucenici. Ovo je nas prostor, nasa prica.</p>
+                <p>Casopis je pokrenut 2026. godine kao projekt skolske informatike i novinarstva.</p>
+            </div>
+            <div>
+                <div class="team-grid">
+                    <div class="team-card"><div class="avatar">P</div><strong>Patrik Zejinski</strong><br><small style="color:#888">Urednik</small></div>
+                    <div class="team-card"><div class="avatar">V</div><strong>Veronika Besen</strong><br><small style="color:#888">Erasmus</small></div>
+                    <div class="team-card"><div class="avatar">T</div><strong>Tia Genzic</strong><br><small style="color:#888">Pisac</small></div>
+                    <div class="team-card"><div class="avatar">L</div><strong>Luka Strok</strong><br><small style="color:#888">Istrazivac</small></div>
+                    <div class="team-card"><div class="avatar">D</div><strong>David Cuca</strong><br><small style="color:#888">Pisac</small></div>
+                    <div class="team-card"><div class="avatar">M</div><strong>Mislav Karoglan</strong><br><small style="color:#888">Gastro</small></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 
-    <script>
-        const articles = [
-            { title: "Točno u podne", summary: "Obračun iz matematike", img: "josip.jpg" },
-            { title: "Školski stres", summary: "Kako preživjeti kraj godine", img: "Slika - stres.jpg" },
-            { title: "Erasmus+ Italija", summary: "Rimska avantura", img: "Veronika 3.jpg" },
-            { title: "Gastro Vodič", summary: "Mlinar vs Konzum", img: "IMG_0795 (1).jpeg" },
-            { title: "Energetska pića", summary: "Opasnost u limenkama", img: "GettyImages-1025255964.jpg" },
-            { title: "Cvjetni hodnik", summary: "Kreativnost na djelu", img: "Cvjetni hodnik.jpg" },
-            { title: "Filmska skupina", summary: "Novi hit u nastajanju", img: "Slika - film.jpg" },
-            { title: "Umjetna inteligencija", summary: "Prijatelj ili neprijatelj?", img: "240_F_485241075_B97HJPtsCLaHVOMGBtNyQm6LzzZtGUmh.jpg" },
-            { title: "Inovacije", summary: "Profesor Danijel Eskeričić", img: "{49D3CF66-F233-4D20-B791-029AE6F2D89B}.png" }
-        ];
+<main id="page-artikl" class="page">
+    <div class="single-view">
+        <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i> Natrag</button>
+        <article>
+            <div class="art-category" id="ap-cat"></div>
+            <h1 class="art-title" id="ap-title"></h1>
+            <div class="art-meta"><span id="ap-author"></span> &nbsp;|&nbsp; <span id="ap-date"></span></div>
+            <img id="ap-img" src="" alt="" class="art-cover">
+            <div class="art-content" id="ap-text"></div>
+        </article>
+    </div>
+</main>
 
-        const featured = document.getElementById('featured');
-        const grid = document.getElementById('grid');
+<div class="news-bar">
+    <h3>Prati nas casopis!</h3>
+    <p>Novi clanci izlaze tjedno.</p>
+</div>
+<footer>
+    <div class="footer-inner">
+        <div class="footer-logo">P<span>@</span>T</div>
+        <p>&copy; 2026 P@T Skolski digitalni casopis.</p>
+    </div>
+</footer>
 
-        // Istaknuta priča
-        featured.innerHTML = `
-            <img src="${articles[0].img}" onerror="this.style.display='none'">
-            <div class="featured-content">
-                <h3>${articles[0].title}</h3>
-                <p>${articles[0].summary}</p>
-            </div>`;
+<script>
+const IMG = {
+    josip: "josip.jpg",
+    glas: "{FDCCFB68-A791-4365-8A26-33F019AAF1B7}.png",
+    veronika3: "Veronika 3.jpg",
+    veronika1: "Veronika - slika.jpg",
+    veronika2: "Veronika - slika 2.jpg",
+    gastro1: "IMG_0795 (1).jpeg",
+    gastro2: "IMG_0795 (2).jpeg",
+    gastro3: "IMG_0795 (3).jpeg",
+    gastro4: "IMG_0795 (4).jpeg",
+    energy: "GettyImages-1025255964.jpg",
+    prof: "{49D3CF66-F233-4D20-B791-029AE6F2D89B}.png",
+    cvjetni: "Cvjetni hodnik.jpg",
+    film1: "Slika - film.jpg",
+    film2: "Film slika 2.jpg",
+    ai: "240_F_485241075_B97HJPtsCLaHVOMGBtNyQm6LzzZtGUmh.jpg",
+    siz: "download.jpg"
+};
 
-        // Ostali članci
-        articles.forEach(art => {
-            grid.innerHTML += `
-                <div class="article-card">
-                    <img src="${art.img}" onerror="this.style.display='none'">
-                    <h3>${art.title}</h3>
-                    <p>${art.summary}</p>
-                </div>`;
-        });
-    </script>
+const articles = [
+{
+    id:1,
+    title:"To\u010dno u podne \u2014 obra\u010dun iz matematike",
+    summary:"Uspjeh na\u0161eg u\u010denika Josipa Kri\u017eanca na Matemati\u010dkom natjecanju KLOKAN \u2014 u\u0161ao u top 10%!",
+    content:`<p>Matemati\u010dko natjecanje KLOKAN odr\u017ean je 19. o\u017eujka 2026. to\u010dno u podne.</p>
+<p>U Hrvatskoj je sudjelovalo <strong>36.113 u\u010denika</strong> iz 650 osnovnih i 89 srednjih \u0161kola. Test se pisao 75 minuta u u\u010dionici A1 i imao je 100 bodova. Rezultati su stigli 29. travnja 2026.</p>
+<p>Iz na\u0161e \u0161kole natjecalo se dvadesetak u\u010denika, a na\u0161 <strong>Josip Kri\u017eanec</strong> u\u0161ao je u <strong>top 10 posto</strong>!</p>
+<div class="gallery"><img src="${IMG.josip}" alt="Josip Krizanec"></div>`,
+    category:"Na\u0161i uspjesi",
+    author:"Patrik \u017dejinski",
+    date:"29. travnja 2026.",
+    img:IMG.josip,
+    featured:true
+},
+{
+    id:2,
+    title:"Glas u\u010denika \u2014 nastava kakvu \u017eelimo",
+    summary:"U\u010denici jasno znaju \u0161to \u017eele, a \u0161to ne \u017eele od nastave. Evo \u0161to smo saznali.",
+    content:`<p>Zamolili smo u\u010denike da iskažu svoje mišljenje o nastavi — što funkcionira, a što ne.</p>
+<div class="dane-table">
+<div class="dane-col da"><div class="dane-head">DA &#10003;</div><ul class="dane-list">
+<li>Prakti\u010dnoj nastavi</li>
+<li>Samostalnom programiranju ili spajanju mre\u017ee</li>
+<li>Suradnji s tvrtkama</li>
+<li>Uva\u017eavanju mi\u0161ljenja u\u010denika</li>
+<li>Projektnim zadatcima</li>
+<li>Fleksibilnom rasporedu</li>
+</ul></div>
+<div class="dane-col ne"><div class="dane-head">NE &#10007;</div><ul class="dane-list">
+<li>Teorijskoj nastavi</li>
+<li>Pisanim provjerama znanja</li>
+<li>Tjednu opterećenom velikim brojem testova</li>
+<li>Teškim predmetima svaki dan</li>
+<li>Nastavi ex cathedra (slušanje i zapisivanje)</li>
+</ul></div>
+</div>
+<p>Poruka je jasna — u\u010denici \u017eele aktivno sudjelovati u nastavi, a ne samo sjediti i slu\u0161ati.</p>`,
+    category:"Aktualno",
+    author:"Redakcija P@T",
+    date:"5. svibnja 2026.",
+    img:IMG.glas,
+    featured:false
+},
+{
+    id:3,
+    title:"ERASMUS mobilnost \u2014 pred nama se otvara svijet",
+    summary:"Veronika Be\u0161en posjetila je Italiju i Portugal i napisala dirljiv osvrt.",
+    content:`<p>Na\u0161a <strong>Veronika Be\u0161en</strong>, u\u010denica 3.a2 razreda, posjetila je Italiju i Portugal te napisala svoje dojmove.</p>
+<div class="pullquote"><p>&#8222;Erasmus me nau\u010dio mnogim stvarima koje ne\u0107u zaboraviti i pomogao mi je prona\u0107i osobe s kojima nikad nisam mislila da \u0107u se zbli\u017eiti.&#8220;</p><cite>&#8212; Veronika Be\u0161en</cite></div>
+<p>Nikada prije nisam kro\u010dila izvan Hrvatske, osim dva jednodnevna izleta. No, kada sam na stranici \u0161kole naišla na prijavu za putovanje u Italiju, bilo je kao da mi se otvorio cijeli svijet.</p>
+<h3>Italija &#8212; razmjena u\u010denika</h3>
+<p>Tjedan dana u Italiji — pohađala sam tamošnju školu i živjela s lokalnom obitelji. Posjetila sam Sorrento i Napulj, ruševine Herkulaneja. Naučila sam o proizvodnji limoncella i kako ispeći tradicionalnu talijansku pizzu.</p>
+<div class="gallery"><img src="${IMG.veronika1}" alt="Veronika Italija"><img src="${IMG.veronika2}" alt="Veronika Portugal"></div>
+<h3>Portugal &#8212; stru\u010dna praksa</h3>
+<p>Dva tjedna u Portugalu na stru\u010dnoj praksi. Radila sam od jutra do ranog poslijepodneva, a vikendom smo obilazili druge gradove. Stekla sam korisna znanja unutar svoje struke.</p>
+<div class="gallery"><img src="${IMG.veronika3}" alt="Portugal"></div>`,
+    category:"Erasmus",
+    author:"Veronika Be\u0161en",
+    date:"12. svibnja 2026.",
+    img:IMG.veronika3,
+    featured:false
+},
+{
+    id:4,
+    title:"Dobro jesti za malo novca",
+    summary:"Mislav Karoglan testirao je 5 mjesta oko \u0161kole i donio ocjene. Evo \u0161to se ispla\u0107i!",
+    content:`<p>Ovu listu pet provjerenih adresa sastavio je <strong>Mislav Karoglan</strong>, u\u010denik 1.b1 razreda.</p>
+<div class="restaurant-list">
+<div class="restaurant-card"><div class="rest-rank">1.</div><div class="rest-info"><h4>Mlinar</h4><div class="address"><i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> Harambaši\u0107eva 31</div><div class="rest-ratings"><div class="rest-rating">Cijene: <span>2/5</span></div><div class="rest-rating">Okus: <span>3.5/5</span></div><div class="rest-rating">Vrijednost: <span>3.5/5</span></div></div><div class="rest-comment">&#8222;Fina hrana, ali ipak preskupa.&#8220;</div></div></div>
+<div class="restaurant-card"><div class="rest-rank">2.</div><div class="rest-info"><h4>Zlatno zrno</h4><div class="address"><i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> Harambaši\u0107eva 33</div><div class="rest-ratings"><div class="rest-rating">Cijene: <span>4/5</span></div><div class="rest-rating">Okus: <span>4/5</span></div><div class="rest-rating">Vrijednost: <span>4/5</span></div></div><div class="rest-comment">&#8222;Fino i nije preskupo, jako dobro za pekaru.&#8220;</div></div></div>
+<div class="restaurant-card"><div class="rest-rank">3.</div><div class="rest-info"><h4>Smash Burger</h4><div class="address"><i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> Mije Kre\u0161i\u0107a 32</div><div class="rest-ratings"><div class="rest-rating">Cijene: <span>2.5/5</span></div><div class="rest-rating">Okus: <span>4/5</span></div><div class="rest-rating">Vrijednost: <span>3/5</span></div></div><div class="rest-comment">&#8222;Fino, ali koli\u010dina hrane ne odgovara cijeni.&#8220;</div></div></div>
+<div class="restaurant-card"><div class="rest-rank">4.</div><div class="rest-info"><h4>Konzum</h4><div class="address"><i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> Trg J. F. Kennedyja</div><div class="rest-ratings"><div class="rest-rating">Cijene: <span>4/5</span></div><div class="rest-rating">Okus: <span>3/5</span></div><div class="rest-rating">Vrijednost: <span>3.5/5</span></div></div><div class="rest-comment">&#8222;Jako dobre cijene. Dobra za veliki odmor.&#8220;</div></div></div>
+<div class="restaurant-card"><div class="rest-rank">5.</div><div class="rest-info"><h4>Urban Kebab &#11088; Preporuka!</h4><div class="address"><i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> Mije Kre\u0161i\u0107a 32</div><div class="rest-ratings"><div class="rest-rating">Cijene: <span>4/5</span></div><div class="rest-rating">Okus: <span>5/5</span></div><div class="rest-rating">Vrijednost: <span>4.5/5</span></div></div><div class="rest-comment">&#8222;Ako nisi stigao ru\u010dati. Jako dobro!&#8220;</div></div></div>
+</div>
+<div class="gallery three"><img src="${IMG.gastro1}" alt=""><img src="${IMG.gastro2}" alt=""><img src="${IMG.gastro3}" alt=""></div>`,
+    category:"Školske aktivnosti",
+    author:"Mislav Karoglan",
+    date:"8. svibnja 2026.",
+    img:IMG.gastro2,
+    featured:false
+},
+{
+    id:5,
+    title:"Energetsko pi\u0107e \u2014 (ne)zdravi napitak",
+    summary:"50% u\u010denika pije energetska pi\u0107a \u2014 \u0161to pokazuje na\u0161a anketa?",
+    content:`<p>Ministarstvo zdravstva izra\u0111uje zakon kojim bi se ograni\u010dila prodaja energetskih pi\u0107a, a u tijeku je i kampanja <em>Energetska pi\u0107a nisu za mlada bi\u0107a</em>.</p>
+<p>Glavni sastojak je <strong>kofein</strong> u velikim koli\u010dinama, a uz njega i brdo \u0161e\u0107era. Osjećaj kratko traje — čim djelovanje popusti, javlja se još veći umor.</p>
+<div class="stat-grid">
+<div class="stat-box"><div class="num">50%</div><div class="label">u\u010denika pije energetska pi\u0107a</div></div>
+<div class="stat-box"><div class="num">15%</div><div class="label">pije ih svaki dan</div></div>
+<div class="stat-box"><div class="num">12h</div><div class="label">tijelu treba da o\u010disti kofein</div></div>
+</div>
+<div class="pullquote"><p>&#8222;U \u0161kolskoj kantini nisu dostupna energetska pi\u0107a!&#8220;</p><cite>&#8212; Rezultat ankete, svibanj 2026.</cite></div>
+<p>30% u\u010denika konzumira ih 2-3 puta tjedno, a 5% samo prije pisanja ispita. Energetska pi\u0107a korisna su samo u rijetkim situacijama — ali loše je što ekipa danas pretjeruje.</p>`,
+    category:"Aktualno",
+    author:"Patrik \u017dejinski i Luka \u0160trok",
+    date:"14. svibnja 2026.",
+    img:IMG.energy,
+    featured:false
+},
+{
+    id:6,
+    title:"Najprofesor: Danijel Eskeri\u010di\u0107 \u2014 ba\u0161 je chill!",
+    summary:"Proveli smo izbor i titulu najprofesora uvjerljivo je osvojio profesor elektrotehnike.",
+    content:`<p>Proveli smo izbor i titulu <strong>najprofesora</strong> uvjerljivo je osvojio profesor Danijel Eskeri\u010di\u0107.</p>
+<div class="pullquote"><p>&#8222;Najzanimljivije u elektrotehnici su elektri\u010dne instalacije i arduino elektronika.&#8220;</p><cite>&#8212; prof. Danijel Eskeri\u010di\u0107</cite></div>
+<h3>Kada ste se prvi put zainteresirali za elektrotehniku?</h3>
+<p>&#8222;Još u osnovnoj školi jer se moj tata bavio izvođenjem električnih instalacija. Podučavao me kako se spaja utičnica, prekidač i ostali elementi. Slijedom toga upisao sam elektrotehnički fakultet.&#8220;</p>
+<h3>A u\u010denici? Kako se snalaze?</h3>
+<p>&#8222;Najčešći problem je kako čitati električne sheme. Učenici moraju usvojiti teoriju koju primjenjuju na razmatranju shema. Teško je zamisliti život bez elektrotehničkih uređaja, osobito u digitalnom dobu.&#8220;</p>
+<h3>Koji biste projekt izdvojili?</h3>
+<p>&#8222;Teško je izdvojiti jer učenička mašta može svašta. Možda električna rukavica za samoobranu — elektrostantgun.&#8220;</p>
+<h3>Kako vidite budu\u0107nost elektrotehnike?</h3>
+<p>&#8222;Vidim je u bežičnom prijenosu električne energije i većoj iskoristivosti obnovljivih izvora uz očuvanje okoliša.&#8220;</p>
+<p style="font-size:.85rem;color:#888;margin-top:2rem">Razgovor vodili: Matej Dromljak, Josip Kri\u017eanec i Jakov \u0110ebro (1.b1)</p>`,
+    category:"Intervju",
+    author:"U\u010denici 1.b1",
+    date:"3. svibnja 2026.",
+    img:IMG.prof,
+    featured:false
+},
+{
+    id:7,
+    title:"Kreativnost u \u0161koli \u2014 i u kreativnosti ima matematike",
+    summary:"Razgovarali smo s profesoricom Jasnom Su\u0161ac-Pei\u010di\u0107 koja sa svojom ekipom uljep\u0161ava \u0161kolu.",
+    content:`<p>Razgovarali smo s profesoricom matematike <strong>Jasnom Su\u0161ac-Pei\u010di\u0107</strong> koja vodi Kreativnu radionicu.</p>
+<h3>Kako ste pokrenuli Kreativnu radionicu?</h3>
+<p>&#8222;Sve je počelo u jesen 2024. — sjajan projekt Srednjoškolski advent na Kennedyjevom trgu. Odmah sam se priključila jer oduvijek volim raditi rukama. Okupila se mala, ali vrijedna skupina učenica i nastavili smo ukrašavati školski prostor.&#8220;</p>
+<div class="pullquote"><p>&#8222;Najdra\u017eji mi je Cvjetni hodnik. Ba\u0161 jako uspio projekt \u2014 donio \u017eivost i s prolje\u0107em, nekako kao da je probudio optimizam.&#8220;</p><cite>&#8212; prof. Jasna Su\u0161ac-Pei\u010di\u0107</cite></div>
+<div class="gallery"><img src="${IMG.cvjetni}" alt="Cvjetni hodnik"></div>
+<h3>Matematika ili Kreativna radionica?</h3>
+<p>&#8222;Iako me matematika naučila misliti, sada, nakon više od 30 godina rada u razredu, izabrala bih — Kreativnu radionicu.&#8220;</p>
+<p>&#8222;Puno je više matematike svuda oko nas nego što smo svjesni. Rad u Kreativnoj radionici to je potvrdio: da bi nešto skladno izgledalo, toliko je potrebno mjerenja, procjene, omjera, izračuna — a upravo nas tome uči matematika.&#8220;</p>`,
+    category:"Intervju",
+    author:"Redakcija P@T",
+    date:"6. svibnja 2026.",
+    img:IMG.cvjetni,
+    featured:false
+},
+{
+    id:8,
+    title:"FILM: How it used to be \u2014 2. mjesto \u017eirija, 1. mjesto publike!",
+    summary:"Na\u0161 film osvojio je 2. mjesto \u017eirija i 1. mjesto publike na TEC natjecanju Filozofskog fakulteta.",
+    content:`<p>Na\u0161 film <em>How it used to be</em> osvojio je <strong>2. mjesto</strong> na natjecanju TEC Filozofskog fakulteta u Zagrebu.</p>
+<p>Film su snimili u\u010denici 1.b1 razreda: <strong>Mislav Karoglan, Leon Tu\u0161kan, Matej Vrban i Patrik \u017dejinski</strong>.</p>
+<div class="stat-grid" style="grid-template-columns:1fr 1fr">
+<div class="stat-box"><div class="num">2.</div><div class="label">mjesto prema odluci \u017eirija</div></div>
+<div class="stat-box"><div class="num">263</div><div class="label">glasova publike &#8212; 1. mjesto!</div></div>
+</div>
+<div class="pullquote"><p>&#8222;Bilo je zabavno! Neki od nas misle se time baviti i u budu\u0107nosti.&#8220;</p><cite>&#8212; Matej Vrban</cite></div>
+<p>Ukupno je bilo prijavljeno <strong>petnaest filmova</strong>. Prezentaciju su odli\u010dno odradili, osobito Mislav, suci su bili zadovoljni.</p>
+<div class="gallery"><img src="${IMG.film1}" alt="TEC natjecanje"><img src="${IMG.film2}" alt="Dodjela nagrada"></div>`,
+    category:"Na\u0161i uspjesi",
+    author:"Patrik \u017dejinski",
+    date:"16. svibnja 2026.",
+    img:IMG.film2,
+    featured:false
+},
+{
+    id:9,
+    title:"UI/AI \u2014 inteligentno s umjetnom inteligencijom!",
+    summary:"Umjetna inteligencija nije \u0161alabahter, nego mogu\u0107nost u\u010denja i osobnog razvoja.",
+    content:`<p>Umjetna inteligencija sve vi\u0161e ulazi u na\u0161e svakodnevne \u017eivote. Poma\u017ee li nam stvarno ili samo prepisujemo bez razumijevanja?</p>
+<div class="dane-table">
+<div class="dane-col da"><div class="dane-head">Prednosti</div><ul class="dane-list">
+<li>Brzo obja\u0161njenje nekog pojma</li>
+<li>Rje\u0161enje zadatka korak po korak</li>
+<li>Ubrzava proces u\u010denja</li>
+<li>Korisno za organizaciju vremena</li>
+</ul></div>
+<div class="dane-col ne"><div class="dane-head">Mane</div><ul class="dane-list">
+<li>Prepisivanje bez razumijevanja</li>
+<li>Smanjuje samostalno razmi\u0161ljanje</li>
+<li>Ovisnost o tehnologiji</li>
+<li>U\u010denik zapravo ni\u0161ta ne u\u010di</li>
+</ul></div>
+</div>
+<div class="pullquote"><p>&#8222;Nerealno je da \u0107e do\u0107i do potpune zabrane UI u \u0161kolama. Va\u017eno je nau\u010diti kako je koristiti na dobar na\u010din!&#8220;</p><cite>&#8212; Tia Genzi\u0107</cite></div>`,
+    category:"Aktualno",
+    author:"Tia Genzi\u0107",
+    date:"19. svibnja 2026.",
+    img:IMG.ai,
+    featured:false
+},
+{
+    id:10,
+    title:"\u0160IZ \u2014 mali predmet koji donosi velike promjene",
+    summary:"Kroz \u0160IZ u\u010denici ne raspravljaju samo o problemima, ve\u0107 aktivno rade na njihovom rje\u0161avanju.",
+    content:`<p>U na\u0161oj \u0161koli ve\u0107 <strong>\u010detiri godine</strong> provodi se \u0160IZ \u2014 aktivnost koja u\u010denicima daje priliku da izadu iz okvira klasi\u010dne nastave.</p>
+<div class="pullquote"><p>&#8222;Cilj je da ne sjedimo samo u razredu i pri\u010damo, nego da poku\u0161amo probleme stvarno rije\u0161iti.&#8220;</p><cite>&#8212; prof. Katarina Jankovi\u0107</cite></div>
+<p>\u0160IZ poti\u010de u\u010denike na razmi\u0161ljanje, istra\u017eivanje i konkretne akcije. Tijekom godina u\u010denici su se bavili razli\u010ditim temama \u2014 od kvalitete \u017eivota u \u0161koli do za\u0161tite \u017eivotinja.</p>
+<h3>Projekt ure\u0111enja \u0161kolskog atrija</h3>
+<p>U\u010denici su sami osmislili izgled prostora, prona\u0161li donacije i vlastitim radom ga uredili.</p>
+<div class="pullquote"><p>&#8222;Bili smo prljavi kao mali svinjci, ali bilo nam je super.&#8220;</p><cite>&#8212; prof. Katarina Jankovi\u0107</cite></div>
+<p>Ove godine fokus je na ovisni\u010dkim pona\u0161anjima kod mladih, posebice <strong>digitalnoj ovisnosti</strong>. U planu su edukacije i izazovi poput dana bez mobitela.</p>
+<div class="pullquote"><p>&#8222;Mladi su ti koji mogu promijeniti dru\u0161tvo, a \u0160IZ im daje priliku da to i poku\u0161aju.&#8220;</p><cite>&#8212; prof. Katarina Jankovi\u0107</cite></div>`,
+    category:"Školske aktivnosti",
+    author:"Tia Genzi\u0107 i David \u0106u\u0107a",
+    date:"20. svibnja 2026.",
+    img:IMG.siz,
+    featured:false
+}
+];
+
+const maturanti = [
+{name:"Lovro Golenko",smjer:"Tehni\u010dar za telekomunikacije \u00b7 4.a1",img:"",bio:"Tre\u0107a sam generacija svoje obitelji koja je poha\u0111ala ovu \u0161kolu. \u010cetiri godine predstavnik sam razreda u Vije\u0107u u\u010denika, a dva puta sam predstavljao \u0161kolu u Gradskoj vije\u0107nici. Sudjelovao sam na Erasmusu u Bragi.",quote:"Zabavite se! Ne postoji nikakav problem koji se ne mo\u017ee rije\u0161iti igrajući se riječima, formulama ili vlastitim mislima."},
+{name:"Ena Alaber",smjer:"Tehni\u010dar za ra\u010dunalstvo \u00b7 4.b2",img:"",bio:"U Zagreb sam do\u0161la prije tri i pol godine. Poha\u0111am i Srednju plesnu \u0161kolu Ane Maleti\u0107. Glazba ispunjava veliki dio mog \u017eivota \u2014 uz ples, sviram i pjevam.",quote:"Nikada ne propuštajte priliku za zabavu i uživajte u srednjoškolskim danima jer će jako brzo proći."},
+{name:"Dino Mehdi\u0107",smjer:"Tehni\u010dar za telekomunikacije \u00b7 4.a1",img:"",bio:"Tijekom \u0161kolovanja sudjelovao sam u \u0161to vi\u0161e \u0161kolskih projekata. U slobodno vrijeme bavim se glazbom i ugostiteljstvom.",quote:"Na srednju školu ne gledajte negativno — to je jedno od najljepših doba u životu čovjeka."},
+{name:"Josipa Klari\u0107",smjer:"Tehni\u010dar za po\u0161tanske i financijske usluge \u00b7 4.c1",img:"",bio:"Pisanjem pjesama po\u010dela sam se baviti sasvim slu\u010dajno u prvom razredu. Profesori su prepoznali moj talent i poticali me na daljnje pisanje.",quote:"Slijedite svoje snove. Odustajanje nije opcija!"},
+{name:"David-Ivan Novak",smjer:"Tehni\u010dar za ra\u010dunalstvo \u00b7 4.b2",img:"",bio:"Posebno me zanimaju programiranje, matematika i fizika. Na natjecanju Dabar plasirao sam se me\u0111u 10% najboljih. \u017delim upisati FER.",quote:"Iskoristite svaku priliku za učenje i praksu. Budite znatiželjni i ne bojite se pogrešaka."}
+];
+
+let prevPage = 'pocetna';
+
+document.addEventListener('DOMContentLoaded', () => {
+    renderHome();
+    renderAll(articles);
+    renderMaturanti();
+});
+
+function navigateTo(id) {
+    const cur = document.querySelector('.page.active');
+    if (cur && cur.id !== 'page-artikl') prevPage = cur.id.replace('page-','');
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    document.getElementById('page-'+id)?.classList.add('active');
+    document.getElementById('link-'+id)?.classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function goBack() { navigateTo(prevPage); }
+
+function renderHome() {
+    const feat = articles.find(a => a.featured) || articles[0];
+    document.getElementById('featured-container').innerHTML = `
+        <div class="featured-wrap" onclick="openArticle(${feat.id})">
+            <div class="featured-img-wrap">
+                <img src="${feat.img}" alt="${feat.title}" onerror="this.style.opacity='.2'">
+                <span class="featured-tag">Istaknuto</span>
+            </div>
+            <div class="featured-body">
+                <div class="cat">${feat.category}</div>
+                <h3>${feat.title}</h3>
+                <p>${feat.summary}</p>
+                <div class="meta">${feat.author} &nbsp;&middot;&nbsp; ${feat.date}</div>
+            </div>
+        </div>`;
+    const rest = articles.filter(a => a.id !== feat.id);
+    const lg = document.getElementById('latest-grid');
+    lg.innerHTML = '';
+    rest.forEach(a => lg.appendChild(makeCard(a)));
+}
+
+function renderAll(data) {
+    const g = document.getElementById('all-grid');
+    g.innerHTML = '';
+    if (!data.length) { g.innerHTML = '<p class="no-articles">Nema clanaka u ovoj kategoriji.</p>'; return; }
+    data.forEach(a => g.appendChild(makeCard(a)));
+}
+
+function renderMaturanti() {
+    const g = document.getElementById('maturant-grid');
+    g.innerHTML = '';
+    maturanti.forEach(m => {
+        const card = document.createElement('div');
+        card.className = 'maturant-card';
+        const imgHtml = m.img
+            ? `<img src="${m.img}" alt="${m.name}">`
+            : `<div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a1a,#2a2a2a);display:flex;align-items:center;justify-content:center;"><span style="font-family:'Playfair Display',serif;font-size:4rem;font-weight:900;color:#333">${m.name[0]}</span></div>`;
+        card.innerHTML = `<div class="maturant-img-wrap">${imgHtml}</div>
+        <div class="maturant-body">
+            <div class="maturant-name">${m.name}</div>
+            <div class="maturant-smjer">${m.smjer}</div>
+            <p class="maturant-text">${m.bio}</p>
+            <div class="maturant-quote">&#8222;${m.quote}&#8220;</div>
+        </div>`;
+        g.appendChild(card);
+    });
+}
+
+function makeCard(a) {
+    const el = document.createElement('div');
+    el.className = 'article-card';
+    el.onclick = () => openArticle(a.id);
+    el.innerHTML = `
+        <div class="card-img">
+            <img src="${a.img}" alt="${a.title}" onerror="this.style.opacity='.15'">
+            <span class="card-badge">${a.category}</span>
+        </div>
+        <div class="card-body">
+            <h3>${a.title}</h3>
+            <p>${a.summary}</p>
+            <div class="card-meta">${a.author} &nbsp;&middot;&nbsp; ${a.date}</div>
+        </div>`;
+    return el;
+}
+
+function filterArticles(cat) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.textContent.trim() === cat));
+    renderAll(cat === 'Sve' ? articles : articles.filter(a => a.category === cat));
+}
+
+function openArticle(id) {
+    const a = articles.find(x => x.id === id);
+    if (!a) return;
+    document.getElementById('ap-cat').textContent = a.category;
+    document.getElementById('ap-title').textContent = a.title;
+    document.getElementById('ap-author').textContent = 'Autor: ' + a.author;
+    document.getElementById('ap-date').textContent = a.date;
+    const img = document.getElementById('ap-img');
+    img.src = a.img;
+    img.className = 'art-cover';
+    img.onerror = () => { img.className = 'art-cover-hidden'; };
+    document.getElementById('ap-text').innerHTML = a.content;
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-artikl').classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
 </body>
 </html>
