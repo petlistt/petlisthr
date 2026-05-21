@@ -6,115 +6,82 @@
     <title>P@T | Školski Digitalni Časopis</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
         :root {
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8f9fa;
-            --bg-dark: #111111;
-            --text-main: #111111;
-            --text-muted: #666666;
-            --accent-blue: #0f2d59;
-            --border-color: #e5e5e5;
-            --radius: 12px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --bg-primary: #ffffff; --bg-secondary: #f8f9fa; --bg-dark: #111111;
+            --text-main: #111111; --text-muted: #666666; --accent-blue: #0f2d59;
+            --border-color: #e5e5e5; --radius: 12px; --transition: all 0.3s ease;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { background-color: var(--bg-primary); color: var(--text-main); line-height: 1.6; }
-        a { text-decoration: none; color: inherit; }
-        img { max-width: 100%; height: auto; display: block; }
-
-        header { background-color: rgba(255, 255, 255, 0.95); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; }
-        .logo { font-size: 2rem; font-weight: 800; letter-spacing: -1px; color: var(--bg-dark); }
+        header { border-bottom: 1px solid var(--border-color); padding: 1.5rem 2rem; position: sticky; top: 0; background: #fff; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 2rem; font-weight: 800; cursor: pointer; }
         .logo span { color: var(--accent-blue); }
-        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-        .nav-links a { font-weight: 600; font-size: 1rem; text-transform: uppercase; cursor: pointer; transition: var(--transition); position: relative; }
-        .nav-links a.active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background-color: var(--bg-dark); }
-
-        .page { display: none; }
-        .page.active { display: block; }
-        .hero { background-color: var(--bg-dark); color: #ffffff; padding: 6rem 2rem; text-align: center; border-bottom: 5px solid var(--accent-blue); }
-        .hero h1 { font-size: 4.5rem; font-weight: 800; margin-bottom: 1rem; }
-        
         .container { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
-        .section-title { font-size: 2rem; font-weight: 800; margin-bottom: 2.5rem; border-left: 5px solid var(--bg-dark); padding-left: 1rem; }
-
-        .featured-card { display: grid; grid-template-columns: 1.2fr 1fr; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius); overflow: hidden; margin-bottom: 5rem; cursor: pointer; }
-        .featured-img { width: 100%; height: 100%; object-fit: cover; }
+        .hero { background: var(--bg-dark); color: #ffffff; padding: 6rem 2rem; text-align: center; }
+        .featured-card { display: grid; grid-template-columns: 1fr 1fr; background: var(--bg-secondary); border-radius: var(--radius); overflow: hidden; margin-bottom: 4rem; cursor: pointer; }
         .featured-content { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
-        
         .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2.5rem; }
-        .article-card { background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius); overflow: hidden; cursor: pointer; }
-        .card-img-wrapper { position: relative; padding-top: 60%; }
-        .card-img-wrapper img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
-        .card-body { padding: 1.5rem; }
-
-        footer { background: var(--bg-dark); color: white; padding: 4rem 2rem; margin-top: 5rem; text-align: center; }
+        .article-card { border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.5rem; cursor: pointer; transition: var(--transition); }
+        .article-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem; }
+        footer { background: var(--bg-dark); color: white; text-align: center; padding: 3rem; margin-top: 5rem; }
     </style>
 </head>
 <body>
 
     <header>
         <nav class="nav-container">
-            <a href="#" class="logo" onclick="navigateTo('pocetna')">P<span>@</span>T</a>
-            <ul class="nav-links">
-                <li><a href="#" id="link-pocetna" class="active" onclick="navigateTo('pocetna')">Početna</a></li>
-                <li><a href="#" id="link-clanci" onclick="navigateTo('clanci')">Članci</a></li>
-            </ul>
+            <div class="logo" onclick="window.location.reload()">P<span>@</span>T</div>
         </nav>
     </header>
 
-    <main id="page-pocetna" class="page active">
-        <section class="hero"><h1>P@T</h1></section>
-        <section class="container">
-            <h2 class="section-title">Istaknuta Priča</h2>
-            <div id="featured-container"></div>
-            <h2 class="section-title">Najnoviji Članci</h2>
-            <div class="articles-grid" id="latest-articles-grid"></div>
-        </section>
-    </main>
+    <main class="container">
+        <section class="hero"><h1>P@T</h1><p>Digitalni časopis naše škole.</p></section>
+        
+        <h2>Istaknuta priča</h2>
+        <div id="featured" class="featured-card"></div>
 
-    <main id="page-clanci" class="page">
-        <section class="container">
-            <h2 class="section-title">Svi Članci</h2>
-            <div class="articles-grid" id="all-articles-grid"></div>
-        </section>
+        <h2>Svi članci</h2>
+        <div id="grid" class="articles-grid" style="margin-top: 2rem;"></div>
     </main>
 
     <footer><p>© 2026 Školski digitalni časopis P@T.</p></footer>
 
     <script>
         const articles = [
-            { id: 1, title: "Točno u podne", summary: "Uspjeh na natjecanju KLOKAN", img: "josip.jpg", category: "Naši uspjesi", featured: true },
-            { id: 2, title: "Školski stres", summary: "Kako preživjeti kraj godine", img: "Slika - stres.jpg", category: "Iza klupa" },
-            { id: 3, title: "Erasmus+ Italija", summary: "Rimska avantura", img: "Veronika 3.jpg", category: "Školske aktivnosti" },
-            { id: 4, title: "Gastro Vodič", summary: "Mlinar vs Konzum", img: "IMG_0795 (1).jpeg", category: "Aktualno" }
+            { title: "Točno u podne", summary: "Obračun iz matematike", img: "josip.jpg" },
+            { title: "Školski stres", summary: "Kako preživjeti kraj godine", img: "Slika - stres.jpg" },
+            { title: "Erasmus+ Italija", summary: "Rimska avantura", img: "Veronika 3.jpg" },
+            { title: "Gastro Vodič", summary: "Mlinar vs Konzum", img: "IMG_0795 (1).jpeg" },
+            { title: "Energetska pića", summary: "Opasnost u limenkama", img: "GettyImages-1025255964.jpg" },
+            { title: "Cvjetni hodnik", summary: "Kreativnost na djelu", img: "Cvjetni hodnik.jpg" },
+            { title: "Filmska skupina", summary: "Novi hit u nastajanju", img: "Slika - film.jpg" },
+            { title: "Umjetna inteligencija", summary: "Prijatelj ili neprijatelj?", img: "240_F_485241075_B97HJPtsCLaHVOMGBtNyQm6LzzZtGUmh.jpg" },
+            { title: "Inovacije", summary: "Profesor Danijel Eskeričić", img: "{49D3CF66-F233-4D20-B791-029AE6F2D89B}.png" }
         ];
 
-        function navigateTo(pageId) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById('page-' + pageId).classList.add('active');
-            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-            document.getElementById('link-' + pageId).classList.add('active');
-        }
+        const featured = document.getElementById('featured');
+        const grid = document.getElementById('grid');
 
-        function render() {
-            const featuredContainer = document.getElementById('featured-container');
-            const latestGrid = document.getElementById('latest-articles-grid');
-            const allGrid = document.getElementById('all-articles-grid');
-            
-            const featured = articles.find(a => a.featured);
-            featuredContainer.innerHTML = `<div class="featured-card"><img src="${featured.img}" class="featured-img"><div class="featured-content"><h3>${featured.title}</h3><p>${featured.summary}</p></div></div>`;
-            
-            articles.forEach(art => {
-                const card = `<div class="article-card"><div class="card-img-wrapper"><img src="${art.img}" alt="${art.title}"></div><div class="card-body"><h3>${art.title}</h3><p>${art.summary}</p></div></div>`;
-                allGrid.innerHTML += card;
-                if(articles.indexOf(art) < 3) latestGrid.innerHTML += card;
-            });
-        }
-        render();
+        // Istaknuta priča
+        featured.innerHTML = `
+            <img src="${articles[0].img}" onerror="this.style.display='none'">
+            <div class="featured-content">
+                <h3>${articles[0].title}</h3>
+                <p>${articles[0].summary}</p>
+            </div>`;
+
+        // Ostali članci
+        articles.forEach(art => {
+            grid.innerHTML += `
+                <div class="article-card">
+                    <img src="${art.img}" onerror="this.style.display='none'">
+                    <h3>${art.title}</h3>
+                    <p>${art.summary}</p>
+                </div>`;
+        });
     </script>
 </body>
 </html>
