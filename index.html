@@ -107,6 +107,20 @@
         .pullquote{border-left:4px solid var(--accent);padding:1.25rem 1.5rem;margin:2rem 0;background:var(--white);border-radius:0 8px 8px 0}
         .pullquote p{font-family:'Playfair Display',serif;font-size:1.3rem;font-style:italic;color:#333;margin:0 0 .5rem}
         .pullquote cite{font-size:.82rem;color:#888}
+
+        .about-gallery{margin:3rem 0}
+        .about-gallery-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;margin-bottom:1.5rem}
+        .gallery-slider{position:relative;overflow:hidden;border-radius:var(--radius)}
+        .gallery-track{display:flex;transition:transform .4s cubic-bezier(.4,0,.2,1)}
+        .gallery-track img{min-width:100%;height:420px;object-fit:cover;border-radius:var(--radius)}
+        .gallery-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.55);color:#fff;border:none;width:44px;height:44px;border-radius:50%;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--ease);z-index:2}
+        .gallery-btn:hover{background:var(--accent)}
+        .gallery-btn.prev{left:1rem}
+        .gallery-btn.next{right:1rem}
+        .gallery-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1rem}
+        .gallery-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:var(--ease)}
+        .gallery-dot.active{background:var(--accent)}
+        .gallery-caption{text-align:center;font-size:.82rem;color:#999;margin-top:.75rem;font-style:italic}
         .about-hero{background:var(--dark);color:#fff;padding:5rem 2rem;text-align:center;position:relative;overflow:hidden}
         .about-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(200,16,46,.22) 0%,transparent 65%)}
         .about-hero-inner{position:relative;max-width:720px;margin:0 auto}
@@ -183,7 +197,7 @@
             <li><a id="link-pocetna" class="active" onclick="navigateTo('pocetna')">Početna</a></li>
             <li><a id="link-clanci" onclick="navigateTo('clanci')">Članci</a></li>
             <li><a id="link-maturanti" onclick="navigateTo('maturanti')">Maturanti</a></li>
-            <li><a id="link-onama" onclick="navigateTo('onama')">O Nama</a></li>
+            <li><a id="link-onama" onclick="navigateTo('onama')">Uredništvo</a></li>
         </ul>
         <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
     </nav>
@@ -195,7 +209,7 @@
     <a id="mlink-pocetna" class="active" onclick="navigateTo('pocetna');toggleMenu()">Početna</a>
     <a id="mlink-clanci" onclick="navigateTo('clanci');toggleMenu()">Članci</a>
     <a id="mlink-maturanti" onclick="navigateTo('maturanti');toggleMenu()">Maturanti</a>
-    <a id="mlink-onama" onclick="navigateTo('onama');toggleMenu()">O Nama</a>
+    <a id="mlink-onama" onclick="navigateTo('onama');toggleMenu()">Uredništvo</a>
 </div>
 
 <!-- POČETNA -->
@@ -303,7 +317,28 @@
             </div>
         </div>
 
-        <hr class="about-divider">
+
+        <hr class="about-divider" style="margin:3rem 0">
+
+        <div class="about-gallery">
+            <div class="section-label">Arhiva</div>
+            <div class="about-gallery-title">Iz starih dana — P@T 2003. i naš razred</div>
+            <div class="gallery-slider" id="aboutSlider">
+                <div class="gallery-track" id="aboutTrack">
+                    <img src="pet1.png" alt="P@T 2003. — stari broj">
+                    <img src="pet2.png" alt="P@T 2003. — stari broj">
+                    <img src="razredslika.png" alt="Razred 1B1 — ekipa koja je radila časopis">
+                </div>
+                <button class="gallery-btn prev" onclick="sliderMove(-1)">&#8592;</button>
+                <button class="gallery-btn next" onclick="sliderMove(1)">&#8594;</button>
+            </div>
+            <div class="gallery-dots">
+                <div class="gallery-dot active" onclick="sliderGoto(0)"></div>
+                <div class="gallery-dot" onclick="sliderGoto(1)"></div>
+                <div class="gallery-dot" onclick="sliderGoto(2)"></div>
+            </div>
+            <div class="gallery-caption" id="aboutCaption">P@T 2003. — stari broj</div>
+        </div>
 
         <div class="team-section">
             <div class="section-label">Redakcija</div>
@@ -610,7 +645,7 @@ const articles = [
 <h3>Navijanje i pobjednici</h3>
 <p>Utakmice se nisu pratile samo oko igrališta, već i s prozora školskih učionica. Priznajemo — tih je dana koncentracija na nastavi ipak malo popustila.</p>
 <p>U velikom finalu snage su odmjerili <strong>1.a2</strong> i <strong>4.a1</strong> razred. Apsolutno iznenađenje turnira bila je <strong>pobjeda prvaša</strong>! Četvrtaci su u utakmicu ušli kao veliki favoriti, pa im je ovaj poraz na samom kraju srednjaškolskog školovanja prilično teško pao.</p>
-<div class="gallery"><img src="nogomet.jpg" alt="Nogometni turnir"></div>
+<div class="gallery"><img src="nogomet.png" alt="Nogometni turnir"></div>
 <h3>Presudno je ipak bilo iskustvo</h3>
 <p>Nakon službenog dijela uslijedila je tradicionalna revijalna utakmica: učenici protiv profesora. Profesori su ove godine ugodno iznenadili — nadigrali su ekipu trećaša nakon napetog raspucavanja s bijele točke. Iskustvo je na kraju ipak presudilo!</p>
 <h3>Više od igre</h3>
@@ -618,7 +653,7 @@ const articles = [
     category:"Školske aktivnosti",
     author:"Nogometna ekipa 1.b1",
     date:"22. svibnja 2026.",
-    img:"nogomet.jpg",
+    img:"nogomet.png",
     featured:false
 }
 ];
@@ -767,6 +802,22 @@ function openArticle(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-artikl').classList.add('active');
     window.scrollTo({top:0,behavior:'smooth'});
+}
+
+let sliderIndex = 0;
+const sliderCaptions = ["P@T 2003. — stari broj", "P@T 2003. — stari broj", "Razred 1B1 — ekipa koja je radila časopis"];
+
+function sliderMove(dir) {
+    const total = 3;
+    sliderIndex = (sliderIndex + dir + total) % total;
+    sliderGoto(sliderIndex);
+}
+
+function sliderGoto(i) {
+    sliderIndex = i;
+    document.getElementById('aboutTrack').style.transform = `translateX(-${i * 100}%)`;
+    document.querySelectorAll('.gallery-dot').forEach((d, idx) => d.classList.toggle('active', idx === i));
+    document.getElementById('aboutCaption').textContent = sliderCaptions[i];
 }
 
 function toggleMenu() {
