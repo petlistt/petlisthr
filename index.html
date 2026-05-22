@@ -19,6 +19,13 @@
         .nav-links{display:flex;gap:2rem;list-style:none}
         .nav-links a{font-weight:600;font-size:.85rem;text-transform:uppercase;letter-spacing:1px;padding-bottom:3px;border-bottom:2px solid transparent;transition:var(--ease);cursor:pointer}
         .nav-links a:hover,.nav-links a.active{border-bottom-color:var(--accent);color:var(--accent)}
+        .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+        .hamburger span{display:block;width:24px;height:2px;background:var(--dark);transition:var(--ease)}
+        .mobile-menu{display:none;position:fixed;inset:0;background:var(--white);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+        .mobile-menu.open{display:flex}
+        .mobile-menu a{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;cursor:pointer;color:var(--dark);transition:var(--ease)}
+        .mobile-menu a:hover,.mobile-menu a.active{color:var(--accent)}
+        .mobile-close{position:absolute;top:1.5rem;right:1.5rem;font-size:2rem;cursor:pointer;color:var(--dark);background:none;border:none;font-family:'DM Sans',sans-serif}
         .page{display:none;animation:fadeUp .4s ease;min-height:80vh}
         .page.active{display:block}
         @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
@@ -163,7 +170,8 @@
             .dane-table{grid-template-columns:1fr}
             .stat-grid{grid-template-columns:1fr 1fr}
             .art-content .gallery,.art-content .gallery.three{grid-template-columns:1fr}
-            .nav-links{gap:1rem}
+            .nav-links{display:none}
+            .hamburger{display:flex}
         }
     </style>
 </head>
@@ -177,8 +185,18 @@
             <li><a id="link-maturanti" onclick="navigateTo('maturanti')">Maturanti</a></li>
             <li><a id="link-onama" onclick="navigateTo('onama')">O Nama</a></li>
         </ul>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
     </nav>
 </header>
+
+<!-- MOBILNI MENU -->
+<div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-close" onclick="toggleMenu()">&times;</button>
+    <a id="mlink-pocetna" class="active" onclick="navigateTo('pocetna');toggleMenu()">Početna</a>
+    <a id="mlink-clanci" onclick="navigateTo('clanci');toggleMenu()">Članci</a>
+    <a id="mlink-maturanti" onclick="navigateTo('maturanti');toggleMenu()">Maturanti</a>
+    <a id="mlink-onama" onclick="navigateTo('onama');toggleMenu()">O Nama</a>
+</div>
 
 <!-- POČETNA -->
 <main id="page-pocetna" class="page active">
@@ -582,6 +600,26 @@ const articles = [
     date:"22. svibnja 2026.",
     img:"download.jpg",
     featured:false
+},
+{
+    id:11,
+    title:"Nogometni turnir — najvažnija sporedna stvar u školi",
+    summary:"Utakmice između razreda uoči Dana škole donijele su uzbuđenje, iznenađenja i nezaboravne uspomene.",
+    content:`<p>Nogometne utakmice između razreda uoči i za Dan škole najvažniji su događaj ove školske godine. Tada se mijenja raspoloženje cijele škole: šušur, uzbuđenje i neka posebna energija zavladaju svim školskim prostorima.</p>
+<p>Turnir je bio profesionalno organiziran, pa ga se ne bi postidio ni onaj na legendarnoj Kutiji šibica. Ekipa trećeg razreda na kraju je diskvalificirana s turnira zbog nesportskog ponašanja.</p>
+<h3>Navijanje i pobjednici</h3>
+<p>Utakmice se nisu pratile samo oko igrališta, već i s prozora školskih učionica. Priznajemo — tih je dana koncentracija na nastavi ipak malo popustila.</p>
+<p>U velikom finalu snage su odmjerili <strong>1.a2</strong> i <strong>4.a1</strong> razred. Apsolutno iznenađenje turnira bila je <strong>pobjeda prvaša</strong>! Četvrtaci su u utakmicu ušli kao veliki favoriti, pa im je ovaj poraz na samom kraju srednjaškolskog školovanja prilično teško pao.</p>
+<div class="gallery"><img src="nogomet.jpg" alt="Nogometni turnir"></div>
+<h3>Presudno je ipak bilo iskustvo</h3>
+<p>Nakon službenog dijela uslijedila je tradicionalna revijalna utakmica: učenici protiv profesora. Profesori su ove godine ugodno iznenadili — nadigrali su ekipu trećaša nakon napetog raspucavanja s bijele točke. Iskustvo je na kraju ipak presudilo!</p>
+<h3>Više od igre</h3>
+<p>Nogometni turnir spaja učenike, učenike i profesore, budi razredni ponos i jača zajedništvo. Na kraju, rezultat je manje bitan — ono što ostaje su osjećaj pripadnosti školi i uspomene s prijateljima iz školskih klupa.</p>`,
+    category:"Školske aktivnosti",
+    author:"Nogometna ekipa 1.b1",
+    date:"22. svibnja 2026.",
+    img:"nogomet.jpg",
+    featured:false
 }
 ];
 
@@ -729,6 +767,10 @@ function openArticle(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-artikl').classList.add('active');
     window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function toggleMenu() {
+    document.getElementById('mobile-menu').classList.toggle('open');
 }
 </script>
 </body>
