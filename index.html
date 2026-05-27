@@ -1,33 +1,5 @@
 <!DOCTYPE html>
-<htm
-{
-    id:4,
-    title:"Kako preživjeti stresni tjedan",
-    summary:"Pitali smo učenike 1.b1 kako se nose s testnim tjednom — odgovori su iskreni, duhoviti i mudri.",
-    content:`<p>Pitali smo učenike našeg razreda kako preživljavaju stresni testni tjedan. Evo što su rekli:</p>
-<div class="pullquote"><p><em>Učiti malo, dovoljno spavati i uzimati pauze da se ne iscrpim.</em></p><cite>&#8212; Luka Štrok</cite></div>
-<div class="pullquote"><p><em>Varanje je samo kad te ulove.</em></p><cite>&#8212; Jakov Đebro</cite></div>
-<div class="pullquote"><p><em>Preživi testni tjedan tako da učiš pomalo svaki dan i ostaneš smiren.</em></p><cite>&#8212; Matija Božić</cite></div>
-<div class="pullquote"><p><em>Preživjet ću testni tjedan; samo treba dobro rasporediti učenje i ne odustati.</em></p><cite>&#8212; Maro Virovićević</cite></div>
-<div class="pullquote"><p><em>Preživljavam testni tjedan tako da učim više nego inače i uzimam kraće odmore.</em></p><cite>&#8212; Matej Vrban</cite></div>
-<div class="pullquote"><p><em>Učim dva sata dnevno.</em></p><cite>&#8212; Josip Križanec</cite></div>
-<div class="pullquote"><p><em>Preživljavam ga u stilu 'Nema predaje'.</em></p><cite>&#8212; Patrik Žejinski</cite></div>
-<div class="pullquote"><p><em>Testni tjedan ću preživjeti tako da učim dok ne naučim.</em></p><cite>&#8212; Kristijan Pralas</cite></div>
-<div class="pullquote"><p><em>Preživljavam testni tjedan tako da rasporedim gradivo, pijem više vode nego kave, radim pauze i ne paničarim... osim kad baš moram. I svaki dan ponovim sebi: 'Bit će dobro, samo nastavi.'</em></p><cite>&#8212; David Ćuća</cite></div>
-<div class="pullquote"><p><em>Testni tjedan preživljavam tako da hvatam krivine.</em></p><cite>&#8212; Mihael Martinčević</cite></div>
-<div class="pullquote"><p><em>Ma samo idem korak po korak i govorim si da će ovaj tjedan nekako proći.</em></p><cite>&#8212; Petar Galić</cite></div>
-<div class="pullquote"><p><em>Uči tri do pet dana unaprijed, uz redovite pauze i dovoljno sna.</em></p><cite>&#8212; Leon Tuškan</cite></div>
-<div class="pullquote"><p><em>Slušam glazbu da se fokusiram.</em></p><cite>&#8212; David Sitar</cite></div>
-<div class="pullquote"><p><em>Učim svaki dan pomalo i spavam.</em></p><cite>&#8212; Gabrijel Kelava</cite></div>
-<div class="pullquote"><p><em>Testni tjedan doživljavam slično kao i svaki drugi, uz dodatnu dozu stresa i češće učenje.</em></p><cite>&#8212; Tia Genzić</cite></div>
-<div class="pullquote"><p><em>Nema veze, jednom se živi.</em></p><cite>&#8212; Matej Dromljak</cite></div>
-<div class="pullquote"><p><em>Uvijek učim dan prije ispita i molim Boga za prolaz.</em></p><cite>&#8212; Mihael Tomo Tomkić</cite></div>`,
-    category:"Aktualno",
-    author:"Redakcija P@T",
-    date:"22. svibnja 2026.",
-    img:"https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=800&q=80",
-    featured:false
-},l lang="hr">
+<html lang="hr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,17 +41,22 @@
         .container{max-width:1200px;margin:0 auto;padding:4rem 2rem}
         .section-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:.4rem}
         .section-title{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;margin-bottom:2.5rem;letter-spacing:-.5px}
-        .featured-wrap{display:grid;grid-template-columns:1.4fr 1fr;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:5rem;cursor:pointer;background:var(--white);transition:var(--ease)}
-        .featured-wrap:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.08)}
-        .featured-img-wrap{position:relative;overflow:hidden}
-        .featured-img-wrap img{width:100%;height:100%;min-height:420px;object-fit:cover;transition:transform .6s ease}
-        .featured-wrap:hover .featured-img-wrap img{transform:scale(1.04)}
-        .featured-tag{position:absolute;top:1.5rem;left:1.5rem;background:var(--accent);color:#fff;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:.4rem .8rem;border-radius:3px}
-        .featured-body{padding:3rem;display:flex;flex-direction:column;justify-content:center;background:var(--dark);color:#fff}
-        .featured-body .cat{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:1rem}
-        .featured-body h3{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;line-height:1.2;margin-bottom:1rem}
-        .featured-body p{color:#999;font-size:.95rem;margin-bottom:1.5rem}
-        .featured-body .meta{font-size:.8rem;color:#555}
+
+        /* HERO SLIDESHOW */
+        .hero-slideshow{position:relative;width:100%;height:520px;overflow:hidden;background:#000;margin-bottom:5rem;border-radius:var(--radius)}
+        .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity .8s ease;display:flex;align-items:center;justify-content:center}
+        .hero-slide.active{opacity:1}
+        .hero-slide img{width:100%;height:100%;object-fit:cover;filter:brightness(.55)}
+        .hero-slide-label{position:absolute;bottom:0;left:0;right:0;padding:2rem;background:linear-gradient(transparent,rgba(0,0,0,.7));color:#fff;text-align:center}
+        .hero-slide-label p{font-size:.9rem;color:#ccc;letter-spacing:1px}
+        .hs-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1rem;margin-bottom:1rem}
+        .hs-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:var(--ease)}
+        .hs-dot.active{background:var(--accent)}
+        .hs-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);color:#fff;border:none;width:44px;height:44px;border-radius:50%;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--ease);z-index:2}
+        .hs-btn:hover{background:var(--accent)}
+        .hs-btn.prev{left:1rem}
+        .hs-btn.next{right:1rem}
+
         .articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem}
         .article-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:var(--ease);display:flex;flex-direction:column}
         .article-card:hover{transform:translateY(-4px);box-shadow:0 15px 35px rgba(0,0,0,.07)}
@@ -135,6 +112,14 @@
         .pullquote{border-left:4px solid var(--accent);padding:1.25rem 1.5rem;margin:2rem 0;background:var(--white);border-radius:0 8px 8px 0}
         .pullquote p{font-family:'Playfair Display',serif;font-size:1.3rem;font-style:italic;color:#333;margin:0 0 .5rem}
         .pullquote cite{font-size:.82rem;color:#888}
+
+        /* CITATI TIMELINE - članak 4 */
+        .quotes-timeline{position:relative;margin:2rem 0;padding-left:2rem}
+        .quotes-timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--accent),var(--accent2))}
+        .qt-item{position:relative;margin-bottom:2rem;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.5rem}
+        .qt-item::before{content:'';position:absolute;left:-2.55rem;top:1.2rem;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--white);box-shadow:0 0 0 2px var(--accent)}
+        .qt-item blockquote{font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:#333;margin-bottom:.5rem}
+        .qt-item cite{font-size:.82rem;color:#888;font-weight:600}
 
         .about-gallery{margin:3rem 0}
         .about-gallery-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;margin-bottom:1.5rem}
@@ -204,8 +189,7 @@
         .no-articles{grid-column:1/-1;text-align:center;padding:3rem;color:#999;font-style:italic}
         @media(max-width:768px){
             .hero h1{font-size:3.5rem}
-            .featured-wrap{grid-template-columns:1fr}
-            .featured-img-wrap img{min-height:260px}
+            .hero-slideshow{height:320px}
             .about-story{grid-template-columns:1fr}
             .about-hero h2{font-size:2.5rem}
             .art-title{font-size:2rem}
@@ -231,7 +215,6 @@
     </nav>
 </header>
 
-<!-- MOBILNI MENU -->
 <div class="mobile-menu" id="mobile-menu">
     <button class="mobile-close" onclick="toggleMenu()">&times;</button>
     <a id="mlink-pocetna" class="active" onclick="navigateTo('pocetna');toggleMenu()">Početna</a>
@@ -255,23 +238,32 @@
     </section>
     <section class="container">
         <div class="section-label">Istaknuto</div>
-        <div id="hero-slider" style="margin-bottom:5rem">
-            <div class="gallery-slider">
-                <div class="gallery-track" id="heroTrack">
-                    <img src="vrece.png" alt="Vreće" style="min-width:100%;height:480px;object-fit:cover;border-radius:var(--radius)">
-                    <img src="ucionica.png" alt="Učionica" style="min-width:100%;height:480px;object-fit:cover;border-radius:var(--radius)">
-                    <img src="profesori.png" alt="Profesori" style="min-width:100%;height:480px;object-fit:cover;border-radius:var(--radius)">
-                </div>
-                <button class="gallery-btn prev" onclick="heroMove(-1)">&#8592;</button>
-                <button class="gallery-btn next" onclick="heroMove(1)">&#8594;</button>
+        <div class="section-title">Istaknuto</div>
+
+        <!-- HERO SLIDESHOW umjesto featured -->
+        <div class="hero-slideshow" id="heroSlideshow">
+            <div class="hero-slide active">
+                <img src="vrece.png" alt="P@T istaknuto" onerror="this.style.opacity='.15'">
+                <div class="hero-slide-label"><p>Školski digitalni časopis &middot; Razred 1B1</p></div>
             </div>
-            <div class="gallery-dots" style="margin-top:1rem">
-                <div class="gallery-dot active" onclick="heroGoto(0)"></div>
-                <div class="gallery-dot" onclick="heroGoto(1)"></div>
-                <div class="gallery-dot" onclick="heroGoto(2)"></div>
+            <div class="hero-slide">
+                <img src="ucionica.png" alt="Učionica" onerror="this.style.opacity='.15'">
+                <div class="hero-slide-label"><p>Iz naše učionice &middot; 1B1</p></div>
             </div>
+            <div class="hero-slide">
+                <img src="profesori.png" alt="Profesori" onerror="this.style.opacity='.15'">
+                <div class="hero-slide-label"><p>Naši profesori &middot; Školska godina 2025./2026.</p></div>
+            </div>
+            <button class="hs-btn prev" onclick="hsPrev()">&#8592;</button>
+            <button class="hs-btn next" onclick="hsNext()">&#8594;</button>
         </div>
-        <div class="section-label" style="margin-top:5rem">Sve priče</div>
+        <div class="hs-dots">
+            <div class="hs-dot active" onclick="hsGoto(0)"></div>
+            <div class="hs-dot" onclick="hsGoto(1)"></div>
+            <div class="hs-dot" onclick="hsGoto(2)"></div>
+        </div>
+
+        <div class="section-label" style="margin-top:4rem">Sve priče</div>
         <div class="section-title">Najnoviji Članci</div>
         <div class="articles-grid" id="latest-grid"></div>
     </section>
@@ -311,7 +303,7 @@
             <div class="section-label" style="color:var(--accent);margin-bottom:1rem">Tko smo mi</div>
             <h2>O Časopisu <span>P@T</span></h2>
             <p class="subtitle">Digitalci &mdash; TSRM to je to</p>
-            <p class="about-tagline">Novine razreda 1.b1</p>
+            <p class="about-tagline">Novine razreda 1B1</p>
         </div>
     </section>
 
@@ -319,12 +311,11 @@
         <div class="about-story">
             <div class="about-story-text">
                 <h3>Naša priča</h3>
-                <p>Jeste li znali da se prvi i jedini školski list naše škole zvao P@T? Do sada su izašla samo dva broja &mdash; prvi 2003., a drugi 2004. godine. Nakon dugog niza godina, došlo je vrijeme za novi početak.</p>
-                <p>Sve je započelo jednostavnom željom učenika 1.b1 razreda. Htjeli smo vježbati pisanje, naučiti kako pravilno poslati e-mail te kako napisati novinski članak, intervju i osvrt. Na satu razrednika odabrali smo najzanimljivije teme &mdash; od školskih događanja do aktualnih tema poput umjetne inteligencije i energetskih pića&hellip;</p>
-                <h3>Zašto baš P@T?</h3>
-                <p>Prvo uredništvo iz 2003. godine objasnilo je da ime asocira na skraćeni naziv škole, ali i na peticu &mdash; ocjenu koju svi najviše priželjkuju. Nova generacija P@T-ovaca dodaje kako znak @ u sredini predstavlja digitalno doba, dok slova P i T ujedinjuju prvo slovo starog i prvo slovo novog naziva škole. Osim toga, sam izgovor imena <em>pet</em> sve učenike odmah asocira na petak &mdash; najdraži dan u tjednu!</p>
+                <p>Jeste li znali da se prvi i jedini školski list naše škole zvao p@t? Do sada su izašla samo dva broja – prvi 2003., a drugi 2004. godine. Nakon dugog niza godina, došlo je vrijeme za novi početak.</p>
+                <p>Sve je započelo jednostavnom željom učenika 1.b1 razreda. Htjeli smo vježbati pisanje, naučiti kako pravilno poslati e-mail te kako napisati novinski članak, intervju i osvrt. Na satu razrednika odabrali smo najzanimljivije teme – od školskih događanja do aktualnih tema poput umjetne inteligencije i energetskih pića…</p>
+                <p><strong>Zašto baš p@t?</strong> Prvo uredništvo iz 2003. godine objasnilo je da ime asocira na skraćeni naziv škole, ali i na peticu – ocjenu koju svi najviše priželjkuju. Nova generacija p@t-ovaca dodaje kako znak @ u sredini predstavlja digitalno doba, dok slova p i t ujedinjuju prvo slovo starog i prvo slovo novog naziva škole. Osim toga, sam izgovor imena pet sve učenike odmah asocira na petak – najdraži dan u tjednu!</p>
                 <p>Veseli nas što je ovaj, treći broj, rezultat zajedničkog rada našeg razreda. Šaljite nam svoje prijedloge, fotografije i članke te nam se pridružite u stvaranju idućeg broja.</p>
-                <p style="font-size:.88rem;color:#888;margin-top:1.5rem"><em>Učenici 1.b1 razreda</em></p>
+                <div class="highlight">Učenici 1.b1 razreda</div>
             </div>
             <div>
                 <div class="about-facts">
@@ -347,7 +338,7 @@
                 </div>
                 <div class="origin-box">
                     <h4>Potraga za imenom</h4>
-                    <p>Razmišljali smo o tri imena&hellip; i onda smo otkrili P@T.</p>
+                    <p>Razmišljali smo o tri imenima prije nego smo otkrili p@t.</p>
                     <div class="origin-flow">
                         <span class="origin-chip">Digitalaci</span>
                         <span class="origin-arrow">&#8594;</span>
@@ -355,11 +346,10 @@
                         <span class="origin-arrow">&#8594;</span>
                         <span class="origin-chip final">P@T</span>
                     </div>
-                    <p style="margin-top:1rem">Originalni list nastao je 2003. i mi ga nastavljamo 2026.</p>
+                    <p style="margin-top:1rem">List <strong>P@T</strong> nastao je 2003. i mi ga nastavljamo 2026...</p>
                 </div>
             </div>
         </div>
-
 
         <hr class="about-divider" style="margin:3rem 0">
 
@@ -368,9 +358,9 @@
             <div class="about-gallery-title">Iz starih dana — P@T 2003. i naš razred</div>
             <div class="gallery-slider" id="aboutSlider">
                 <div class="gallery-track" id="aboutTrack">
-                    <img src="pet1.png" alt="P@T 2003. — stari broj">
-                    <img src="pet2.png" alt="P@T 2003. — stari broj">
-                    <img src="razredslika.png" alt="Razred 1B1 — ekipa koja je radila časopis">
+                    <img src="pet1.png" alt="P@T 2003. — stari broj" onerror="this.style.opacity='.15'">
+                    <img src="pet2.png" alt="P@T 2003. — stari broj" onerror="this.style.opacity='.15'">
+                    <img src="razredslika.png" alt="Razred 1B1 — ekipa koja je radila časopis" onerror="this.style.opacity='.15'">
                 </div>
                 <button class="gallery-btn prev" onclick="sliderMove(-1)">&#8592;</button>
                 <button class="gallery-btn next" onclick="sliderMove(1)">&#8594;</button>
@@ -393,7 +383,7 @@
                     <div class="t-name">Matija Božić</div>
                     <div class="t-role">Tehnički urednik</div>
                 </div>
-<div class="team-card-new">
+                <div class="team-card-new">
                     <div class="av">P</div>
                     <div class="t-name">Patrik Zejinski</div>
                     <div class="t-role">Autor</div>
@@ -411,7 +401,7 @@
                 <div class="team-card-new">
                     <div class="av">V</div>
                     <div class="t-name">Veronika Bešen</div>
-                    <div class="t-role">Gost &middot; Erasmus</div>
+                    <div class="t-role">Autorica &middot; Erasmus</div>
                 </div>
                 <div class="team-card-new">
                     <div class="av">T</div>
@@ -431,7 +421,7 @@
                 <div class="team-card-new">
                     <div class="av">M</div>
                     <div class="t-name">Mislav Karoglan</div>
-                    <div class="t-role">Autor</div>
+                    <div class="t-role">Autor &middot; Gastro</div>
                 </div>
                 <div class="team-card-new">
                     <div class="av" style="font-size:.9rem">1B1</div>
@@ -474,8 +464,8 @@ const MATURANT_BASE = "";
 const articles = [
 {
     id:1,
-    title:"Točno u podne \u2014 obračun iz matematike",
-    summary:"Uspjeh našeg učenika Josipa Križanca na Matematičkom natjecanju KLOKAN \u2014 ušao u top 10%!",
+    title:"Točno u podne — obračun iz matematike",
+    summary:"Uspjeh našeg učenika Josipa Križanca na Matematičkom natjecanju KLOKAN — ušao u top 10%!",
     content:`<p>Matematičko natjecanje KLOKAN održano je 19. ožujka 2026. točno u podne.</p>
 <p>U Hrvatskoj je sudjelovalo <strong>36.113 učenika</strong> iz 650 osnovnih i 89 srednjih škola. Test se pisao 75 minuta u učionici A1 i imao je 100 bodova. Rezultati su stigli 29. travnja 2026.</p>
 <p>Iz naše škole natjecalo se dvadesetak učenika, a naš <strong>Josip Križanec</strong> ušao je u <strong>top 10 posto</strong>!</p>`,
@@ -483,13 +473,13 @@ const articles = [
     author:"Autor: Patrik Žejinski",
     date:"22. svibnja 2026.",
     img:"josip.jpg",
-    featured:true
+    featured:false
 },
 {
     id:2,
-    title:"Glas učenika \u2014 nastava kakvu želimo",
+    title:"Glas učenika — nastava kakvu želimo",
     summary:"Učenici jasno znaju što žele, a što ne žele od nastave. Evo što smo saznali.",
-    content:`<p>Zamolili smo učenike da iskažu svoje mišljenje o nastavi \u2014 što funkcionira, a što ne.</p>
+    content:`<p>Zamolili smo učenike da iskažu svoje mišljenje o nastavi — što funkcionira, a što ne.</p>
 <div class="gallery" style="margin-bottom:2rem"><img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=900&q=80" alt="Učenici u razredu" style="height:320px;width:100%;object-fit:cover;border-radius:8px;grid-column:1/-1"></div>
 <div class="dane-table">
 <div class="dane-col da"><div class="dane-head">DA &#10003;</div><ul class="dane-list">
@@ -508,7 +498,7 @@ const articles = [
 <li>Nastavi ex cathedra (slušanje i zapisivanje)</li>
 </ul></div>
 </div>
-<p>Poruka je jasna \u2014 učenici žele aktivno sudjelovati u nastavi, a ne samo sjediti i slušati.</p>`,
+<p>Poruka je jasna — učenici žele aktivno sudjelovati u nastavi, a ne samo sjediti i slušati.</p>`,
     category:"Aktualno",
     author:"Redakcija P@T",
     date:"22. svibnja 2026.",
@@ -517,65 +507,90 @@ const articles = [
 },
 {
     id:3,
-    title:"Pred nama se otvara svijet",
-    summary:"Veronika Bešen posjetila je Italiju i Portugal i napisala dirljiv osvrt o Erasmus iskustvu.",
-    content:`<p>Erasmus je iznimno iskustvo za koje vjerujem da bi svatko trebao doživjeti, od putovanja u različite zemlje do upoznavanja ljudi drukčijih nacionalnosti, prilagođavanja različitim kulturama i običajima.</p>
-<p>Erasmus me naučio mnogim stvarima koje neću zaboraviti i pomogao mi je pronaći osobe s kojima nikad nisam mislila da ću se zbližiti. Nikada prije zapravo nisam kročila izvan Hrvatske, osim dva jednodnevna izleta u Graz i Veneciju. No, kada sam na stranici škole prošle godine naišla na prijavu za putovanje učenika u Italiju, bilo je kao da mi se otvorio cijeli svijet mogućnosti.</p>
-<h3>Italija &#8212; razmjena učenika</h3>
-<p>Prošle godine provela sam tjedan dana u Italiji na razmjeni učenika &#8212; program neformalnog obrazovanja i interkulturalnog učenja koji omogućuje učenicima da provedu određeno vrijeme u stranoj zemlji, pohađaju tamošnju školu i žive s lokalnom obitelji. Bile su tu raznolike obrazovne, ali i kulturne aktivnosti. Primjerice, pohađanje škole u kojoj je profesor povijesti razredu objašnjavao Domovinski rat u Hrvatskoj.</p>
-<p>Posjetila sam obližnje gradove, Sorrento i Napulj, ruševine Herkulaneja, gdje su nas domaćini poučili o njegovoj povijesti. Naučila sam sve i o procesu proizvodnje limoncella u najboljem sorrentskom vrtu limuna te kako ispeći tradicionalnu talijansku pizzu, a darovali su nam i recept. Predivni i uzbudljivi krajolici, pogled na čisto more te mješavina antičke, barokne i suvremene arhitekture nisu dopustili da mi ni na trenutak bude dosadno.</p>
-<div class="gallery"><img src="Veronika - slika.jpg" alt="Veronika Italija"><img src="Veronika - slika 2.jpg" alt="Veronika Portugal"></div>
-<h3>Portugal &#8212; stručna praksa</h3>
-<p>Ove godine provela sam dva tjedna u Portugalu na stručnoj praksi. Boravila sam u hotelu koji je svako jutro nudio doručak, a tvrtka je organizirala prijevoz do prakse gdje sam radila od jutra do ranog poslijepodneva. Ručak je također bio plaćen, no mogla sam platiti vlastiti ručak i večeru iz džeparca koji smo dobili od Erasmus organizacije.</p>
-<p>Imali smo malo manje vremena za svakodnevno istraživanje zemlje, ali budući da je putovanje trajalo duže, vikendom smo obilazili druge gradove. Na praksi sam stekla korisna znanja unutar svoje struke. Svaki dan imali smo slobodno vrijeme koje smo iskoristili za obilazak grada i druženje uz posjećivanje restorana i kafića.</p>
-<div class="gallery"><img src="Veronika 3.jpg" alt="Portugal"></div>
+    title:"Pred nama se otvara svijet — ERASMUS mobilnost",
+    summary:"Veronika Bešen posjetila je Italiju i Portugal i napisala dirljiv osvrt.",
+    content:`<p>Naša <strong>Veronika Bešen</strong>, učenica 3.a2 razreda, posjetila je Italiju i Portugal te napisala svoje dojmove o tom iskustvu.</p>
+<p>Erasmus je iznimno iskustvo za koje vjerujem da bi svatko trebao doživjeti, od putovanja u različite zemlje do upoznavanja ljudi drukčijih nacionalnosti, prilagođavanja različitim kulturama i običajima.</p>
+<div class="pullquote"><p>Erasmus me naučio mnogim stvarima koje neću zaboraviti i pomogao mi je pronaći osobe s kojima nikad nisam mislila da ću se zbližiti.</p><cite>&#8212; Veronika Bešen</cite></div>
+<p>Nikada prije zapravo nisam kročila izvan Hrvatske, osim dva jednodnevna izleta u Graz i Veneciju. No, kada sam na stranici škole prošle godine naišla na prijavu za putovanje učenika u Italiju, bilo je kao da mi se otvorio cijeli svijet mogućnosti.</p>
+<h3>Italija — razmjena učenika</h3>
+<p>Prošle godine provela sam tjedan dana u Italiji na razmjeni učenika – program neformalnog obrazovanja i interkulturalnog učenja koji omogućuje učenicima da provedu određeno vrijeme u stranoj zemlji, pohađaju tamošnju školu i žive s lokalnom obitelji. Bile su tu raznolike obrazovne, ali i kulturne aktivnosti. Primjerice, pohađanje škole u kojoj je profesor povijesti razredu objašnjavao Domovinski rat u Hrvatskoj. Posjetila sam obližnje gradove, Sorrento i Napulj, ruševine Herkulaneja, gdje su nas domaćini poučili o njegovoj povijesti. Naučila sam sve i o procesu proizvodnje limoncella u najboljem sorrentskom vrtu limuna te kako ispeći tradicionalnu talijansku pizzu, a darovali su nam i recept. Predivni i uzbudljivi krajolici, pogled na čisto more te mješavina antičke, barokne i suvremene arhitekture nisu dopustili da mi ni na trenutak bude dosadno.</p>
+<div class="gallery"><img src="Veronika - slika.jpg" alt="Veronika Italija" onerror="this.style.opacity='.15'"><img src="Veronika - slika 2.jpg" alt="Veronika Portugal" onerror="this.style.opacity='.15'"></div>
+<h3>Portugal — stručna praksa</h3>
+<p>Ove godine provela sam dva tjedna u Portugalu na stručnoj praksi. Boravila sam u hotelu koji je svako jutro nudio doručak, a tvrtka je organizirala prijevoz do prakse gdje sam radila od jutra do ranog poslijepodneva. Ručak je također bio plaćen, no mogla sam platiti vlastiti ručak i večeru iz džeparca koji smo dobili od Erasmus organizacije. Imali smo malo manje vremena za svakodnevno istraživanje zemlje, ali budući da je putovanje trajalo duže, vikendom smo obilazili druge gradove. Na praksi sam stekla korisna znanja unutar svoje struke. Svaki dan imali smo slobodno vrijeme koje smo iskoristili za obilazak grada i druženje uz posjećivanje restorana i kafića.</p>
+<div class="gallery"><img src="Veronika 3.jpg" alt="Portugal" onerror="this.style.opacity='.15'"></div>
 <p>Razmjena učenika u Italiji dala mi je mogućnost educiranja o drugoj državi na različite načine pokazujući kako se povezati na međunarodnoj razini. Na stručnoj praksi u Portugalu također sam dobila mogućnost educiranja, no ona mi je dodatno omogućila stjecanje radne navike te priliku da se povežem s ljudima iz svoje škole.</p>`,
-    category:"Erasmus",    category:"Erasmus",
-    author:"Veronika Bešen",
+    category:"Erasmus",
+    author:"Autorica: Veronika Bešen",
     date:"22. svibnja 2026.",
     img:"Veronika 3.jpg",
     featured:false
 },
 {
     id:4,
+    title:"Kako preživjeti stresni tjedan",
+    summary:"Pitali smo učenike kako preživljavaju testni tjedan — evo njihovih iskrenih odgovora.",
+    content:`<p>Pitali smo učenike 1.b1 kako preživljavaju testni tjedan. Svaki ima svoju strategiju — neke su mudre, neke iskrene, a neke... pa, karakteristične.</p>
+<div class="quotes-timeline">
+<div class="qt-item"><blockquote>Učiti malo, dovoljno spavati i uzimati pauze da se ne iscrpim.</blockquote><cite>— Luka Štrok</cite></div>
+<div class="qt-item"><blockquote>Varanje je samo kad te ulove.</blockquote><cite>— Jakov Đebro</cite></div>
+<div class="qt-item"><blockquote>Preživjeti testni tjedan tako da učiš pomalo svaki dan i ostaneš smiren.</blockquote><cite>— Matija Božić</cite></div>
+<div class="qt-item"><blockquote>Preživjet ću testni tjedan; samo treba dobro rasporediti učenje i ne odustati.</blockquote><cite>— Maro Virovič</cite></div>
+<div class="qt-item"><blockquote>Preživljavam testni tjedan tako da učim više nego inače i uzimam kraće odmore.</blockquote><cite>— Matej Vrban</cite></div>
+<div class="qt-item"><blockquote>Učim dva sata dnevno.</blockquote><cite>— Josip Križanec</cite></div>
+<div class="qt-item"><blockquote>Preživljavam ga u stilu 'Nema predaje'.</blockquote><cite>— Patrik Žejinski</cite></div>
+<div class="qt-item"><blockquote>Testni tjedan ću preživjeti tako da učim dok ne naučim.</blockquote><cite>— Kristijan Pralas</cite></div>
+<div class="qt-item"><blockquote>Preživljavam testni tjedan tako da rasporedim gradivo, pijem više vode nego kave, radim pauze i ne paničarim... osim kad baš moram. I svaki dan ponovim sebi: 'Bit će dobro, samo nastavi.'</blockquote><cite>— David Ćuća</cite></div>
+<div class="qt-item"><blockquote>Testni tjedan preživljavam tako da hvatam krivine.</blockquote><cite>— Mihael Martinčević</cite></div>
+<div class="qt-item"><blockquote>Ma samo idem korak po korak i govorim si da će ovaj tjedan nekako proći.</blockquote><cite>— Petar Galić</cite></div>
+<div class="qt-item"><blockquote>Uči tri do pet dana unaprijed, uz redovite pauze i dovoljno sna.</blockquote><cite>— Leon Tuškan</cite></div>
+<div class="qt-item"><blockquote>Slušam glazbu da se fokusiram.</blockquote><cite>— David Sitar</cite></div>
+<div class="qt-item"><blockquote>Učim svaki dan pomalo i spavam.</blockquote><cite>— Gabrijel Kelava</cite></div>
+<div class="qt-item"><blockquote>Testni tjedan doživljavam slično kao i svaki drugi, uz dodatnu dozu stresa i češće učenje.</blockquote><cite>— Tia Genzić</cite></div>
+<div class="qt-item"><blockquote>Nema veze, jednom se živi.</blockquote><cite>— Matej Dromljak</cite></div>
+<div class="qt-item"><blockquote>Uvijek učim dan prije ispita i molim Boga za prolaz.</blockquote><cite>— Mihael Tomo Tomkić</cite></div>
+</div>`,
+    category:"Aktualno",
+    author:"Redakcija P@T",
+    date:"22. svibnja 2026.",
+    img:"https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80",
+    featured:false
+},
+{
+    id:5,
     title:"Dobro jesti za malo novca",
     summary:"Mislav Karoglan testirao je 5 mjesta oko škole i donio ocjene. Evo što se isplati!",
     content:`<p>Ovu listu pet provjerenih adresa sastavio je <strong>Mislav Karoglan</strong>, učenik 1.b1 razreda.</p>
 <div class="restaurant-list">
-<div class="restaurant-card"><div class="rest-rank">1.</div><div class="rest-info"><h4>Mlinar</h4><div class="address"><i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> Harambašićeva 31</div><div class="rest-ratings"><div class="rest-rating">Cijene: <span>2/5</span></div><div class="rest-rating">Okus: <span>3.5/5</span></div><div class="rest-rating">Vrijednost: <span>3.5/5</span></div></div><div class="rest-comment">Fina hrana, ali ipak preskupa.</div></div></div>
-<div class="restaurant-card"><div class="rest-rank">2.</div><div class="rest-info"><h4>Zlatno zrno</h4><div class="address"><i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> Harambašićeva 33</div><div class="rest-ratings"><div class="rest-rating">Cijene: <span>4/5</span></div><div class="rest-rating">Okus: <span>4/5</span></div><div class="rest-rating">Vrijednost: <span>4/5</span></div></div><div class="rest-comment">Fino i nije preskupo, jako dobro za pekaru.</div></div></div>
-<div class="restaurant-card"><div class="rest-rank">3.</div><div class="rest-info"><h4>Smash Burger</h4><div class="address"><i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> Mije Krešića 32</div><div class="rest-ratings"><div class="rest-rating">Cijene: <span>2.5/5</span></div><div class="rest-rating">Okus: <span>4/5</span></div><div class="rest-rating">Vrijednost: <span>3/5</span></div></div><div class="rest-comment">Fino, ali količina hrane ne odgovara cijeni.</div></div></div>
-<div class="restaurant-card"><div class="rest-rank">4.</div><div class="rest-info"><h4>Konzum</h4><div class="address"><i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> Trg J. F. Kennedyja</div><div class="rest-ratings"><div class="rest-rating">Cijene: <span>4/5</span></div><div class="rest-rating">Okus: <span>3/5</span></div><div class="rest-rating">Vrijednost: <span>3.5/5</span></div></div><div class="rest-comment">Jako dobre cijene. Dobra za veliki odmor.</div></div></div>
-<div class="restaurant-card"><div class="rest-rank">5.</div><div class="rest-info"><h4>Urban Kebab &#11088; Preporuka!</h4><div class="address"><i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> Mije Krešića 32</div><div class="rest-ratings"><div class="rest-rating">Cijene: <span>4/5</span></div><div class="rest-rating">Okus: <span>5/5</span></div><div class="rest-rating">Vrijednost: <span>4.5/5</span></div></div><div class="rest-comment">Ako nisi stigao ručati. Jako dobro!</div></div></div>
+<div class="restaurant-card"><div class="rest-rank">1.</div><div class="rest-info"><h4>Mlinar</h4><div class="address"><i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> Harambašićeva 31</div><div class="rest-ratings"><div class="rest-rating">Cijene: <span>2/5</span></div><div class="rest-rating">Okus: <span>3.5/5</span></div><div class="rest-rating">Vrijednost: <span>3.5/5</span></div></div><div class="rest-comment"><em>Fina hrana, ali ipak preskupa.</em></div></div></div>
+<div class="restaurant-card"><div class="rest-rank">2.</div><div class="rest-info"><h4>Zlatno zrno</h4><div class="address"><i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> Harambašićeva 33</div><div class="rest-ratings"><div class="rest-rating">Cijene: <span>4/5</span></div><div class="rest-rating">Okus: <span>4/5</span></div><div class="rest-rating">Vrijednost: <span>4/5</span></div></div><div class="rest-comment"><em>Fino i nije preskupo, jako dobro za pekaru.</em></div></div></div>
+<div class="restaurant-card"><div class="rest-rank">3.</div><div class="rest-info"><h4>Smash Burger</h4><div class="address"><i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> Mije Krešića 32</div><div class="rest-ratings"><div class="rest-rating">Cijene: <span>2.5/5</span></div><div class="rest-rating">Okus: <span>4/5</span></div><div class="rest-rating">Vrijednost: <span>3/5</span></div></div><div class="rest-comment"><em>Fino, ali količina hrane ne odgovara cijeni.</em></div></div></div>
+<div class="restaurant-card"><div class="rest-rank">4.</div><div class="rest-info"><h4>Konzum</h4><div class="address"><i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> Trg J. F. Kennedyja</div><div class="rest-ratings"><div class="rest-rating">Cijene: <span>4/5</span></div><div class="rest-rating">Okus: <span>3/5</span></div><div class="rest-rating">Vrijednost: <span>3.5/5</span></div></div><div class="rest-comment"><em>Jako dobre cijene. Dobra za veliki odmor.</em></div></div></div>
+<div class="restaurant-card"><div class="rest-rank">5.</div><div class="rest-info"><h4>Urban Kebab &#11088; Preporuka!</h4><div class="address"><i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> Mije Krešića 32</div><div class="rest-ratings"><div class="rest-rating">Cijene: <span>4/5</span></div><div class="rest-rating">Okus: <span>5/5</span></div><div class="rest-rating">Vrijednost: <span>4.5/5</span></div></div><div class="rest-comment"><em>Ako nisi stigao ručati. Jako dobro!</em></div></div></div>
 </div>
-<div class="gallery three"><img src="IMG_0795 (1).jpeg" alt=""><img src="IMG_0795 (2).jpeg" alt=""><img src="IMG_0795 (3).jpeg" alt=""></div>`,
+<div class="gallery three"><img src="IMG_0795 (1).jpeg" alt="" onerror="this.style.opacity='.15'"><img src="IMG_0795 (2).jpeg" alt="" onerror="this.style.opacity='.15'"><img src="IMG_0795 (3).jpeg" alt="" onerror="this.style.opacity='.15'"></div>`,
     category:"Školske aktivnosti",
-    author:"Mislav Karoglan",
+    author:"Autor: Mislav Karoglan",
     date:"22. svibnja 2026.",
     img:"IMG_0795 (2).jpeg",
     featured:false
 },
 {
-    id:5,
-{
     id:6,
-    title:"Energetsko piće \u2014 (ne)zdravi napitak",
-    summary:"50% učenika pije energetska pića \u2014 što pokazuje naša anketa?",
+    title:"Energetsko piće — (ne)zdravi napitak",
+    summary:"50% učenika pije energetska pića — što pokazuje naša anketa?",
     content:`<p>Ministarstvo zdravstva izrađuje zakon kojim bi se ograničila prodaja energetskih pića, a u tijeku je i kampanja <em>Energetska pića nisu za mlada bića</em>.</p>
 <p>Energetska pića zapravo su napitci kojima se čovjek brzo razbudi i bolje koncentrira. Danas ih se može kupiti na svakom koraku, u sto različitih okusa i u fora limenkama, a mlađa ekipa ih najčešće kupuje kad treba izdržati naporan dan u školi ili kada noću predugo igra igrice.</p>
 <p>Glavni sastojak je <strong>kofein</strong> u velikim količinama, a uz njega i brdo šećera koji brzo podižu energiju. Problem je što taj osjećaj kratko traje. Čim djelovanje popusti, javlja se još veći umor nego prije.</p>
 <p>Općenito je poznato da ta pića nisu baš najzdravija stvar na svijetu. Ako se pretjera s konzumacijom, može doći do ubrzanog rada srca, nesanice ili jake nervoze. Istraživanja tvrde da je organizmu potrebno 12 sati kako bi se očistio od kofeina nakon konzumacije samo jedne limenke.</p>
 <p>Stoga se može reći da su energetska pića korisna samo u rijetkim situacijama, npr. kad se stvarno mora ostati budan zbog učenja do kasno u noć. Međutim, loše je što ekipa danas pretjeruje te ih pod odmorima pije kao da su običan sok.</p>
-<h3>Anketa u razredu</h3>
 <p>U našem razredu proveli smo anketu o konzumaciji energetskih pića te smo došli do konkretnih podataka.</p>
 <div class="stat-grid">
 <div class="stat-box"><div class="num">50%</div><div class="label">učenika pije energetska pića</div></div>
 <div class="stat-box"><div class="num">15%</div><div class="label">pije ih svaki dan</div></div>
 <div class="stat-box"><div class="num">12h</div><div class="label">tijelu treba da očisti kofein</div></div>
 </div>
-<p>30% učenika konzumira ih 2-3 puta tjedno, a 5% učenika konzumira ih samo prije pisanja ispita i provjera znanja.</p>
-<p>Provjerili smo i kakva je situacija s ponudom energetskih pića na školskim aparatima u kantini.</p>
-<div class="pullquote"><p><em>U školskoj kantini nisu dostupna energetska pića!</em></p><cite>&#8212; svibanj 2026.</cite></div>`,
+<p>30% učenika konzumira ih 2–3 puta tjedno, a 5% samo prije pisanja ispita i provjera znanja. Provjerili smo i kakvu je situacija s ponudom energetskih pića na školskim aparatima u kantini — <strong>u školskoj kantini nisu dostupna energetska pića!</strong></p>`,
     category:"Aktualno",
     author:"Autori: Patrik Žejinski i Luka Štrok",
     date:"22. svibnja 2026.",
@@ -583,64 +598,58 @@ const articles = [
     featured:false
 },
 {
-    id:6,
-{
     id:7,
-    title:"Najprofesor: Danijel Eskeričić \u2014 baš je chill!",
+    title:"Najprofesor: Danijel Eskeričić — baš je chill!",
     summary:"Proveli smo izbor i titulu najprofesora uvjerljivo je osvojio profesor elektrotehnike.",
     content:`<p>Proveli smo izbor i titulu <strong>najprofesora</strong> uvjerljivo je osvojio profesor Danijel Eskeričić. Zato smo razgovarali s njim.</p>
 <h3>Kada ste se prvi put zainteresirali za elektrotehniku?</h3>
 <p>Prvi put sam se zainteresirao još tijekom osnovne škole jer se moj tata bavio izvođenjem električnih instalacija. To mi se jako svidjelo. Podučavao me kako se spaja utičnica, rasvjetno tijelo, prekidač i ostali elementi električne instalacije. Slijedom toga upisao sam elektrotehničku školu, a zatim i elektrotehnički fakultet.</p>
 <h3>Što Vam je u elektrotehnici najzanimljivije?</h3>
-<p><em>Najzanimljivije u elektrotehnici su električne instalacije i arduino elektronika.</em></p>
-<h3>A učenici? Kako se oni snalaze u elektrotehnici?</h3>
-<p>Najčešći problem je kako čitati električne sheme koje su sastavni dio strukovnih predmeta. Učenici moraju usvojiti teoriju koju primjenjuju na razmatranju shema. Elektrotehnika i elektronika temelje se na shemama. Elektrotehnika je dio svakodnevnog života &#8212; bilo kome, pa i učenicima, teško je zamisliti život bez elektrotehničkih i elektroničkih uređaja, osobito jer se nalazimo u digitalnom dobu.</p>
+<div class="pullquote"><p>Najzanimljivije u elektrotehnici su električne instalacije i arduino elektronika.</p><cite>&#8212; prof. Danijel Eskeričić</cite></div>
+<h3>A učenici? Kako se snalaze u elektrotehnici?</h3>
+<p>Najčešći problem je kako čitati električne sheme koje su sastavni dio strukovnih predmeta. Učenici moraju usvojiti teoriju koju primjenjuju na razmatranju shema. Elektrotehnika i elektronika temelje se na shemama. Elektrotehnika je dio svakodnevnog života. Bilo kome pa i učenicima teško je zamisliti život bez elektrotehničkih i elektroničkih uređaja, osobito jer se nalazimo u digitalnom dobu.</p>
 <h3>Koji biste projekt izdvojili kao najzanimljiviji?</h3>
-<p>Najzanimljiviji projekt ili eksperiment mi je teško izdvojiti jer učenička mašta i kreativnost mogu svašta. Zaista je tako jer učenici iz godine u godinu kreiraju inovativne projekte na svoj način. Možda električna rukavica za samoobranu &#8212; elektrostantgun.</p>
+<p>Najzanimljiviji projekt ili eksperiment mi je teško izdvojiti jer učenička mašta i kreativnost mogu svašta. Zaista je tako jer učenici iz godine u godinu kreiraju inovativne projekte na svoj način. Možda električna rukavica za samoobranu — elektrostantgun.</p>
 <h3>Što mislite o modularnoj nastavi?</h3>
-<p>Praksa u elektrotehničkoj školi, općenito, je jako važna. Praktični rad učenicima nudi razvijanje psihomotoričkih sposobnosti i vještina koje mogu biti važne u daljnjem obrazovanju i životu. Učenici praktičnim radom povezuju teorijska znanja i situacije iz njima bliske okoline i života. Tako se razvijaju nove ideje i kreativnost pa nastaju noviji, moderniji, inovativniji sklopovi i radovi.</p>
+<p>Praksa u elektrotehničkoj školi, općenito, je jako važna. Praktični rad učenicima nudi razvijanje psihomotoričkih sposobnosti i vještina koje mogu biti važne u daljnjem obrazovanju i životu. Učenici praktičnim radom povezuju teorijska znanja i situacije iz njima bliske okoline i života. Tako se razvijaju nove ideje i kreativnost pa nastaju noviji, moderniji, inovativniji sklopovi, radovi.</p>
 <h3>Kako vidite budućnost elektrotehnike?</h3>
 <p>Budućnost elektrotehnike vidim u bežičnom prijenosu električne energije, većoj iskoristivosti obnovljivih izvora energije u svijetu uz veće očuvanje okoliša.</p>
 <h3>Gdje ste radili prije dolaska u našu školu?</h3>
 <p>Prije ove škole podučavao sam u jednoj drugoj srednjoj školi u Zagrebu, a prije Zagreba predavao sam u nekoliko osnovnih škola tehničku kulturu i informatiku u Osijeku.</p>
 <h3>Da niste profesor elektrotehnike, čime biste se voljeli baviti?</h3>
-<p>Da nisam profesor elektrotehnike, radio bih u području elektrotehnike u privatnom sektoru u kojemu nisam mogao dobiti posao nakon završenog studija jer su gotovo svi poslodavci tražili zaposlenika s radnim iskustvom. A tko zna, možda bih se bavio nečim trećim. Nikad ne znamo što nosi sutra&hellip;</p>
-<p style="font-size:.85rem;color:#888;margin-top:2rem"><em>Razgovor vodili učenici 1.b1 razreda: Matej Dromljak, Josip Križanec i Jakov Đebro</em></p>`,
+<p>Da nisam profesor elektrotehnike, radio bih u području elektrotehnike u privatnom sektoru u kojemu nisam mogao dobiti posao nakon završenog studija jer su gotovo svi poslodavci tražili zaposlenika s radnim iskustvom. A tko zna, možda bih se bavio nečim trećim. Nikad ne znamo što nosi sutra…</p>
+<p style="font-size:.85rem;color:#888;margin-top:2rem">Razgovor vodili učenici 1.b1 razreda: Matej Drobnjak, Josip Križanec i Jakov Đebro</p>`,
     category:"Intervju",
-    author:"Učenici 1.b1",
+    author:"Autori: Učenici 1.b1",
     date:"22. svibnja 2026.",
     img:"{49D3CF66-F233-4D20-B791-029AE6F2D89B}.png",
     featured:false
 },
 {
-    id:7,
-{
     id:8,
-    title:"Kreativnost u školi \u2014 i u kreativnosti ima matematike",
+    title:"Kreativnost u školi — i u kreativnosti ima matematike",
     summary:"Razgovarali smo s profesoricom Jasnom Sušac-Peičić koja sa svojom ekipom uljepšava školu.",
     content:`<p>Razgovarali smo s profesoricom matematike <strong>Jasnom Sušac-Peičić</strong> koja vodi Kreativnu radionicu.</p>
 <h3>Kako ste došli na ideju da pokrenete Kreativnu radionicu?</h3>
-<p>Sve je počelo u jesen 2024. kada je prof. Katarina Svalina zajedno s kolegicom iz Cestovne škole osmislila i pokrenula sjajan projekt Srednjoškolski advent na Kennedyjevom trgu &#8212; humanitarnu akciju u kojoj srednjoškolci izradom ukrasa i njihovom prodajom prikupljaju donacije. Kad nam je kolegica Svalina na Nastavničkom vijeću predstavila projekt i pozvala nas da mu se pridružimo, odmah sam se priključila jer oduvijek volim raditi rukama. Okupila se mala, ali vrijedna skupina učenica iz naše škole i nakon što je izrada ukrasa za advent završila, nastavili smo izrađivati ukrase i uređivati školski prostor.</p>
+<p>Sve je počelo u jesen 2024. kada je prof. Katarina Svalina zajedno s kolegicom iz Cestovne škole osmislila i pokrenula sjajan projekt Srednjoškolski advent na Kennedyjevom trgu – humanitarnu akciju u kojoj srednjoškolci izradom ukrasa i njihovom prodajom prikupljaju donacije koje daruju u humanitarne svrhe. Kad nam je kolegica Svalina na Nastavničkom vijeću predstavila projekt i pozvala nas da mu se pridružimo, odmah sam se priključila jer oduvijek volim raditi rukama. Tako je počelo... Okupila se mala, ali vrijedna skupina učenica iz naše škole i nakon što je izrada ukrasa za advent završila, nastavili smo izrađivati ukrase i uređivati školski prostor.</p>
 <h3>Koliko dugo djeluje Kreativna radionica?</h3>
-<p>Evo već drugu školsku godinu. Okupljamo se češće u jesen jer je puno posla oko priprema za adventski sajam. Tijekom godine sastajemo se nešto rjeđe, ovisno o idejama i potrebama za ukrašavanjem škole.</p>
+<p>Evo već drugu školsku godinu... Okupljamo se češće u jesen jer je puno posla oko priprema za adventski sajam, potrebno je izraditi puno ukrasa za prodaju na štandu. Tijekom godine sastajemo se nešto rjeđe, ovisno o idejama i potrebama za ukrašavanjem škole.</p>
 <h3>Koji Vam je projekt najdraži?</h3>
-<p><em>Najdraži mi je Cvjetni hodnik. Baš jako uspio projekt &#8212; donio živost i s proljećem, nekako kao da je probudio optimizam.</em></p>
-<div class="gallery"><img src="Cvjetni hodnik.jpg" alt="Cvjetni hodnik"></div>
-<h3>Matematika ili Kreativna radionica?</h3>
-<p>Iako volim matematiku, iako me matematika naučila misliti, sada, nakon više od 30 godina rada u razredu, izabrala bih &#8212; Kreativnu radionicu. Nastavnički posao je sve teži, a dodatni problem je u tome što mi, nastavnici, koliko god se trudili što bolje objasniti gradivo učenicima, često ne vidimo rezultate vlastitoga rada. Zato ja uzmem u ruke boje, škare, grančice, papir, filc&hellip; i napravim nešto korisno i, nadam se, lijepo.</p>
+<div class="pullquote"><p>Najdraži mi je Cvjetni hodnik. Baš jako uspio projekt — donio živost i s proljećem, nekako kao da je probudio optimizam.</p><cite>&#8212; prof. Jasna Sušac-Peičić</cite></div>
+<div class="gallery"><img src="Cvjetni hodnik.jpg" alt="Cvjetni hodnik" onerror="this.style.opacity='.15'"></div>
+<h3>Da možete birati između matematike i Kreativne radionice, što biste izabrali i zašto?</h3>
+<p>Iako volim matematiku, iako me matematika naučila misliti, sada, nakon više od 30 godina rada u razredu, izabrala bih — Kreativnu radionicu. Nastavnički posao je sve teži, a dodatni problem je u tome što mi, nastavnici, koliko god se trudili što bolje objasniti gradivo učenicima, često ne vidimo rezultate vlastitoga rada... Zato ja uzmem u ruke boje, škare, grančice, papir, filc... i napravim nešto korisno i, nadam se, lijepo...</p>
 <h3>Na riječ "matematika" što biste prvo izradili ili nacrtali?</h3>
-<p>Matematika me ne asocira na nešto konkretno, nego zapravo na sve. Puno je više matematike svuda oko nas, nego što smo svjesni. Baš mi je rad u Kreativnoj radionici to potvrdio: da bi nešto skladno izgledalo, toliko je potrebno mjerenja, procjene, omjera, izračuna, preciznosti&hellip; a upravo nas svemu tome uči matematika.</p>`,
+<p>Matematika me ne asocira na nešto konkretno, nego zapravo na sve. Puno je više matematike svuda oko nas, nego što smo svjesni... Baš mi je rad u Kreativnoj radionici to potvrdio: da bi nešto skladno izgledalo, toliko je potrebno mjerenja, procjene, omjera, izračuna, preciznosti..., a upravo nas svemu tome uči baš matematika.</p>`,
     category:"Intervju",
-    author:"Autorica: Redakcija P@T",
+    author:"Redakcija P@T",
     date:"22. svibnja 2026.",
     img:"Cvjetni hodnik.jpg",
     featured:false
 },
 {
-    id:8,
-{
     id:9,
-    title:"FILM: How it used to be \u2014 2. mjesto žirija, 1. mjesto publike!",
+    title:"FILM: How it used to be — 2. mjesto žirija, 1. mjesto publike!",
     summary:"Naš film osvojio je 2. mjesto žirija i 1. mjesto publike na TEC natjecanju Filozofskog fakulteta.",
     content:`<p>Naš film <em>How it used to be</em> osvojio je <strong>2. mjesto</strong> na natjecanju TEC Filozofskog fakulteta u Zagrebu.</p>
 <p>Film su snimili učenici 1.b1 razreda: <strong>Mislav Karoglan, Leon Tuškan, Matej Vrban i Patrik Žejinski</strong>. Iz prve ruke smo doznali da su se odlično zabavili i ponešto naučili.</p>
@@ -648,10 +657,9 @@ const articles = [
 <div class="stat-box"><div class="num">2.</div><div class="label">mjesto prema odluci žirija</div></div>
 <div class="stat-box"><div class="num">263</div><div class="label">glasova publike &#8212; 1. mjesto!</div></div>
 </div>
-<p>Na natjecanju smo trebali biti u 9:00 ujutro. Bilo je dosta različitih kategorija: debata, pjesama, drame&hellip; Za vrijeme jednosatnih pauza mogli smo pogledati radove drugih učenika. Mi smo se natjecali u kategoriji filma. Ukupno je bilo prijavljeno <strong>petnaest filmova</strong>. Budući da smo bili u kategoriji srednjih škola, naš se film među posljednjima gledao i prezentirao.</p>
-<p>Prezentaciju smo dobro odradili, osobito Mislav, suci su bili zadovoljni i to nam je još malo poguralo film. Osvoji smo 2. mjesto prema odluci žirija i <strong>prvo mjesto publike s 263 glasa</strong>. To stvarno nitko od nas nije očekivao!</p>
-<div class="pullquote"><p><em>Bilo je zabavno! Neki od nas misle se time baviti i u budućnosti.</em></p><cite>&#8212; Matej Vrban</cite></div>
-<div class="gallery"><img src="Slika - film.jpg" alt="TEC natjecanje"><img src="Film slika 2.jpg" alt="Dodjela nagrada"></div>`,
+<p>Na natjecanju smo trebali biti u 9:00 ujutro. Bilo je dosta različitih kategorija: debata, pjesama, drame... Za vrijeme jednosatnih pauza mogli smo pogledati radove drugih učenika. Mi smo se natjecali u kategoriji filma. Ukupno je bilo prijavljeno petnaest filmova. Budući da smo bili u kategoriji srednjih škola, naš se film među posljednjima gledao i prezentirao. Prezentaciju smo dobro odradili, osobito Mislav, suci su bili zadovoljni i to nam je još malo poguralo film. Osvojili smo 2. mjesto prema odluci žirija i prvo mjesto publike s 263 glasa. To stvarno nitko od nas nije očekivao!</p>
+<div class="pullquote"><p>Bilo je zabavno! Neki od nas misle se time baviti i u budućnosti.</p><cite>&#8212; Matej Vrban</cite></div>
+<div class="gallery"><img src="Slika - film.jpg" alt="TEC natjecanje" onerror="this.style.opacity='.15'"><img src="Film slika 2.jpg" alt="Dodjela nagrada" onerror="this.style.opacity='.15'"></div>`,
     category:"Naši uspjesi",
     author:"Autor: Patrik Žejinski",
     date:"22. svibnja 2026.",
@@ -659,10 +667,8 @@ const articles = [
     featured:false
 },
 {
-    id:9,
-{
     id:10,
-    title:"UI/AI \u2014 prednosti i mane",
+    title:"UI/AI — inteligentno s umjetnom inteligencijom!",
     summary:"Umjetna inteligencija nije šalabahter, nego mogućnost učenja i osobnog razvoja.",
     content:`<p>Umjetna inteligencija sve više ulazi u naše svakodnevne živote. Učenici koriste umjetnu inteligenciju kako bi si olakšali učenje, riješili zadatke ili bolje razumjeli gradivo. Ipak, pomaže li nam umjetna inteligencija stvarno ili samo prepisujemo odgovore bez imalo razumijevanja?</p>
 <div class="dane-table">
@@ -679,9 +685,9 @@ const articles = [
 <li>Učenik zapravo ništa ne uči</li>
 </ul></div>
 </div>
-<p>Umjetna inteligencija može biti od velike pomoći. Učenici mogu brzo dobiti objašnjenje nekog pojma, rješenje zadatka korak po korak. Na taj način ubrzava se proces učenja. Ovo je posebno važno učenicima koji ne znaju dobro rasporediti vrijeme.</p>
-<p>Problem nastaje kada se umjetna inteligencija koristi na pogrešan način &#8212; za prepisivanje školskih zadaća i testova. U tom slučaju učenik zapravo ništa ne uči, nego samo prepisuje činjenice bez imalo razmišljanja. Nastavnici upozoravaju učenike da preveliko oslanjanje na UI može značajno smanjiti razmišljanje i samostalnost.</p>
-<div class="pullquote"><p><em>Nerealno je da će doći do potpune zabrane UI u školama. Tehnologija je svuda oko nas i zato je važno naučiti kako je koristiti na dobar način!</em></p><cite>&#8212; Tia Genzić</cite></div>`,
+<p>Umjetna inteligencija može biti i od velike pomoći. Učenici mogu brzo dobiti objašnjenje nekog pojma, rješenje zadatka korak po korak. Na taj način ubrzava se proces učenja. Ovo je posebno važno učenicima koji ne znaju dobro rasporediti vrijeme.</p>
+<p>Problem nastaje kada se umjetna inteligencija koristi na pogrešan način — za prepisivanje školskih zadaća i testova. U tom slučaju učenik zapravo ništa ne uči, nego samo prepisuje činjenice bez imalo razmišljanja. Nastavnici upozoravaju učenike da preveliko oslanjanje na UI može značajno smanjiti razmišljanje i samostalnost.</p>
+<div class="pullquote"><p>Nerealno je da će doći do potpune zabrane UI u školama. Tehnologija je svuda oko nas i zato je važno naučiti kako je koristiti na dobar način!</p><cite>&#8212; Tia Genzić</cite></div>`,
     category:"Aktualno",
     author:"Autorica: Tia Genzić",
     date:"22. svibnja 2026.",
@@ -689,21 +695,20 @@ const articles = [
     featured:false
 },
 {
-    id:10,
-{
     id:11,
-    title:"ŠIZ \u2014 mali predmet koji donosi velike promjene",
+    title:"ŠIZ — mali predmet koji donosi velike promjene",
     summary:"Kroz ŠIZ učenici ne raspravljaju samo o problemima, već aktivno rade na njihovom rješavanju.",
-    content:`<p>U našoj školi već <strong>četiri godine</strong> provodi se ŠIZ &#8212; aktivnost koja učenicima daje priliku da izađu iz okvira klasične nastave i uključe se u rješavanje stvarnih problema. Umjesto teorije, naglasak je na djelovanju.</p>
+    content:`<p>U našoj školi već <strong>četiri godine</strong> provodi se ŠIZ — aktivnost koja učenicima daje priliku da izađu iz okvira klasične nastave i uključe se u rješavanje stvarnih problema. Umjesto teorije, naglasak je na djelovanju.</p>
 <p>ŠIZ potiče učenike na razmišljanje, istraživanje i konkretne akcije. Kako objašnjava profesorica Katarina Janković, cilj nije samo razgovarati o problemima, već pronaći načine kako ih riješiti.</p>
-<div class="pullquote"><p><em>Cilj je da ne sjedimo samo u razredu i pričamo, nego da pokušamo pronaći način kako probleme stvarno riješiti &#8212; kontaktiranjem institucija i ljudi koji mogu pomoći.</em></p><cite>&#8212; prof. Katarina Janković</cite></div>
-<p>Tijekom godina učenici su se bavili različitim temama &#8212; od kvalitete života u školi do zaštite životinja. U sklopu tih aktivnosti provodili su ankete, istraživali probleme i organizirali humanitarne akcije.</p>
+<div class="pullquote"><p>Cilj je da ne sjedimo samo u razredu i pričamo, nego da pokušamo pronaći način kako probleme stvarno riješiti — kontaktiranjem institucija i ljudi koji mogu pomoći.</p><cite>&#8212; prof. Katarina Janković</cite></div>
+<p>Tijekom godina učenici su se bavili različitim temama — od kvalitete života u školi do zaštite životinja. U sklopu tih aktivnosti provodili su ankete, istraživali probleme i organizirali humanitarne akcije.</p>
 <h3>Projekt uređenja školskog atrija</h3>
 <p>Posebno se ističe projekt uređenja školskog atrija. Učenici su sami osmislili izgled prostora, pronašli donacije i vlastitim radom ga uredili.</p>
-<div class="pullquote"><p><em>Bili smo prljavi kao mali svinjci, ali bilo nam je super.</em></p><cite>&#8212; prof. Katarina Janković</cite></div>
+<div class="pullquote"><p>Bili smo prljavi kao mali svinjci, ali bilo nam je super.</p><cite>&#8212; prof. Katarina Janković</cite></div>
 <p>Ove godine fokus je na ovisničkim ponašanjima kod mladih, posebice <strong>digitalnoj ovisnosti</strong>. U planu su edukacije, ali i izazovi poput dana bez mobitela. ŠIZ uključuje i suradnju s drugim školama diljem Hrvatske, kao i različite izlete i aktivnosti koje dodatno povezuju učenike.</p>
-<div class="pullquote"><p><em>Učenicima ne treba uvijek sve dati gotovo. Kada su motivirani, sami vrlo brzo pronađu rješenja.</em></p><cite>&#8212; prof. Katarina Janković</cite></div>
-<div class="pullquote"><p><em>Mladi su ti koji mogu promijeniti društvo, a ŠIZ im daje priliku da to i pokušaju.</em></p><cite>&#8212; prof. Katarina Janković</cite></div>`,
+<div class="pullquote"><p>Učenicima ne treba uvijek sve dati gotovo. Kada su motivirani, sami vrlo brzo pronađu rješenja.</p><cite>&#8212; prof. Katarina Janković</cite></div>
+<p>Na kraju, profesorica naglašava važnost uloge mladih u društvu:</p>
+<div class="pullquote"><p>Mladi su ti koji mogu promijeniti društvo, a ŠIZ im daje priliku da to i pokušaju.</p><cite>&#8212; prof. Katarina Janković</cite></div>`,
     category:"Školske aktivnosti",
     author:"Autori: Tia Genzić i David Ćuća",
     date:"22. svibnja 2026.",
@@ -711,23 +716,21 @@ const articles = [
     featured:false
 },
 {
-    id:11,
-{
-    id:14,
-    title:"Nogometni turnir \u2014 najvažnija sporedna stvar u školi",
+    id:12,
+    title:"Nogometni turnir — najvažnija sporedna stvar u školi",
     summary:"Utakmice između razreda uoči Dana škole donijele su uzbuđenje, iznenađenja i nezaboravne uspomene.",
     content:`<p>Nogometne utakmice između razreda uoči i za Dan škole najvažniji su događaj ove školske godine. Tada se mijenja raspoloženje cijele škole: šušur, uzbuđenje i neka posebna energija zavladaju svim školskim prostorima. Turnir je bio profesionalno organiziran, pa ga se ne bi postidio ni onaj na legendarnoj Kutiji šibica. Ekipa trećeg razreda na kraju je diskvalificirana s turnira zbog nesportskog ponašanja.</p>
-<div class="gallery"><img src="nogomet.png" alt="Nogometni turnir"><img src="1312.png" alt="Akcija na terenu"></div>
 <h3>Navijanje i pobjednici</h3>
-<p>Utakmice se nisu pratile samo oko igrališta, već i s prozora školskih učionica. Priznajemo &#8212; tih je dana koncentracija na nastavi ipak malo popustila.</p>
-<p>U velikom finalu snage su odmjerili <strong>1.a2</strong> i <strong>4.a1</strong> razred. Apsolutno iznenađenje turnira bila je <strong>pobjeda prvaša</strong>! Četvrtaši su u utakmicu ušli kao veliki favoriti, pa im je ovaj poraz na samom kraju srednjoškolskog školovanja prilično teško pao.</p>
-<div class="gallery"><img src="raza.png" alt="Ekipa na terenu"></div>
+<p>Utakmice se nisu pratile samo oko igrališta, već i s prozora školskih učionica. Priznajemo — tih je dana koncentracija na nastavi ipak malo popustila.</p>
+<p>U velikom finalu snage su odmjerili <strong>1.a2</strong> i <strong>4.a1</strong> razred. Apsolutno iznenađenje turnira bila je <strong>pobjeda prvaša</strong>! Četvrtaci su u utakmicu ušli kao veliki favoriti, pa im je ovaj poraz na samom kraju srednjoškolskog školovanja prilično teško pao.</p>
+<div class="gallery"><img src="nogomet.png" alt="Nogometni turnir" onerror="this.style.opacity='.15'"><img src="1312.png" alt="Turnir" onerror="this.style.opacity='.15'"></div>
+<div class="gallery"><img src="raza.png" alt="Navijači" onerror="this.style.opacity='.15'"></div>
 <h3>Presudno je ipak bilo iskustvo</h3>
-<p>Nakon službenog dijela uslijedila je tradicionalna revijalna utakmica: učenici protiv profesora. Profesori su ove godine ugodno iznenadili &#8212; nadigrali su ekipu trećaša nakon napetog raspucavanja s bijele točke. Iskustvo je na kraju ipak presudilo!</p>
+<p>Nakon službenog dijela uslijedila je tradicionalna revijalna utakmica: učenici protiv profesora. Profesori su ove godine ugodno iznenadili — nadigrali su ekipu trećaša nakon napetog raspucavanja s bijele točke. Iskustvo je na kraju ipak presudilo!</p>
 <h3>Više od igre</h3>
-<p>Nogometni turnir spaja učenike, učenike i profesore, budi razredni ponos i jača zajedništvo. Na kraju, rezultat je manje bitan &#8212; ono što ostaje su osjećaj pripadnosti školi i uspomene s prijateljima iz školskih klupa.</p>`,
+<p>Nogometni turnir spaja učenike, učenike i profesore, budi razredni ponos i jača zajedništvo. Na kraju, rezultat je manje bitan — ono što ostaje su osjećaj pripadnosti školi i uspomene s prijateljima iz školskih klupa.</p>`,
     category:"Školske aktivnosti",
-    author:"Nogometna ekipa 1.b1",
+    author:"Autor: Nogometna ekipa 1.b1",
     date:"22. svibnja 2026.",
     img:"nogomet.png",
     featured:false
@@ -746,7 +749,7 @@ const maturanti = [
     name:"Ena Alaber",
     smjer:"Tehničar za računalstvo · 4.b2",
     img: MATURANT_BASE + "ena.png",
-    bio:"U Zagreb sam došla prije tri i pol godine. Pohađam i Srednju plesnu školu Ane Maletić. Glazba ispunjava veliki dio mog života \u2014 uz ples, sviram i pjevam.",
+    bio:"U Zagreb sam došla prije tri i pol godine. Pohađam i Srednju plesnu školu Ane Maletić. Glazba ispunjava veliki dio mog života — uz ples, sviram i pjevam.",
     quote:"Nikada ne propuštajte priliku za zabavu i uživajte u srednjoškolskim danima jer će jako brzo proći."
 },
 {
@@ -754,7 +757,7 @@ const maturanti = [
     smjer:"Tehničar za telekomunikacije · 4.a1",
     img: MATURANT_BASE + "dino.png",
     bio:"Tijekom školovanja sudjelovao sam u što više školskih projekata. U slobodno vrijeme bavim se glazbom i ugostiteljstvom.",
-    quote:"Na srednju školu ne gledajte negativno \u2014 to je jedno od najljepših doba u životu čovjeka."
+    quote:"Na srednju školu ne gledajte negativno — to je jedno od najljepših doba u životu čovjeka."
 },
 {
     name:"Josipa Klarić",
@@ -764,42 +767,70 @@ const maturanti = [
     quote:"Slijedite svoje snove. Odustajanje nije opcija!"
 },
 {
-    name:"Mihael Ćorković",
-    smjer:"Tehničar za poštanske i financijske usluge · 4.c1",
-    img: MATURANT_BASE + "miha.jpg",
-    bio:"Maturant smjera tehničar za poštanske i financijske usluge. Osvojio je 2. mjesto na državnom natjecanju WorldSkills Croatia 2026.",
-    quote:"Trud i upornost uvijek se isplate."
-},
-{
-    name:"David Kos",
-    smjer:"Tehničar za računalstvo · 4.b1",
-    img: MATURANT_BASE + "kos.png",
-    bio:"Maturant smjera tehničar za računalstvo. Na natjecanju INOVA osvojio je zlatnu medalju za najbolji rad.",
-    quote:"Inovacija počinje hrabrošću da pokušaš nešto novo."
-},
-{
-    name:"Luka Bujanović",
-    smjer:"Tehničar za računalstvo · 4.b1",
-    img: MATURANT_BASE + "digimon.png",
-    bio:"Plasirao se na državno natjecanje iz engleskoga jezika koje se održalo od 15. do 17. travnja 2026. u Baški na otoku Krku i ostvario odličan rezultat — 73/80 bodova.",
-    quote:"Engleski jezik otvara vrata cijelom svijetu."
-},
-{
     name:"David-Ivan Novak",
     smjer:"Tehničar za računalstvo · 4.b2",
     img: MATURANT_BASE + "david ivan.png",
     bio:"Posebno me zanimaju programiranje, matematika i fizika. Na natjecanju Dabar plasirao sam se među 10% najboljih. Želim upisati FER.",
     quote:"Iskoristite svaku priliku za učenje i praksu. Budite znatiželјni i ne bojite se pogrešaka."
+},
+{
+    name:"Mihael Ćorković",
+    smjer:"Tehničar za poštanske i financijske usluge · 4.c1",
+    img: MATURANT_BASE + "miha.jpg",
+    bio:"Maturant smjera tehničar za poštanske i financijske usluge. Osvojio 2. mjesto na državnom natjecanju WorldSkills Croatia 2026.",
+    quote:"Trud i ustrajanost uvijek se isplate."
+},
+{
+    name:"David Kos",
+    smjer:"Tehničar za računalstvo · 4.b1",
+    img: MATURANT_BASE + "kos.png",
+    bio:"Maturant smjera tehničar za računalstvo. Na natjecanju INOVA osvojio zlatnu medalju za najbolji rad.",
+    quote:"Istraži, stvori, osvoji."
+},
+{
+    name:"Luka Bujanović",
+    smjer:"Tehničar za računalstvo · 4.b1",
+    img: MATURANT_BASE + "digimon.png",
+    bio:"Plasirao se na državno natjecanje iz engleskoga jezika koje se održalo od 15. do 17. travnja 2026. u Baški na otoku Krku — i ostvario odličan rezultat (73/80 bodova).",
+    quote:"Znanje je moć, ali i putovnica u svijet."
 }
 ];
 
 let prevPage = 'pocetna';
 
 document.addEventListener('DOMContentLoaded', () => {
-    renderHome();
     renderAll(articles);
     renderMaturanti();
+    startHeroSlideshow();
+    renderHomeGrid();
 });
+
+/* ---- HERO SLIDESHOW ---- */
+let hsIndex = 0;
+let hsTimer = null;
+
+function startHeroSlideshow() {
+    hsTimer = setInterval(() => hsNext(), 4000);
+}
+
+function hsNext() {
+    hsGoto((hsIndex + 1) % 3);
+}
+
+function hsPrev() {
+    hsGoto((hsIndex + 2) % 3);
+}
+
+function hsGoto(i) {
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.hs-dot');
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    slides[i]?.classList.add('active');
+    dots[i]?.classList.add('active');
+    hsIndex = i;
+    if (hsTimer) { clearInterval(hsTimer); hsTimer = setInterval(() => hsNext(), 4000); }
+}
 
 function navigateTo(id) {
     const cur = document.querySelector('.page.active');
@@ -813,25 +844,11 @@ function navigateTo(id) {
 
 function goBack() { navigateTo(prevPage); }
 
-function renderHome() {
-    // featured-container removed
-if(false) document.getElementById('x').innerHTML = `
-        <div class="featured-wrap" onclick="openArticle(${feat.id})">
-            <div class="featured-img-wrap">
-                <img src="${feat.img}" alt="${feat.title}" onerror="this.style.opacity='.2'">
-                <span class="featured-tag">Istaknuto</span>
-            </div>
-            <div class="featured-body">
-                <div class="cat">${feat.category}</div>
-                <h3>${feat.title}</h3>
-                <p>${feat.summary}</p>
-                <div class="meta">${feat.author} &nbsp;&middot;&nbsp; ${feat.date}</div>
-            </div>
-        </div>`;
-    const rest = articles.filter(a => a.id !== feat.id);
+function renderHomeGrid() {
     const lg = document.getElementById('latest-grid');
+    if (!lg) return;
     lg.innerHTML = '';
-    rest.forEach(a => lg.appendChild(makeCard(a)));
+    articles.forEach(a => lg.appendChild(makeCard(a)));
 }
 
 function renderAll(data) {
@@ -856,7 +873,7 @@ function renderMaturanti() {
             <div class="maturant-name">${m.name}</div>
             <div class="maturant-smjer">${m.smjer}</div>
             <p class="maturant-text">${m.bio}</p>
-            <div class="maturant-quote">${m.quote}</div>
+            <div class="maturant-quote">&#8222;${m.quote}&#8220;</div>
         </div>`;
         g.appendChild(card);
     });
@@ -889,7 +906,7 @@ function openArticle(id) {
     if (!a) return;
     document.getElementById('ap-cat').textContent = a.category;
     document.getElementById('ap-title').textContent = a.title;
-    document.getElementById('ap-author').textContent = 'Autor: ' + a.author;
+    document.getElementById('ap-author').textContent = a.author;
     document.getElementById('ap-date').textContent = a.date;
     const img = document.getElementById('ap-img');
     img.src = a.img;
@@ -900,20 +917,6 @@ function openArticle(id) {
     document.getElementById('page-artikl').classList.add('active');
     window.scrollTo({top:0,behavior:'smooth'});
 }
-
-
-let heroIndex = 0;
-function heroMove(dir) {
-    heroIndex = (heroIndex + dir + 3) % 3;
-    heroGoto(heroIndex);
-}
-function heroGoto(i) {
-    heroIndex = i;
-    document.getElementById('heroTrack').style.transform = `translateX(-${i * 100}%)`;
-    document.querySelectorAll('#hero-slider .gallery-dot').forEach((d, idx) => d.classList.toggle('active', idx === i));
-}
-// Auto-advance hero slider
-setInterval(() => heroMove(1), 4000);
 
 let sliderIndex = 0;
 const sliderCaptions = ["P@T 2003. — stari broj", "P@T 2003. — stari broj", "Razred 1B1 — ekipa koja je radila časopis"];
