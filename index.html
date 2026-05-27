@@ -41,8 +41,6 @@
         .container{max-width:1200px;margin:0 auto;padding:4rem 2rem}
         .section-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:.4rem}
         .section-title{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;margin-bottom:2.5rem;letter-spacing:-.5px}
-
-        /* HERO SLIDESHOW */
         .hero-slideshow{position:relative;width:100%;height:520px;overflow:hidden;background:#000;margin-bottom:5rem;border-radius:var(--radius)}
         .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity .8s ease;display:flex;align-items:center;justify-content:center}
         .hero-slide.active{opacity:1}
@@ -56,7 +54,6 @@
         .hs-btn:hover{background:var(--accent)}
         .hs-btn.prev{left:1rem}
         .hs-btn.next{right:1rem}
-
         .articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem}
         .article-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:var(--ease);display:flex;flex-direction:column}
         .article-card:hover{transform:translateY(-4px);box-shadow:0 15px 35px rgba(0,0,0,.07)}
@@ -112,15 +109,12 @@
         .pullquote{border-left:4px solid var(--accent);padding:1.25rem 1.5rem;margin:2rem 0;background:var(--white);border-radius:0 8px 8px 0}
         .pullquote p{font-family:'Playfair Display',serif;font-size:1.3rem;font-style:italic;color:#333;margin:0 0 .5rem}
         .pullquote cite{font-size:.82rem;color:#888}
-
-        /* CITATI TIMELINE - članak 4 */
         .quotes-timeline{position:relative;margin:2rem 0;padding-left:2rem}
         .quotes-timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--accent),var(--accent2))}
         .qt-item{position:relative;margin-bottom:2rem;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.5rem}
         .qt-item::before{content:'';position:absolute;left:-2.55rem;top:1.2rem;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--white);box-shadow:0 0 0 2px var(--accent)}
         .qt-item blockquote{font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:#333;margin-bottom:.5rem}
         .qt-item cite{font-size:.82rem;color:#888;font-weight:600}
-
         .about-gallery{margin:3rem 0}
         .about-gallery-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;margin-bottom:1.5rem}
         .gallery-slider{position:relative;overflow:hidden;border-radius:var(--radius)}
@@ -214,7 +208,6 @@
         <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
     </nav>
 </header>
-
 <div class="mobile-menu" id="mobile-menu">
     <button class="mobile-close" onclick="toggleMenu()">&times;</button>
     <a id="mlink-pocetna" class="active" onclick="navigateTo('pocetna');toggleMenu()">Početna</a>
@@ -222,8 +215,6 @@
     <a id="mlink-maturanti" onclick="navigateTo('maturanti');toggleMenu()">Maturanti</a>
     <a id="mlink-onama" onclick="navigateTo('onama');toggleMenu()">Uredništvo</a>
 </div>
-
-<!-- POČETNA -->
 <main id="page-pocetna" class="page active">
     <section class="hero">
         <div class="hero-content">
@@ -239,8 +230,6 @@
     <section class="container">
         <div class="section-label">Istaknuto</div>
         <div class="section-title">Istaknuto</div>
-
-        <!-- HERO SLIDESHOW umjesto featured -->
         <div class="hero-slideshow" id="heroSlideshow">
             <div class="hero-slide active">
                 <img src="vrece.png" alt="P@T istaknuto" onerror="this.style.opacity='.15'">
@@ -262,14 +251,11 @@
             <div class="hs-dot" onclick="hsGoto(1)"></div>
             <div class="hs-dot" onclick="hsGoto(2)"></div>
         </div>
-
         <div class="section-label" style="margin-top:4rem">Sve priče</div>
         <div class="section-title">Najnoviji Članci</div>
         <div class="articles-grid" id="latest-grid"></div>
     </section>
 </main>
-
-<!-- ČLANCI -->
 <main id="page-clanci" class="page">
     <section class="container">
         <div class="section-label">Arhiva</div>
@@ -285,8 +271,6 @@
         <div class="articles-grid" id="all-grid"></div>
     </section>
 </main>
-
-<!-- MATURANTI -->
 <main id="page-maturanti" class="page">
     <section class="container">
         <div class="section-label">Razgovor</div>
@@ -295,8 +279,6 @@
         <div class="maturant-grid" id="maturant-grid"></div>
     </section>
 </main>
-
-<!-- O NAMA -->
 <main id="page-onama" class="page">
     <section class="about-hero">
         <div class="about-hero-inner">
@@ -306,7 +288,6 @@
             <p class="about-tagline">Novine razreda 1B1</p>
         </div>
     </section>
-
     <section class="about-section">
         <div class="about-story">
             <div class="about-story-text">
@@ -319,22 +300,10 @@
             </div>
             <div>
                 <div class="about-facts">
-                    <div class="about-fact">
-                        <div class="fact-num">2026</div>
-                        <div class="fact-label">Godina pokretanja</div>
-                    </div>
-                    <div class="about-fact">
-                        <div class="fact-num">1.b1</div>
-                        <div class="fact-label">Razred</div>
-                    </div>
-                    <div class="about-fact">
-                        <div class="fact-num">10</div>
-                        <div class="fact-label">Članaka u broju 1</div>
-                    </div>
-                    <div class="about-fact">
-                        <div class="fact-num">2003</div>
-                        <div class="fact-label">Originalni P@T</div>
-                    </div>
+                    <div class="about-fact"><div class="fact-num">2026</div><div class="fact-label">Godina pokretanja</div></div>
+                    <div class="about-fact"><div class="fact-num">1.b1</div><div class="fact-label">Razred</div></div>
+                    <div class="about-fact"><div class="fact-num">10</div><div class="fact-label">Članaka u broju 1</div></div>
+                    <div class="about-fact"><div class="fact-num">2003</div><div class="fact-label">Originalni P@T</div></div>
                 </div>
                 <div class="origin-box">
                     <h4>Potraga za imenom</h4>
@@ -350,9 +319,7 @@
                 </div>
             </div>
         </div>
-
         <hr class="about-divider" style="margin:3rem 0">
-
         <div class="about-gallery">
             <div class="section-label">Arhiva</div>
             <div class="about-gallery-title">Iz starih dana — P@T 2003. i naš razred</div>
@@ -372,7 +339,6 @@
             </div>
             <div class="gallery-caption" id="aboutCaption">P@T 2003. — stari broj</div>
         </div>
-
         <div class="team-section">
             <div class="section-label">Redakcija</div>
             <div class="team-section-title">Tim P@T 2026.</div>
@@ -397,8 +363,6 @@
         </div>
     </section>
 </main>
-
-<!-- POJEDINI ČLANAK -->
 <main id="page-artikl" class="page">
     <div class="single-view">
         <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i> Natrag</button>
@@ -411,7 +375,6 @@
         </article>
     </div>
 </main>
-
 <div class="news-bar">
     <h3>Prati naš časopis!</h3>
     <p></p>
@@ -422,18 +385,24 @@
         <p>&copy; 2026 P@T Školski digitalni časopis &middot; Razred 1B1</p>
     </div>
 </footer>
-
 <script>
 const MATURANT_BASE = "";
-
 const articles = [
 {
     id:1,
     title:"Točno u podne — obračun iz matematike",
     summary:"Uspjeh našeg učenika Josipa Križanca na Matematičkom natjecanju KLOKAN — ušao u top 10%!",
-    content:`<p>Matematičko</strong> </strong>natjecanje </strong>KLOKAN</strong> održano je 19. ožujka 2026. točno u podne.</p>
-<p>U Hrvatskoj je sudjelovalo <strong>36.113 učenika</strong> iz 650 osnovnih i 89 srednjih škola. Test se pisao 75 minuta u učionici A1 i imao je 100 bodova. Rezultati su stigli 29. travnja 2026.</p>
-<p>Iz naše škole natjecalo se dvadesetak učenika, a naš <strong>Josip Križanec</strong> ušao je u <strong>top 10 posto</strong>!</p>`,
+    content:`<p>Matematičko natjecanje KLOKAN održano je 19. ožujka 2026. točno u podne.</p>
+<div class="stat-grid">
+<div class="stat-box"><div class="num">36.113</div><div class="label">učenika sudjelovalo u Hrvatskoj</div></div>
+<div class="stat-box"><div class="num">650</div><div class="label">osnovnih škola</div></div>
+<div class="stat-box"><div class="num">75 min</div><div class="label">trajalo testiranje</div></div>
+</div>
+<p>Test se pisao u učionici A1 i imao je 100 bodova. Natjecanje je obuhvatilo 89 srednjih škola diljem Hrvatske, a rezultati su stigli 29. travnja 2026.</p>
+<p>Iz naše škole natjecalo se dvadesetak učenika.</p>
+<div class="stat-grid" style="grid-template-columns:1fr">
+<div class="stat-box"><div class="num">Top 10%</div><div class="label">Josip Križanec ušao je u top 10 posto najboljih u Hrvatskoj!</div></div>
+</div>`,
     category:"Naši uspjesi",
     author:"Autor: Patrik Žejinski",
     date:"22. svibnja 2026.",
@@ -448,19 +417,10 @@ const articles = [
 <div class="gallery" style="margin-bottom:2rem"><img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=900&q=80" alt="Učenici u razredu" style="height:320px;width:100%;object-fit:cover;border-radius:8px;grid-column:1/-1"></div>
 <div class="dane-table">
 <div class="dane-col da"><div class="dane-head">DA &#10003;</div><ul class="dane-list">
-<li>Praktičnoj nastavi</li>
-<li>Samostalnom programiranju ili spajanju mreže</li>
-<li>Suradnji s tvrtkama</li>
-<li>Uvažavanju mišljenja učenika</li>
-<li>Projektnim zadatcima</li>
-<li>Fleksibilnom rasporedu</li>
+<li>Praktičnoj nastavi</li><li>Samostalnom programiranju ili spajanju mreže</li><li>Suradnji s tvrtkama</li><li>Uvažavanju mišljenja učenika</li><li>Projektnim zadatcima</li><li>Fleksibilnom rasporedu</li>
 </ul></div>
 <div class="dane-col ne"><div class="dane-head">NE &#10007;</div><ul class="dane-list">
-<li>Teorijskoj nastavi</li>
-<li>Pisanim provjerama znanja</li>
-<li>Tjednu opterećenom velikim brojem testova</li>
-<li>Teškim predmetima svaki dan</li>
-<li>Nastavi ex cathedra (slušanje i zapisivanje)</li>
+<li>Teorijskoj nastavi</li><li>Pisanim provjerama znanja</li><li>Tjednu opterećenom velikim brojem testova</li><li>Teškim predmetima svaki dan</li><li>Nastavi ex cathedra (slušanje i zapisivanje)</li>
 </ul></div>
 </div>
 <p>Poruka je jasna — učenici žele aktivno sudjelovati u nastavi, a ne samo sjediti i slušati.</p>`,
@@ -638,16 +598,10 @@ const articles = [
     content:`<p>Umjetna inteligencija sve više ulazi u naše svakodnevne živote. Učenici koriste umjetnu inteligenciju kako bi si olakšali učenje, riješili zadatke ili bolje razumjeli gradivo. Ipak, pomaže li nam umjetna inteligencija stvarno ili samo prepisujemo odgovore bez imalo razumijevanja?</p>
 <div class="dane-table">
 <div class="dane-col da"><div class="dane-head">Prednosti</div><ul class="dane-list">
-<li>Brzo objašnjenje nekog pojma</li>
-<li>Rješenje zadatka korak po korak</li>
-<li>Ubrzava proces učenja</li>
-<li>Korisno za organizaciju vremena</li>
+<li>Brzo objašnjenje nekog pojma</li><li>Rješenje zadatka korak po korak</li><li>Ubrzava proces učenja</li><li>Korisno za organizaciju vremena</li>
 </ul></div>
 <div class="dane-col ne"><div class="dane-head">Mane</div><ul class="dane-list">
-<li>Prepisivanje bez razumijevanja</li>
-<li>Smanjuje samostalno razmišljanje</li>
-<li>Ovisnost o tehnologiji</li>
-<li>Učenik zapravo ništa ne uči</li>
+<li>Prepisivanje bez razumijevanja</li><li>Smanjuje samostalno razmišljanje</li><li>Ovisnost o tehnologiji</li><li>Učenik zapravo ništa ne uči</li>
 </ul></div>
 </div>
 <p>Umjetna inteligencija može biti i od velike pomoći. Učenici mogu brzo dobiti objašnjenje nekog pojma, rješenje zadatka korak po korak. Na taj način ubrzava se proces učenja. Ovo je posebno važno učenicima koji ne znaju dobro rasporediti vrijeme.</p>
@@ -703,90 +657,24 @@ const articles = [
 ];
 
 const maturanti = [
-{
-    name:"Lovro Golenko",
-    smjer:"Tehničar za telekomunikacije · 4.a1",
-    img: MATURANT_BASE + "lovro.png",
-    bio:"Treća sam generacija svoje obitelji koja je pohađala ovu školu. Četiri godine predstavnik sam razreda u Vijeću učenika, a dva puta sam predstavljao školu u Gradskoj vijećnici. Sudjelovao sam na Erasmusu u Bragi.",
-    quote:"Zabavite se! Ne postoji nikakav problem koji se ne može riješiti igrajući se riječima, formulama ili vlastitim mislima."
-},
-{
-    name:"Ena Alaber",
-    smjer:"Tehničar za računalstvo · 4.b2",
-    img: MATURANT_BASE + "ena.png",
-    bio:"U Zagreb sam došla prije tri i pol godine. Pohađam i Srednju plesnu školu Ane Maletić. Glazba ispunjava veliki dio mog života — uz ples, sviram i pjevam.",
-    quote:"Nikada ne propuštajte priliku za zabavu i uživajte u srednjoškolskim danima jer će jako brzo proći."
-},
-{
-    name:"Dino Mehdić",
-    smjer:"Tehničar za telekomunikacije · 4.a1",
-    img: MATURANT_BASE + "dino.png",
-    bio:"Tijekom školovanja sudjelovao sam u što više školskih projekata. U slobodno vrijeme bavim se glazbom i ugostiteljstvom.",
-    quote:"Na srednju školu ne gledajte negativno — to je jedno od najljepših doba u životu čovjeka."
-},
-{
-    name:"Josipa Klarić",
-    smjer:"Tehničar za poštanske i financijske usluge · 4.c1",
-    img: MATURANT_BASE + "josipa.png",
-    bio:"Pisanjem pjesama počela sam se baviti sasvim slučajno u prvom razredu. Profesori su prepoznali moj talent i poticali me na daljnje pisanje.",
-    quote:"Slijedite svoje snove. Odustajanje nije opcija!"
-},
-{
-    name:"David-Ivan Novak",
-    smjer:"Tehničar za računalstvo · 4.b2",
-    img: MATURANT_BASE + "david ivan.png",
-    bio:"Posebno me zanimaju programiranje, matematika i fizika. Na natjecanju Dabar plasirao sam se među 10% najboljih. Želim upisati FER.",
-    quote:"Iskoristite svaku priliku za učenje i praksu. Budite znatiželјni i ne bojite se pogrešaka."
-},
-{
-    name:"Mihael Ćorković",
-    smjer:"Tehničar za poštanske i financijske usluge · 4.c1",
-    img: MATURANT_BASE + "miha.jpg",
-    bio:"Maturant smjera tehničar za poštanske i financijske usluge. Osvojio 2. mjesto na državnom natjecanju WorldSkills Croatia 2026.",
-    quote:"Trud i ustrajanost uvijek se isplate."
-},
-{
-    name:"David Kos",
-    smjer:"Tehničar za računalstvo · 4.b1",
-    img: MATURANT_BASE + "kos.png",
-    bio:"Maturant smjera tehničar za računalstvo. Na natjecanju INOVA osvojio zlatnu medalju za najbolji rad.",
-    quote:"Istraži, stvori, osvoji."
-},
-{
-    name:"Luka Bujanović",
-    smjer:"Tehničar za računalstvo · 4.b1",
-    img: MATURANT_BASE + "digimon.png",
-    bio:"Plasirao se na državno natjecanje iz engleskoga jezika koje se održalo od 15. do 17. travnja 2026. u Baški na otoku Krku — i ostvario odličan rezultat (73/80 bodova).",
-    quote:"Znanje je moć, ali i putovnica u svijet."
-}
+{name:"Lovro Golenko",smjer:"Tehničar za telekomunikacije · 4.a1",img:MATURANT_BASE+"lovro.png",bio:"Treća sam generacija svoje obitelji koja je pohađala ovu školu. Četiri godine predstavnik sam razreda u Vijeću učenika, a dva puta sam predstavljao školu u Gradskoj vijećnici. Sudjelovao sam na Erasmusu u Bragi.",quote:"Zabavite se! Ne postoji nikakav problem koji se ne može riješiti igrajući se riječima, formulama ili vlastitim mislima."},
+{name:"Ena Alaber",smjer:"Tehničar za računalstvo · 4.b2",img:MATURANT_BASE+"ena.png",bio:"U Zagreb sam došla prije tri i pol godine. Pohađam i Srednju plesnu školu Ane Maletić. Glazba ispunjava veliki dio mog života — uz ples, sviram i pjevam.",quote:"Nikada ne propuštajte priliku za zabavu i uživajte u srednjoškolskim danima jer će jako brzo proći."},
+{name:"Dino Mehdić",smjer:"Tehničar za telekomunikacije · 4.a1",img:MATURANT_BASE+"dino.png",bio:"Tijekom školovanja sudjelovao sam u što više školskih projekata. U slobodno vrijeme bavim se glazbom i ugostiteljstvom.",quote:"Na srednju školu ne gledajte negativno — to je jedno od najljepših doba u životu čovjeka."},
+{name:"Josipa Klarić",smjer:"Tehničar za poštanske i financijske usluge · 4.c1",img:MATURANT_BASE+"josipa.png",bio:"Pisanjem pjesama počela sam se baviti sasvim slučajno u prvom razredu. Profesori su prepoznali moj talent i poticali me na daljnje pisanje.",quote:"Slijedite svoje snove. Odustajanje nije opcija!"},
+{name:"David-Ivan Novak",smjer:"Tehničar za računalstvo · 4.b2",img:MATURANT_BASE+"david ivan.png",bio:"Posebno me zanimaju programiranje, matematika i fizika. Na natjecanju Dabar plasirao sam se među 10% najboljih. Želim upisati FER.",quote:"Iskoristite svaku priliku za učenje i praksu. Budite znatiželјni i ne bojite se pogrešaka."},
+{name:"Mihael Ćorković",smjer:"Tehničar za poštanske i financijske usluge · 4.c1",img:MATURANT_BASE+"miha.jpg",bio:"Maturant smjera tehničar za poštanske i financijske usluge. Osvojio 2. mjesto na državnom natjecanju WorldSkills Croatia 2026.",quote:"Trud i ustrajanost uvijek se isplate."},
+{name:"David Kos",smjer:"Tehničar za računalstvo · 4.b1",img:MATURANT_BASE+"kos.png",bio:"Maturant smjera tehničar za računalstvo. Na natjecanju INOVA osvojio zlatnu medalju za najbolji rad.",quote:"Istraži, stvori, osvoji."},
+{name:"Luka Bujanović",smjer:"Tehničar za računalstvo · 4.b1",img:MATURANT_BASE+"digimon.png",bio:"Plasirao se na državno natjecanje iz engleskoga jezika koje se održalo od 15. do 17. travnja 2026. u Baški na otoku Krku — i ostvario odličan rezultat (73/80 bodova).",quote:"Znanje je moć, ali i putovnica u svijet."}
 ];
 
 let prevPage = 'pocetna';
+document.addEventListener('DOMContentLoaded', () => { renderAll(articles); renderMaturanti(); startHeroSlideshow(); renderHomeGrid(); });
 
-document.addEventListener('DOMContentLoaded', () => {
-    renderAll(articles);
-    renderMaturanti();
-    startHeroSlideshow();
-    renderHomeGrid();
-});
-
-/* ---- HERO SLIDESHOW ---- */
-let hsIndex = 0;
-let hsTimer = null;
-
-function startHeroSlideshow() {
-    hsTimer = setInterval(() => hsNext(), 4000);
-}
-
-function hsNext() {
-    hsGoto((hsIndex + 1) % 3);
-}
-
-function hsPrev() {
-    hsGoto((hsIndex + 2) % 3);
-}
-
-function hsGoto(i) {
+let hsIndex = 0, hsTimer = null;
+function startHeroSlideshow(){ hsTimer = setInterval(() => hsNext(), 4000); }
+function hsNext(){ hsGoto((hsIndex + 1) % 3); }
+function hsPrev(){ hsGoto((hsIndex + 2) % 3); }
+function hsGoto(i){
     const slides = document.querySelectorAll('.hero-slide');
     const dots = document.querySelectorAll('.hs-dot');
     slides.forEach(s => s.classList.remove('active'));
@@ -794,81 +682,58 @@ function hsGoto(i) {
     slides[i]?.classList.add('active');
     dots[i]?.classList.add('active');
     hsIndex = i;
-    if (hsTimer) { clearInterval(hsTimer); hsTimer = setInterval(() => hsNext(), 4000); }
+    if(hsTimer){ clearInterval(hsTimer); hsTimer = setInterval(() => hsNext(), 4000); }
 }
 
-function navigateTo(id) {
+function navigateTo(id){
     const cur = document.querySelector('.page.active');
-    if (cur && cur.id !== 'page-artikl') prevPage = cur.id.replace('page-','');
+    if(cur && cur.id !== 'page-artikl') prevPage = cur.id.replace('page-','');
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
     document.getElementById('page-'+id)?.classList.add('active');
     document.getElementById('link-'+id)?.classList.add('active');
     window.scrollTo({top:0,behavior:'smooth'});
 }
+function goBack(){ navigateTo(prevPage); }
 
-function goBack() { navigateTo(prevPage); }
-
-function renderHomeGrid() {
+function renderHomeGrid(){
     const lg = document.getElementById('latest-grid');
-    if (!lg) return;
+    if(!lg) return;
     lg.innerHTML = '';
     articles.forEach(a => lg.appendChild(makeCard(a)));
 }
-
-function renderAll(data) {
+function renderAll(data){
     const g = document.getElementById('all-grid');
     g.innerHTML = '';
-    if (!data.length) { g.innerHTML = '<p class="no-articles">Nema članaka u ovoj kategoriji.</p>'; return; }
+    if(!data.length){ g.innerHTML = '<p class="no-articles">Nema članaka u ovoj kategoriji.</p>'; return; }
     data.forEach(a => g.appendChild(makeCard(a)));
 }
-
-function renderMaturanti() {
+function renderMaturanti(){
     const g = document.getElementById('maturant-grid');
     g.innerHTML = '';
     maturanti.forEach(m => {
         const card = document.createElement('div');
         card.className = 'maturant-card';
         const fallback = `<div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a1a,#2a2a2a);display:flex;align-items:center;justify-content:center;"><span style="font-family:'Playfair Display',serif;font-size:5rem;font-weight:900;color:#333">${m.name[0]}</span></div>`;
-        const imgHtml = m.img
-            ? `<img src="${m.img}" alt="${m.name}" onerror="this.parentNode.innerHTML='${fallback.replace(/'/g,"\\'")}';">`
-            : fallback;
-        card.innerHTML = `<div class="maturant-img-wrap">${imgHtml}</div>
-        <div class="maturant-body">
-            <div class="maturant-name">${m.name}</div>
-            <div class="maturant-smjer">${m.smjer}</div>
-            <p class="maturant-text">${m.bio}</p>
-            <div class="maturant-quote">&#8222;${m.quote}&#8220;</div>
-        </div>`;
+        const imgHtml = m.img ? `<img src="${m.img}" alt="${m.name}" onerror="this.parentNode.innerHTML='${fallback.replace(/'/g,"\\'")}';"> ` : fallback;
+        card.innerHTML = `<div class="maturant-img-wrap">${imgHtml}</div><div class="maturant-body"><div class="maturant-name">${m.name}</div><div class="maturant-smjer">${m.smjer}</div><p class="maturant-text">${m.bio}</p><div class="maturant-quote">&#8222;${m.quote}&#8220;</div></div>`;
         g.appendChild(card);
     });
 }
-
-function makeCard(a) {
+function makeCard(a){
     const el = document.createElement('div');
     el.className = 'article-card';
     el.onclick = () => openArticle(a.id);
-    el.innerHTML = `
-        <div class="card-img">
-            <img src="${a.img}" alt="${a.title}" onerror="this.style.opacity='.15'">
-            <span class="card-badge">${a.category}</span>
-        </div>
-        <div class="card-body">
-            <h3>${a.title}</h3>
-            <p>${a.summary}</p>
-            <div class="card-meta">${a.author} &nbsp;&middot;&nbsp; ${a.date}</div>
-        </div>`;
+    el.innerHTML = `<div class="card-img"><img src="${a.img}" alt="${a.title}" onerror="this.style.opacity='.15'"><span class="card-badge">${a.category}</span></div><div class="card-body"><h3>${a.title}</h3><p>${a.summary}</p><div class="card-meta">${a.author} &nbsp;&middot;&nbsp; ${a.date}</div></div>`;
     return el;
 }
-
-function filterArticles(cat) {
+function filterArticles(cat){
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.textContent.trim() === cat));
     renderAll(cat === 'Sve' ? articles : articles.filter(a => a.category === cat));
 }
-
-function openArticle(id) {
+function openArticle(id){
     const a = articles.find(x => x.id === id);
-    if (!a) return;
+    if(!a) return;
     document.getElementById('ap-cat').textContent = a.category;
     document.getElementById('ap-title').textContent = a.title;
     document.getElementById('ap-author').textContent = a.author;
@@ -884,24 +749,15 @@ function openArticle(id) {
 }
 
 let sliderIndex = 0;
-const sliderCaptions = ["P@T 2003. — stari broj", "P@T 2003. — stari broj", "Razred 1B1 — ekipa koja je radila časopis"];
-
-function sliderMove(dir) {
-    const total = 3;
-    sliderIndex = (sliderIndex + dir + total) % total;
-    sliderGoto(sliderIndex);
-}
-
-function sliderGoto(i) {
+const sliderCaptions = ["P@T 2003. — stari broj","P@T 2003. — stari broj","Razred 1B1 — ekipa koja je radila časopis"];
+function sliderMove(dir){ const total = 3; sliderIndex = (sliderIndex + dir + total) % total; sliderGoto(sliderIndex); }
+function sliderGoto(i){
     sliderIndex = i;
     document.getElementById('aboutTrack').style.transform = `translateX(-${i * 100}%)`;
-    document.querySelectorAll('.gallery-dot').forEach((d, idx) => d.classList.toggle('active', idx === i));
+    document.querySelectorAll('.gallery-dot').forEach((d,idx) => d.classList.toggle('active', idx === i));
     document.getElementById('aboutCaption').textContent = sliderCaptions[i];
 }
-
-function toggleMenu() {
-    document.getElementById('mobile-menu').classList.toggle('open');
-}
+function toggleMenu(){ document.getElementById('mobile-menu').classList.toggle('open'); }
 </script>
 </body>
 </html>
