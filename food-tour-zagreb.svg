@@ -1,0 +1,235 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f3460;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#0a2744;stop-opacity:0.9" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#e94560" opacity="0.8"/>
+    </marker>
+    <!-- Street grid pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.3" opacity="0.08"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+
+  <!-- Subtle map-like roads -->
+  <!-- Harambašićeva street (horizontal left) -->
+  <line x1="60" y1="290" x2="340" y2="290" stroke="#2a4a7f" stroke-width="12" stroke-linecap="round" opacity="0.5"/>
+  <line x1="60" y1="290" x2="340" y2="290" stroke="#3a6aaf" stroke-width="4" stroke-linecap="round" opacity="0.3"/>
+
+  <!-- Mije Krešića street (horizontal right) -->
+  <line x1="460" y1="310" x2="740" y2="310" stroke="#2a4a7f" stroke-width="12" stroke-linecap="round" opacity="0.5"/>
+  <line x1="460" y1="310" x2="740" y2="310" stroke="#3a6aaf" stroke-width="4" stroke-linecap="round" opacity="0.3"/>
+
+  <!-- Connecting road -->
+  <path d="M 340 290 Q 400 290 460 310" stroke="#2a4a7f" stroke-width="10" fill="none" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Kennedy Trg circle -->
+  <circle cx="200" cy="350" r="35" fill="none" stroke="#2a4a7f" stroke-width="10" opacity="0.4"/>
+  <circle cx="200" cy="350" r="35" fill="none" stroke="#3a6aaf" stroke-width="3" opacity="0.2"/>
+
+  <!-- Title area -->
+  <rect x="0" y="0" width="800" height="70" fill="#000" opacity="0.3"/>
+  <text x="400" y="28" text-anchor="middle" fill="#e94560" font-size="11" letter-spacing="6" font-family="Georgia" opacity="0.9">ZAGREB</text>
+  <text x="400" y="55" text-anchor="middle" fill="#ffffff" font-size="26" font-weight="bold" letter-spacing="2">🍽️ FOOD TOUR RUTA</text>
+
+  <!-- Route line with arrows -->
+  <!-- 1→2 -->
+  <line x1="148" y1="275" x2="192" y2="275" stroke="#e94560" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowhead)" opacity="0.7"/>
+  <!-- 2→3 -->
+  <path d="M 218 290 Q 218 355 175 355" stroke="#e94560" stroke-width="2" stroke-dasharray="5,3" fill="none" marker-end="url(#arrowhead)" opacity="0.7"/>
+  <!-- 3→4 -->
+  <path d="M 230 360 Q 420 360 490 310" stroke="#e94560" stroke-width="2" stroke-dasharray="5,3" fill="none" marker-end="url(#arrowhead)" opacity="0.7"/>
+  <!-- 4→5 -->
+  <line x1="540" y1="297" x2="590" y2="297" stroke="#e94560" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowhead)" opacity="0.7"/>
+
+  <!-- ===== LOCATION 1 ===== -->
+  <!-- Pin -->
+  <circle cx="130" cy="270" r="18" fill="#e94560" filter="url(#glow)"/>
+  <circle cx="130" cy="270" r="14" fill="#c73550"/>
+  <text x="130" y="275" text-anchor="middle" fill="white" font-size="13" font-weight="bold">1</text>
+  <!-- Card -->
+  <rect x="20" y="80" width="200" height="145" rx="10" fill="url(#cardGrad)" filter="url(#shadow)" stroke="#e94560" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="120" y="100" text-anchor="middle" fill="#e94560" font-size="9" letter-spacing="2">HARAMBAŠIĆEVA 31</text>
+  <text x="120" y="118" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">Restoran</text>
+  <line x1="40" y1="126" x2="200" y2="126" stroke="#ffffff" stroke-width="0.5" opacity="0.2"/>
+  <!-- Stars row -->
+  <text x="35" y="142" fill="#aaaacc" font-size="9">💰 Cijene</text>
+  <rect x="95" y="132" width="60" height="7" rx="3" fill="#1a1a3e"/>
+  <rect x="95" y="132" width="24" height="7" rx="3" fill="#e94560"/>
+  <text x="162" y="140" fill="#ffffff" font-size="9">2/5</text>
+
+  <text x="35" y="159" fill="#aaaacc" font-size="9">😋 Okus</text>
+  <rect x="95" y="149" width="60" height="7" rx="3" fill="#1a1a3e"/>
+  <rect x="95" y="149" width="42" height="7" rx="3" fill="#f5a623"/>
+  <text x="162" y="157" fill="#ffffff" font-size="9">3.5/5</text>
+
+  <text x="35" y="176" fill="#aaaacc" font-size="9">⚖️ Vrijedn.</text>
+  <rect x="95" y="166" width="60" height="7" rx="3" fill="#1a1a3e"/>
+  <rect x="95" y="166" width="42" height="7" rx="3" fill="#f5a623"/>
+  <text x="162" y="174" fill="#ffffff" font-size="9">3.5/5</text>
+
+  <text x="120" y="210" text-anchor="middle" fill="#8899bb" font-size="8" font-style="italic">Fina hrana, ali preskupa.</text>
+
+  <!-- ===== LOCATION 2 ===== -->
+  <circle cx="210" cy="270" r="18" fill="#e94560" filter="url(#glow)"/>
+  <circle cx="210" cy="270" r="14" fill="#c73550"/>
+  <text x="210" y="275" text-anchor="middle" fill="white" font-size="13" font-weight="bold">2</text>
+  <!-- Card -->
+  <rect x="235" y="80" width="200" height="155" rx="10" fill="url(#cardGrad)" filter="url(#shadow)" stroke="#e94560" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="335" y="100" text-anchor="middle" fill="#e94560" font-size="9" letter-spacing="2">HARAMBAŠIĆEVA 33</text>
+  <text x="335" y="118" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">Zlatno Zrno</text>
+  <text x="335" y="132" text-anchor="middle" fill="#7799cc" font-size="9">Pekara</text>
+  <line x1="255" y1="138" x2="415" y2="138" stroke="#ffffff" stroke-width="0.5" opacity="0.2"/>
+
+  <text x="250" y="154" fill="#aaaacc" font-size="9">💰 Cijene</text>
+  <rect x="310" y="144" width="60" height="7" rx="3" fill="#1a1a3e"/>
+  <rect x="310" y="144" width="48" height="7" rx="3" fill="#4caf50"/>
+  <text x="377" y="152" fill="#ffffff" font-size="9">4/5</text>
+
+  <text x="250" y="171" fill="#aaaacc" font-size="9">😋 Okus</text>
+  <rect x="310" y="161" width="60" height="7" rx="3" fill="#1a1a3e"/>
+  <rect x="310" y="161" width="48" height="7" rx="3" fill="#4caf50"/>
+  <text x="377" y="169" fill="#ffffff" font-size="9">4/5</text>
+
+  <text x="250" y="188" fill="#aaaacc" font-size="9">⚖️ Vrijedn.</text>
+  <rect x="310" y="178" width="60" height="7" rx="3" fill="#1a1a3e"/>
+  <rect x="310" y="178" width="48" height="7" rx="3" fill="#4caf50"/>
+  <text x="377" y="186" fill="#ffffff" font-size="9">4/5</text>
+
+  <text x="335" y="222" text-anchor="middle" fill="#8899bb" font-size="8" font-style="italic">Fino i nije preskupo!</text>
+
+  <!-- ===== LOCATION 3 - Konzum (bottom left) ===== -->
+  <circle cx="200" cy="355" r="18" fill="#e94560" filter="url(#glow)"/>
+  <circle cx="200" cy="355" r="14" fill="#c73550"/>
+  <text x="200" y="360" text-anchor="middle" fill="white" font-size="13" font-weight="bold">3</text>
+  <!-- Card -->
+  <rect x="20" y="385" width="200" height="155" rx="10" fill="url(#cardGrad)" filter="url(#shadow)" stroke="#e94560" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="120" y="405" text-anchor="middle" fill="#e94560" font-size="9" letter-spacing="2">TRG J.F. KENNEDYJA</text>
+  <text x="120" y="423" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">Konzum</text>
+  <text x="120" y="437" text-anchor="middle" fill="#7799cc" font-size="9">Supermarket</text>
+  <line x1="40" y1="443" x2="200" y2="443" stroke="#ffffff" stroke-width="0.5" opacity="0.2"/>
+
+  <text x="35" y="459" fill="#aaaacc" font-size="9">💰 Cijene</text>
+  <rect x="95" y="449" width="60" height="7" rx="3" fill="#1a1a3e"/>
+  <rect x="95" y="449" width="48" height="7" rx="3" fill="#4caf50"/>
+  <text x="162" y="457" fill="#ffffff" font-size="9">4/5</text>
+
+  <text x="35" y="476" fill="#aaaacc" font-size="9">😋 Okus</text>
+  <rect x="95" y="466" width="60" height="7" rx="3" fill="#1a1a3e"/>
+  <rect x="95" y="466" width="36" height="7" rx="3" fill="#f5a623"/>
+  <text x="162" y="474" fill="#ffffff" font-size="9">3/5</text>
+
+  <text x="35" y="493" fill="#aaaacc" font-size="9">⚖️ Vrijedn.</text>
+  <rect x="95" y="483" width="60" height="7" rx="3" fill="#1a1a3e"/>
+  <rect x="95" y="483" width="42" height="7" rx="3" fill="#f5a623"/>
+  <text x="162" y="491" fill="#ffffff" font-size="9">3.5/5</text>
+
+  <text x="120" y="527" text-anchor="middle" fill="#8899bb" font-size="8" font-style="italic">Dobre cijene, za veliki odmor.</text>
+
+  <!-- ===== LOCATION 4 - Smash Burger ===== -->
+  <circle cx="520" cy="300" r="18" fill="#e94560" filter="url(#glow)"/>
+  <circle cx="520" cy="300" r="14" fill="#c73550"/>
+  <text x="520" y="305" text-anchor="middle" fill="white" font-size="13" font-weight="bold">4</text>
+  <!-- Card -->
+  <rect x="440" y="80" width="200" height="155" rx="10" fill="url(#cardGrad)" filter="url(#shadow)" stroke="#e94560" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="540" y="100" text-anchor="middle" fill="#e94560" font-size="9" letter-spacing="2">MIJE KREŠIĆA 32</text>
+  <text x="540" y="118" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">Smash Burger</text>
+  <text x="540" y="132" text-anchor="middle" fill="#7799cc" font-size="9">Burger restoran</text>
+  <line x1="460" y1="138" x2="620" y2="138" stroke="#ffffff" stroke-width="0.5" opacity="0.2"/>
+
+  <text x="455" y="154" fill="#aaaacc" font-size="9">💰 Cijene</text>
+  <rect x="515" y="144" width="60" height="7" rx="3" fill="#1a1a3e"/>
+  <rect x="515" y="144" width="30" height="7" rx="3" fill="#e94560"/>
+  <text x="582" y="152" fill="#ffffff" font-size="9">2.5/5</text>
+
+  <text x="455" y="171" fill="#aaaacc" font-size="9">😋 Okus</text>
+  <rect x="515" y="161" width="60" height="7" rx="3" fill="#1a1a3e"/>
+  <rect x="515" y="161" width="48" height="7" rx="3" fill="#4caf50"/>
+  <text x="582" y="169" fill="#ffffff" font-size="9">4/5</text>
+
+  <text x="455" y="188" fill="#aaaacc" font-size="9">⚖️ Vrijedn.</text>
+  <rect x="515" y="178" width="60" height="7" rx="3" fill="#1a1a3e"/>
+  <rect x="515" y="178" width="36" height="7" rx="3" fill="#f5a623"/>
+  <text x="582" y="186" fill="#ffffff" font-size="9">3/5</text>
+
+  <text x="540" y="222" text-anchor="middle" fill="#8899bb" font-size="8" font-style="italic">Fino, ali premalo za cijenu.</text>
+
+  <!-- ===== LOCATION 5 - Urban Kebab (STAR) ===== -->
+  <!-- Star glow effect -->
+  <circle cx="620" cy="295" r="28" fill="#f5a623" opacity="0.15" filter="url(#glow)"/>
+  <circle cx="620" cy="295" r="20" fill="#f5a623" filter="url(#glow)"/>
+  <circle cx="620" cy="295" r="16" fill="#e8960f"/>
+  <text x="620" y="300" text-anchor="middle" fill="white" font-size="13" font-weight="bold">5</text>
+  <!-- Recommended badge -->
+  <rect x="580" y="260" width="80" height="16" rx="8" fill="#f5a623" opacity="0.9"/>
+  <text x="620" y="271" text-anchor="middle" fill="#1a1a2e" font-size="8" font-weight="bold" letter-spacing="1">⭐ PREPORUKA</text>
+
+  <!-- Card (gold border) -->
+  <rect x="580" y="370" width="200" height="165" rx="10" fill="url(#cardGrad)" filter="url(#shadow)" stroke="#f5a623" stroke-width="2"/>
+  <text x="680" y="390" text-anchor="middle" fill="#f5a623" font-size="9" letter-spacing="2">MIJE KREŠIĆA 32</text>
+  <text x="680" y="408" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">Urban Kebab</text>
+  <text x="680" y="422" text-anchor="middle" fill="#f5a623" font-size="9">⭐ Preporuka</text>
+  <line x1="600" y1="428" x2="760" y2="428" stroke="#f5a623" stroke-width="0.5" opacity="0.4"/>
+
+  <text x="595" y="444" fill="#aaaacc" font-size="9">💰 Cijene</text>
+  <rect x="655" y="434" width="60" height="7" rx="3" fill="#1a1a3e"/>
+  <rect x="655" y="434" width="?" height="7" rx="3" fill="#4caf50"/>
+  <!-- unknown score, show as good -->
+  <rect x="655" y="434" width="54" height="7" rx="3" fill="#4caf50"/>
+  <text x="722" y="442" fill="#ffffff" font-size="9">4.5/5</text>
+
+  <text x="595" y="461" fill="#aaaacc" font-size="9">😋 Okus</text>
+  <rect x="655" y="451" width="60" height="7" rx="3" fill="#1a1a3e"/>
+  <rect x="655" y="451" width="54" height="7" rx="3" fill="#4caf50"/>
+  <text x="722" y="459" fill="#ffffff" font-size="9">4.5/5</text>
+
+  <text x="595" y="478" fill="#aaaacc" font-size="9">⚖️ Vrijedn.</text>
+  <rect x="655" y="468" width="60" height="7" rx="3" fill="#1a1a3e"/>
+  <rect x="655" y="468" width="54" height="7" rx="3" fill="#4caf50"/>
+  <text x="722" y="476" fill="#ffffff" font-size="9">4.5/5</text>
+
+  <!-- Google rating -->
+  <text x="680" y="500" text-anchor="middle" fill="#f5a623" font-size="9">★ 4.6 Google (429 recenzija)</text>
+  <text x="680" y="522" text-anchor="middle" fill="#8899bb" font-size="8" font-style="italic">Najbolji kebab u kvartu!</text>
+
+  <!-- Street labels -->
+  <text x="200" y="282" text-anchor="middle" fill="#4a6aaf" font-size="8" letter-spacing="1">HARAMBAŠIĆEVA</text>
+  <text x="590" y="322" text-anchor="middle" fill="#4a6aaf" font-size="8" letter-spacing="1">MIJE KREŠIĆA</text>
+
+  <!-- Footer -->
+  <rect x="0" y="570" width="800" height="30" fill="#000" opacity="0.4"/>
+  <text x="400" y="589" text-anchor="middle" fill="#4a6aaf" font-size="9" letter-spacing="3">ZAGREB FOOD GUIDE 2024</text>
+
+  <!-- Legend -->
+  <rect x="330" y="390" width="220" height="100" rx="8" fill="#000" opacity="0.4" stroke="#2a4a7f" stroke-width="1"/>
+  <text x="440" y="410" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold" letter-spacing="1">LEGENDA</text>
+  <rect x="345" y="420" width="30" height="6" rx="3" fill="#e94560"/>
+  <text x="382" y="427" fill="#aaaacc" font-size="9">Loše (0-2.5)</text>
+  <rect x="345" y="435" width="30" height="6" rx="3" fill="#f5a623"/>
+  <text x="382" y="442" fill="#aaaacc" font-size="9">Prosječno (3-3.5)</text>
+  <rect x="345" y="450" width="30" height="6" rx="3" fill="#4caf50"/>
+  <text x="382" y="457" fill="#aaaacc" font-size="9">Odlično (4-5)</text>
+  <!-- Route line in legend -->
+  <line x1="345" y1="472" x2="375" y2="472" stroke="#e94560" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="382" y="476" fill="#aaaacc" font-size="9">Ruta obilaska</text>
+</svg>
