@@ -267,6 +267,7 @@
             <button class="filter-btn" onclick="filterArticles('Aktualno')">Aktualno</button>
             <button class="filter-btn" onclick="filterArticles('Intervju')">Intervju</button>
             <button class="filter-btn" onclick="filterArticles('Erasmus')">Erasmus</button>
+            <button class="filter-btn" onclick="filterArticles('Kultura')">Kultura</button>
         </div>
         <div class="articles-grid" id="all-grid"></div>
     </section>
@@ -302,7 +303,7 @@
                 <div class="about-facts">
                     <div class="about-fact"><div class="fact-num">2026</div><div class="fact-label">Godina pokretanja</div></div>
                     <div class="about-fact"><div class="fact-num">1.b1</div><div class="fact-label">Razred</div></div>
-                    <div class="about-fact"><div class="fact-num">10</div><div class="fact-label">Članaka u broju 1</div></div>
+                    <div class="about-fact"><div class="fact-num">13</div><div class="fact-label">Članaka u broju 1</div></div>
                     <div class="about-fact"><div class="fact-num">2003</div><div class="fact-label">Originalni P@T</div></div>
                 </div>
                 <div class="origin-box">
@@ -410,10 +411,10 @@ const articles = [
     featured:false
 },
 {
-id:2,
+    id:2,
     title:"Glas učenika — nastava kakvu želimo",
     summary:"Učenici jasno znaju što žele, a što ne žele od nastave. Evo što smo saznali.",
-content:`<p>Zamolili smo učenike da iskažu svoje mišljenje o nastavi — što funkcionira, a što ne.</p>
+    content:`<p>Zamolili smo učenike da iskažu svoje mišljenje o nastavi — što funkcionira, a što ne.</p>
 <div class="dane-table">
 <div class="dane-col da"><div class="dane-head">DA &#10003;</div><ul class="dane-list">
 <li>- <strong>Praktičnoj nastavi</strong></li><li>- <strong>Samostalnom programiranju ili spajanju mreže</strong></li><li>- <strong>Suradnji s tvrtkama</strong></li><li>- <strong>Uvažavanju mišljenja učenika</strong></li><li>- <strong>Projektnim zadatcima</strong></li><li>- <strong>Fleksibilnom rasporedu</strong></li>
@@ -581,13 +582,14 @@ content:`<p>Zamolili smo učenike da iskažu svoje mišljenje o nastavi — što
 <div class="stat-box"><div class="num">2.</div><div class="label">mjesto prema odluci žirija</div></div>
 <div class="stat-box"><div class="num">263</div><div class="label">glasova publike &#8212; 1. mjesto!</div></div>
 </div>
-<p>Na natjecanju smo trebali biti u 9:00 ujutro. Bilo je dosta različitih kategorija: debata, pjesama, drame... Za vrijeme jednosatnih pauza mogli smo pogledati radove drugih učenika. Mi smo se natjecali u kategoriji filma. Ukupno je bilo prijavljeno petnaest filmova. Budući da smo bili u kategoriji srednjih škola, naš se film među posljednjima gledao i prezentirao. Prezentaciju smo dobro odradili, osobito Mislav, suci su bili zadovoljni i to nam je još malo poguralo film. Osvojili smo 2. mjesto prema odluci žirija i prvo mjesto publike s 263 glasa. To stvarno nitko od nas nije očekivao!</p>
+<p><em>Na natjecanju smo trebali biti u 9:00 ujutro.</em> Bilo je dosta različitih kategorija: debata, pjesama, drame... Za vrijeme jednosatnih pauza mogli smo pogledati radove drugih učenika. Mi smo se natjecali u kategoriji filma. Ukupno je bilo prijavljeno petnaest filmova. Budući da smo bili u kategoriji srednjih škola, naš se film među posljednjima gledao i prezentirao. Prezentaciju smo dobro odradili, osobito Mislav, suci su bili zadovoljni i to nam je još malo poguralo film. Osvojili smo 2. mjesto prema odluci žirija i prvo mjesto publike s 263 glasa. To stvarno nitko od nas nije očekivao!</p>
 <div class="pullquote"><p>Bilo je zabavno! Neki od nas misle se time baviti i u budućnosti.</p><cite>&#8212; Matej Vrban</cite></div>
-<div class="gallery"><img src="Slika - film.jpg" alt="TEC natjecanje" onerror="this.style.opacity='.15'"><img src="Film slika 2.jpg" alt="Dodjela nagrada" onerror="this.style.opacity='.15'"></div>`,
+<div class="pullquote"><p>To je to.</p><cite>&#8212; Matej</cite></div>
+<div class="gallery"><img src="Slika - film.jpg" alt="TEC natjecanje" onerror="this.style.opacity='.15'"><img src="filmsigma.png" alt="Dodjela nagrada" onerror="this.style.opacity='.15'"></div>`,
     category:"Naši uspjesi",
     author:"Autor: Patrik Žejinski",
     date:"22. svibnja 2026.",
-    img:"Film slika 2.jpg",
+    img:"filmsigma.png",
     featured:false
 },
 {
@@ -622,6 +624,7 @@ content:`<p>Zamolili smo učenike da iskažu svoje mišljenje o nastavi — što
 <p>Tijekom godina učenici su se bavili različitim temama — od kvalitete života u školi do zaštite životinja. U sklopu tih aktivnosti provodili su ankete, istraživali probleme i organizirali humanitarne akcije.</p>
 <h3>Projekt uređenja školskog atrija</h3>
 <p>Posebno se ističe projekt uređenja školskog atrija. Učenici su sami osmislili izgled prostora, pronašli donacije i vlastitim radom ga uredili.</p>
+<div class="gallery"><img src="atrij.png" alt="Školski atrij" onerror="this.style.opacity='.15'"></div>
 <div class="pullquote"><p>Bili smo prljavi kao mali svinjci, ali bilo nam je super.</p><cite>&#8212; prof. Katarina Janković</cite></div>
 <p>Ove godine fokus je na ovisničkim ponašanjima kod mladih, posebice <strong>digitalnoj ovisnosti</strong>. U planu su edukacije, ali i izazovi poput dana bez mobitela. ŠIZ uključuje i suradnju s drugim školama diljem Hrvatske, kao i različite izlete i aktivnosti koje dodatno povezuju učenike.</p>
 <div class="pullquote"><p>Učenicima ne treba uvijek sve dati gotovo. Kada su motivirani, sami vrlo brzo pronađu rješenja.</p><cite>&#8212; prof. Katarina Janković</cite></div>
@@ -651,6 +654,24 @@ content:`<p>Zamolili smo učenike da iskažu svoje mišljenje o nastavi — što
     author:"Autor: Nogometna ekipa 1.b1",
     date:"22. svibnja 2026.",
     img:"nogomet.png",
+    featured:false
+},
+{
+    id:13,
+    title:"Kazališna preporuka: Kako nas je Prvi spoj potpuno razuvjerio",
+    summary:"Mislili smo da je kazalište dosadno — mjuzikl Prvi spoj nas je potpuno razuvjerio!",
+    content:`<p><em>Mislio sam da je kazališna predstava dosadna i samo za starije ljude, ali uopće nije bilo tako. Bilo je zanimljivo.</em></p>
+<p style="font-size:.88rem;color:#888;margin-top:-.75rem;margin-bottom:1.75rem">— Patrik Žejinski</p>
+<p>Prije odlaska u Histrionski dom na mjuzikl <strong>Prvi spoj</strong>, mislila sam da će mi biti užasno dosadno. Kazalište mi nikad nije zvučalo kao nešto što bi me moglo zanimati. No, iznenadila sam se!</p>
+<p>Predstava je bila smiješna, dinamična i puno modernija nego što sam mogla zamisliti. Radnja prati dvoje ljudi koji dolaze na svoj prvi spoj i pokušavaju se upoznati. Izmjenjuju se smiješne situacije, nesporazumi i zabavni komentari.</p>
+<p>Glumci su bili super, puni energije pa se cijela publika stalno smijala. Najviše su mi se svidjele pjesme jer su predstavu učinile zanimljivijom i drukčijom od obične kazališne predstave.</p>
+<p>Svidjelo mi se što je tema bila povezana s današnjim životom i ponašanjem mladih pa je bilo lako pratiti i razumjeti radnju. Scena i kostimi dobro su se uklopili u priču.</p>
+<p>Zbog svega toga, predstava je prošla doslovno u trenu. Na kraju mogu samo reći da mi se <strong>Prvi spoj</strong> stvarno svidio te da sam, baš kao i Patrik, potpuno promijenila svoje mišljenje o kazalištu.</p>
+<p style="font-size:.85rem;color:#888;margin-top:2rem">Autorica: Tia Genzić</p>`,
+    category:"Kultura",
+    author:"Autorica: Tia Genzić",
+    date:"22. svibnja 2026.",
+    img:"spoj.png",
     featured:false
 }
 ];
