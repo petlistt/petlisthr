@@ -117,17 +117,9 @@
         .qt-item cite{font-size:.82rem;color:#888;font-weight:600}
         .about-gallery{margin:3rem 0}
         .about-gallery-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;margin-bottom:1.5rem}
-        .gallery-slider{position:relative;overflow:hidden;border-radius:var(--radius)}
-        .gallery-track{display:flex;transition:transform .4s cubic-bezier(.4,0,.2,1)}
-        .gallery-track img{min-width:100%;height:420px;object-fit:cover;border-radius:var(--radius)}
-        .gallery-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.55);color:#fff;border:none;width:44px;height:44px;border-radius:50%;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--ease);z-index:2}
-        .gallery-btn:hover{background:var(--accent)}
-        .gallery-btn.prev{left:1rem}
-        .gallery-btn.next{right:1rem}
-        .gallery-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1rem}
-        .gallery-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:var(--ease)}
-        .gallery-dot.active{background:var(--accent)}
-        .gallery-caption{text-align:center;font-size:.82rem;color:#999;margin-top:.75rem;font-style:italic}
+        .static-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+        .static-gallery img{width:100%;height:300px;object-fit:cover;border-radius:var(--radius);display:block}
+        @media(max-width:768px){.static-gallery{grid-template-columns:1fr}}
         .about-hero{background:var(--dark);color:#fff;padding:5rem 2rem;text-align:center;position:relative;overflow:hidden}
         .about-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(200,16,46,.22) 0%,transparent 65%)}
         .about-hero-inner{position:relative;max-width:720px;margin:0 auto}
@@ -233,15 +225,12 @@
         <div class="hero-slideshow" id="heroSlideshow">
             <div class="hero-slide active">
                 <img src="vrece.png" alt="P@T istaknuto" onerror="this.style.opacity='.15'">
-                <div class="hero-slide-label"><p>Školski digitalni časopis &middot; Razred 1B1</p></div>
             </div>
             <div class="hero-slide">
                 <img src="ucionica.png" alt="Učionica" onerror="this.style.opacity='.15'">
-                <div class="hero-slide-label"><p>Iz naše učionice &middot; 1B1</p></div>
             </div>
             <div class="hero-slide">
                 <img src="profesori.png" alt="Profesori" onerror="this.style.opacity='.15'">
-                <div class="hero-slide-label"><p>Naši profesori &middot; Školska godina 2025./2026.</p></div>
             </div>
             <button class="hs-btn prev" onclick="hsPrev()">&#8592;</button>
             <button class="hs-btn next" onclick="hsNext()">&#8594;</button>
@@ -324,21 +313,11 @@
         <div class="about-gallery">
             <div class="section-label">Arhiva</div>
             <div class="about-gallery-title">Iz starih dana — P@T 2003. i naš razred</div>
-            <div class="gallery-slider" id="aboutSlider">
-                <div class="gallery-track" id="aboutTrack">
-                    <img src="pet1.png" alt="P@T 2003. — stari broj" onerror="this.style.opacity='.15'">
-                    <img src="pet2.png" alt="P@T 2003. — stari broj" onerror="this.style.opacity='.15'">
-                    <img src="razredslika.png" alt="Razred 1B1 — ekipa koja je radila časopis" onerror="this.style.opacity='.15'">
-                </div>
-                <button class="gallery-btn prev" onclick="sliderMove(-1)">&#8592;</button>
-                <button class="gallery-btn next" onclick="sliderMove(1)">&#8594;</button>
+            <div class="static-gallery">
+                <img src="pet1.png" alt="P@T 2003. — stari broj" onerror="this.style.opacity='.15'">
+                <img src="pet2.png" alt="P@T 2003. — stari broj" onerror="this.style.opacity='.15'">
+                <img src="razredslika.png" alt="Razred 1B1 — ekipa koja je radila časopis" onerror="this.style.opacity='.15'">
             </div>
-            <div class="gallery-dots">
-                <div class="gallery-dot active" onclick="sliderGoto(0)"></div>
-                <div class="gallery-dot" onclick="sliderGoto(1)"></div>
-                <div class="gallery-dot" onclick="sliderGoto(2)"></div>
-            </div>
-            <div class="gallery-caption" id="aboutCaption">P@T 2003. — stari broj</div>
         </div>
         <div class="team-section">
             <div class="section-label">Redakcija</div>
@@ -582,9 +561,7 @@ const articles = [
 <div class="stat-box"><div class="num">2.</div><div class="label">mjesto prema odluci žirija</div></div>
 <div class="stat-box"><div class="num">263</div><div class="label">glasova publike &#8212; 1. mjesto!</div></div>
 </div>
-<p><em>Na natjecanju smo trebali biti u 9:00 ujutro.</em> Bilo je dosta različitih kategorija: debata, pjesama, drame... Za vrijeme jednosatnih pauza mogli smo pogledati radove drugih učenika. Mi smo se natjecali u kategoriji filma. Ukupno je bilo prijavljeno petnaest filmova. Budući da smo bili u kategoriji srednjih škola, naš se film među posljednjima gledao i prezentirao. Prezentaciju smo dobro odradili, osobito Mislav, suci su bili zadovoljni i to nam je još malo poguralo film. Osvojili smo 2. mjesto prema odluci žirija i prvo mjesto publike s 263 glasa. To stvarno nitko od nas nije očekivao!</p>
-<div class="pullquote"><p>Bilo je zabavno! Neki od nas misle se time baviti i u budućnosti.</p><cite>&#8212; Matej Vrban</cite></div>
-<div class="pullquote"><p>To je to.</p><cite>&#8212; Matej</cite></div>
+<div class="pullquote"><p>Na natjecanju smo trebali biti u 9:00 ujutro. Bilo je dosta različitih kategorija: debata, pjesama, drame... Za vrijeme jednosatnih pauza mogli smo pogledati radove drugih učenika. Mi smo se natjecali u kategoriji filma. Ukupno je bilo prijavljeno petnaest filmova. Budući da smo bili u kategoriji srednjih škola, naš se film među posljednjima gledao i prezentirao. Prezentaciju smo dobro odradili, osobito Mislav, suci su bili zadovoljni i to nam je još malo poguralo film. Osvojili smo 2. mjesto prema odluci žirija i prvo mjesto publike s 263 glasa. To stvarno nitko od nas nije očekivao!</p><cite>&#8212; Matej Vrban</cite></div>
 <div class="gallery"><img src="Slika - film.jpg" alt="TEC natjecanje" onerror="this.style.opacity='.15'"><img src="filmsigma.png" alt="Dodjela nagrada" onerror="this.style.opacity='.15'"></div>`,
     category:"Naši uspjesi",
     author:"Autor: Patrik Žejinski",
@@ -644,8 +621,7 @@ const articles = [
 <h3>Navijanje i pobjednici</h3>
 <p>Utakmice se nisu pratile samo oko igrališta, već i s prozora školskih učionica. Priznajemo — tih je dana koncentracija na nastavi ipak malo popustila.</p>
 <p>U velikom finalu snage su odmjerili <strong>1.a2</strong> i <strong>4.a1</strong> razred. Apsolutno iznenađenje turnira bila je <strong>pobjeda prvaša</strong>! Četvrtaši su u utakmicu ušli kao veliki favoriti, pa im je ovaj poraz na samom kraju srednjoškolskog školovanja prilično teško pao.</p>
-<div class="gallery"><img src="nogomet.png" alt="Nogometni turnir" onerror="this.style.opacity='.15'"><img src="1312.png" alt="Turnir" onerror="this.style.opacity='.15'"></div>
-<div class="gallery"><img src="raza.png" alt="Navijači" onerror="this.style.opacity='.15'"></div>
+<div class="gallery"><img src="1312.png" alt="Turnir" onerror="this.style.opacity='.15'"><img src="raza.png" alt="Navijači" onerror="this.style.opacity='.15'"></div>
 <h3>Presudno je ipak bilo iskustvo</h3>
 <p>Nakon službenog dijela uslijedila je tradicionalna revijalna utakmica: učenici protiv profesora. Profesori su ove godine ugodno iznenadili — nadigrali su ekipu trećaša nakon napetog raspucavanja s bijele točke. Iskustvo je na kraju ipak presudilo!</p>
 <h3>Više od igre</h3>
