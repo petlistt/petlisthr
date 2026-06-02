@@ -164,6 +164,46 @@
         .maturant-smjer{font-size:.8rem;text-transform:uppercase;letter-spacing:1px;color:var(--accent);font-weight:600;margin-bottom:1rem}
         .maturant-text{font-size:.92rem;color:var(--mid);line-height:1.7;margin-bottom:1rem}
         .maturant-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:#333;border-left:3px solid var(--accent);padding-left:1rem;margin-top:1rem}
+
+        /* ===== FILMOVI STRANICA ===== */
+        .filmovi-hero{background:var(--dark);color:#fff;padding:5rem 2rem;text-align:center;position:relative;overflow:hidden}
+        .filmovi-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(200,16,46,.25) 0%,transparent 65%)}
+        .filmovi-hero-inner{position:relative;max-width:720px;margin:0 auto}
+        .filmovi-hero h2{font-family:'Playfair Display',serif;font-size:4rem;font-weight:900;letter-spacing:-2px;margin-bottom:.75rem}
+        .filmovi-hero h2 span{color:var(--accent)}
+        .filmovi-hero .fh-sub{font-size:.85rem;color:#666;letter-spacing:3px;text-transform:uppercase;margin-bottom:0}
+        .films-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:2.5rem}
+        .film-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:var(--ease)}
+        .film-card:hover{transform:translateY(-5px);box-shadow:0 20px 45px rgba(0,0,0,.1)}
+        .film-poster{position:relative;height:220px;background:var(--dark);overflow:hidden;display:flex;align-items:center;justify-content:center}
+        .film-poster-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0d0d0d 0%,#1a1a1a 50%,#0d0d0d 100%)}
+        .film-poster-icon{position:relative;z-index:1;font-size:4rem;opacity:.15}
+        .film-poster-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2}
+        .film-year-badge{background:var(--accent);color:#fff;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:.3rem .75rem;border-radius:2px;margin-bottom:1rem}
+        .film-play-btn{width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.4rem;cursor:pointer;transition:var(--ease);text-decoration:none;padding-left:4px}
+        .film-play-btn:hover{background:var(--accent);border-color:var(--accent);transform:scale(1.1)}
+        .film-awards{position:absolute;top:.8rem;right:.8rem;display:flex;flex-direction:column;gap:.4rem;align-items:flex-end;z-index:3}
+        .film-award-badge{background:rgba(0,0,0,.75);backdrop-filter:blur(6px);color:#fff;font-size:.65rem;font-weight:700;padding:.3rem .7rem;border-radius:20px;border:1px solid rgba(255,255,255,.15);white-space:nowrap}
+        .film-award-badge.gold{background:rgba(212,175,55,.2);border-color:rgba(212,175,55,.5);color:#d4af37}
+        .film-award-badge.silver{background:rgba(192,192,192,.15);border-color:rgba(192,192,192,.4);color:#c0c0c0}
+        .film-info{padding:1.75rem}
+        .film-info h3{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;margin-bottom:.3rem;font-style:italic}
+        .film-meta-row{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
+        .film-meta-item{font-size:.75rem;color:#888;display:flex;align-items:center;gap:.3rem}
+        .film-meta-item i{color:var(--accent);font-size:.7rem}
+        .film-desc{font-size:.92rem;color:var(--mid);line-height:1.7;margin-bottom:1.5rem}
+        .film-team{font-size:.8rem;color:#999;margin-bottom:1.5rem}
+        .film-team strong{color:var(--dark);font-weight:600}
+        .film-actions{display:flex;gap:.75rem;flex-wrap:wrap}
+        .film-btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:#fff;padding:.7rem 1.4rem;border-radius:30px;font-weight:600;font-size:.85rem;transition:var(--ease);text-decoration:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
+        .film-btn-primary:hover{background:#a00d24;transform:translateY(-1px)}
+        .film-btn-secondary{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--dark);padding:.7rem 1.4rem;border-radius:30px;font-weight:600;font-size:.85rem;transition:var(--ease);border:1px solid var(--border);cursor:pointer;font-family:'DM Sans',sans-serif}
+        .film-btn-secondary:hover{background:var(--dark);color:#fff;border-color:var(--dark)}
+        .films-empty{grid-column:1/-1;text-align:center;padding:5rem 2rem;color:#bbb}
+        .films-empty i{font-size:3rem;margin-bottom:1rem;display:block;opacity:.3}
+        .films-empty p{font-size:1rem;font-style:italic}
+        /* ===== END FILMOVI ===== */
+
         .news-bar{background:var(--accent);color:#fff;padding:3rem 2rem;text-align:center}
         .news-bar h3{font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:.5rem}
         .news-bar p{font-size:.9rem;opacity:.85}
@@ -178,12 +218,14 @@
             .hero-slideshow{height:320px}
             .about-story{grid-template-columns:1fr}
             .about-hero h2{font-size:2.5rem}
+            .filmovi-hero h2{font-size:2.5rem}
             .art-title{font-size:2rem}
             .dane-table{grid-template-columns:1fr}
             .stat-grid{grid-template-columns:1fr 1fr}
             .art-content .gallery,.art-content .gallery.three{grid-template-columns:1fr}
             .nav-links{display:none}
             .hamburger{display:flex}
+            .films-grid{grid-template-columns:1fr}
         }
     </style>
 </head>
@@ -195,6 +237,7 @@
             <li><a id="link-pocetna" class="active" onclick="navigateTo('pocetna')">Početna</a></li>
             <li><a id="link-clanci" onclick="navigateTo('clanci')">Članci</a></li>
             <li><a id="link-maturanti" onclick="navigateTo('maturanti')">Maturanti</a></li>
+            <li><a id="link-filmovi" onclick="navigateTo('filmovi')">Filmovi</a></li>
             <li><a id="link-onama" onclick="navigateTo('onama')">Uredništvo</a></li>
         </ul>
         <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -205,8 +248,11 @@
     <a id="mlink-pocetna" class="active" onclick="navigateTo('pocetna');toggleMenu()">Početna</a>
     <a id="mlink-clanci" onclick="navigateTo('clanci');toggleMenu()">Članci</a>
     <a id="mlink-maturanti" onclick="navigateTo('maturanti');toggleMenu()">Maturanti</a>
+    <a id="mlink-filmovi" onclick="navigateTo('filmovi');toggleMenu()">Filmovi</a>
     <a id="mlink-onama" onclick="navigateTo('onama');toggleMenu()">Uredništvo</a>
 </div>
+
+<!-- POČETNA -->
 <main id="page-pocetna" class="page active">
     <section class="hero">
         <div class="hero-content">
@@ -245,6 +291,8 @@
         <div class="articles-grid" id="latest-grid"></div>
     </section>
 </main>
+
+<!-- ČLANCI -->
 <main id="page-clanci" class="page">
     <section class="container">
         <div class="section-label">Arhiva</div>
@@ -261,6 +309,8 @@
         <div class="articles-grid" id="all-grid"></div>
     </section>
 </main>
+
+<!-- MATURANTI -->
 <main id="page-maturanti" class="page">
     <section class="container">
         <div class="section-label">Razgovor</div>
@@ -269,6 +319,22 @@
         <div class="maturant-grid" id="maturant-grid"></div>
     </section>
 </main>
+
+<!-- FILMOVI -->
+<main id="page-filmovi" class="page">
+    <section class="filmovi-hero">
+        <div class="filmovi-hero-inner">
+            <div class="section-label" style="color:var(--accent);margin-bottom:1rem">Učenički filmovi</div>
+            <h2>Naši <span>Filmovi</span></h2>
+            <p class="fh-sub">Snimljeno, montirano, nagrađeno &mdash; od učenika 1.b1</p>
+        </div>
+    </section>
+    <section class="container">
+        <div class="films-grid" id="films-grid"></div>
+    </section>
+</main>
+
+<!-- O NAMA -->
 <main id="page-onama" class="page">
     <section class="about-hero">
         <div class="about-hero-inner">
@@ -343,6 +409,8 @@
         </div>
     </section>
 </main>
+
+<!-- POJEDINI ČLANAK -->
 <main id="page-artikl" class="page">
     <div class="single-view">
         <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i> Natrag</button>
@@ -355,6 +423,7 @@
         </article>
     </div>
 </main>
+
 <div class="news-bar">
     <h3>Prati naš list!</h3>
     <p></p>
@@ -365,8 +434,29 @@
         <p>&copy; 2026 P@T Školski digitalni časopis &middot; Razred 1B1</p>
     </div>
 </footer>
+
 <script>
 const MATURANT_BASE = "";
+
+// ===== FILMOVI PODACI =====
+const films = [
+{
+    id: 1,
+    title: "How it used to be",
+    year: "2026",
+    duration: null,
+    authors: ["Mislav Karoglan", "Leon Tuškan", "Matej Vrban", "Patrik Žejinski"],
+    desc: "Nagrađeni kratki film učenika 1.b1 razreda. Osvojio 2. mjesto žirija i 1. mjesto publike s 263 glasa na TEC natjecanju Filozofskog fakulteta u Zagrebu.",
+    awards: [
+        { label: "🥈 2. mjesto žirija — TEC 2026", cls: "silver" },
+        { label: "🏆 1. mjesto publike — 263 glasa", cls: "gold" }
+    ],
+    driveUrl: "https://drive.google.com/file/d/1oA56i8gA1T9tB0iv6iZRq7-1PBuLpw0B/view",
+    articleId: 9
+}
+// Ovdje dolazi sljedeći film kad bude spreman
+];
+
 const articles = [
 {
     id:1,
@@ -567,7 +657,7 @@ const articles = [
 </div>
 <div class="pullquote"><p>Na natjecanju smo trebali biti u 9:00 ujutro. Bilo je dosta različitih kategorija: debata, pjesama, drame... Za vrijeme jednosatnih pauza mogli smo pogledati radove drugih učenika. Mi smo se natjecali u kategoriji filma. Ukupno je bilo prijavljeno petnaest filmova. Budući da smo bili u kategoriji srednjih škola, naš se film među posljednjima gledao i prezentirao. Prezentaciju smo dobro odradili, osobito Mislav, suci su bili zadovoljni i to nam je još malo poguralo film. Osvojili smo 2. mjesto prema odluci žirija i prvo mjesto publike s 263 glasa. To stvarno nitko od nas nije očekivao!</p><cite>&#8212; Matej Vrban</cite></div>
 <div class="gallery"><img src="Slika - film.jpg" alt="TEC natjecanje" onerror="this.style.opacity='.15'"></div>
-<p><a href="https://drive.google.com/file/d/1oA56i8gA1T9tB0iv6iZRq7-1PBuLpw0B/view" target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:#fff;padding:.75rem 1.5rem;border-radius:30px;font-weight:600;font-size:.9rem;margin-top:1rem">&#9654; Pogledaj nagrađeni film</a></p>`,
+<p><button onclick="navigateTo('filmovi')" style="display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:#fff;padding:.75rem 1.5rem;border-radius:30px;font-weight:600;font-size:.9rem;margin-top:1rem;border:none;cursor:pointer;font-family:'DM Sans',sans-serif">&#9654; Pogledaj nagrađeni film</button></p>`,
     category:"Naši uspjesi",
     author:"Autor: Patrik Žejinski",
     date:"22. svibnja 2026.",
@@ -670,7 +760,62 @@ const maturanti = [
 ];
 
 let prevPage = 'pocetna';
-document.addEventListener('DOMContentLoaded', () => { renderAll(articles); renderMaturanti(); startHeroSlideshow(); renderHomeGrid(); });
+document.addEventListener('DOMContentLoaded', () => {
+    renderAll(articles);
+    renderMaturanti();
+    startHeroSlideshow();
+    renderHomeGrid();
+    renderFilms();
+});
+
+// ===== FILMOVI RENDER =====
+function renderFilms() {
+    const g = document.getElementById('films-grid');
+    if (!g) return;
+    g.innerHTML = '';
+    if (!films.length) {
+        g.innerHTML = '<div class="films-empty"><i class="fas fa-film"></i><p>Filmovi uskoro stižu...</p></div>';
+        return;
+    }
+    films.forEach(f => {
+        const card = document.createElement('div');
+        card.className = 'film-card';
+        const awardsHtml = f.awards.map(a =>
+            `<span class="film-award-badge ${a.cls}">${a.label}</span>`
+        ).join('');
+        const authorsHtml = f.authors.join(', ');
+        const articleBtn = f.articleId
+            ? `<button class="film-btn-secondary" onclick="openArticle(${f.articleId})"><i class="fas fa-newspaper"></i> Članak o filmu</button>`
+            : '';
+        card.innerHTML = `
+            <div class="film-poster">
+                <div class="film-poster-bg"></div>
+                <span class="film-poster-icon">🎬</span>
+                <div class="film-poster-overlay">
+                    <span class="film-year-badge">${f.year}</span>
+                    <a href="${f.driveUrl}" target="_blank" rel="noopener" class="film-play-btn" title="Pogledaj film">&#9654;</a>
+                </div>
+                <div class="film-awards">${awardsHtml}</div>
+            </div>
+            <div class="film-info">
+                <h3>${f.title}</h3>
+                <div class="film-meta-row">
+                    <span class="film-meta-item"><i class="fas fa-calendar"></i> ${f.year}</span>
+                    ${f.duration ? `<span class="film-meta-item"><i class="fas fa-clock"></i> ${f.duration}</span>` : ''}
+                    <span class="film-meta-item"><i class="fas fa-users"></i> Učenici 1.b1</span>
+                </div>
+                <p class="film-desc">${f.desc}</p>
+                <p class="film-team"><strong>Autori:</strong> ${authorsHtml}</p>
+                <div class="film-actions">
+                    <a href="${f.driveUrl}" target="_blank" rel="noopener" class="film-btn-primary">
+                        <i class="fas fa-play"></i> Pogledaj film
+                    </a>
+                    ${articleBtn}
+                </div>
+            </div>`;
+        g.appendChild(card);
+    });
+}
 
 let hsIndex = 0, hsTimer = null;
 function startHeroSlideshow(){ hsTimer = setInterval(() => hsNext(), 4000); }
@@ -691,9 +836,10 @@ function navigateTo(id){
     const cur = document.querySelector('.page.active');
     if(cur && cur.id !== 'page-artikl') prevPage = cur.id.replace('page-','');
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(a => a.classList.remove('active'));
     document.getElementById('page-'+id)?.classList.add('active');
     document.getElementById('link-'+id)?.classList.add('active');
+    document.getElementById('mlink-'+id)?.classList.add('active');
     window.scrollTo({top:0,behavior:'smooth'});
 }
 function goBack(){ navigateTo(prevPage); }
@@ -748,16 +894,6 @@ function openArticle(id){
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-artikl').classList.add('active');
     window.scrollTo({top:0,behavior:'smooth'});
-}
-
-let sliderIndex = 0;
-const sliderCaptions = ["P@T 2003. — stari broj","P@T 2003. — stari broj","Razred 1B1 — ekipa koja je radila časopis"];
-function sliderMove(dir){ const total = 3; sliderIndex = (sliderIndex + dir + total) % total; sliderGoto(sliderIndex); }
-function sliderGoto(i){
-    sliderIndex = i;
-    document.getElementById('aboutTrack').style.transform = `translateX(-${i * 100}%)`;
-    document.querySelectorAll('.gallery-dot').forEach((d,idx) => d.classList.toggle('active', idx === i));
-    document.getElementById('aboutCaption').textContent = sliderCaptions[i];
 }
 function toggleMenu(){ document.getElementById('mobile-menu').classList.toggle('open'); }
 </script>
