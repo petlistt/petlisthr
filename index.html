@@ -453,6 +453,17 @@ const films = [
     ],
     driveUrl: "https://drive.google.com/file/d/1oA56i8gA1T9tB0iv6iZRq7-1PBuLpw0B/view",
     articleId: 9
+},
+{
+    id: 2,
+    title: "Životinjska farma",
+    year: "2026",
+    duration: null,
+    authors: ["Mislav Karoglan"],
+    desc: "Autorsko djelo učenika Mislava Karoglana, kratki film inspiriran klasikom Životinjska farma.",
+    awards: [],
+    driveUrl: "https://drive.google.com/file/d/16rQY6512w_OuSNIMGR2HJDRzbH_7ePp-/view",
+    articleId: null
 }
 // Ovdje dolazi sljedeći film kad bude spreman
 ];
@@ -802,10 +813,10 @@ function renderFilms() {
                 <div class="film-meta-row">
                     <span class="film-meta-item"><i class="fas fa-calendar"></i> ${f.year}</span>
                     ${f.duration ? `<span class="film-meta-item"><i class="fas fa-clock"></i> ${f.duration}</span>` : ''}
-                    <span class="film-meta-item"><i class="fas fa-users"></i> Učenici 1.b1</span>
+                    <span class="film-meta-item"><i class="fas fa-users"></i> ${authorsHtml}</span>
                 </div>
                 <p class="film-desc">${f.desc}</p>
-                <p class="film-team"><strong>Autori:</strong> ${authorsHtml}</p>
+                <p class="film-team"><strong>${f.authors.length > 1 ? 'Autori' : 'Autor'}:</strong> ${authorsHtml}</p>
                 <div class="film-actions">
                     <a href="${f.driveUrl}" target="_blank" rel="noopener" class="film-btn-primary">
                         <i class="fas fa-play"></i> Pogledaj film
